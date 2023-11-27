@@ -1,0 +1,46 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #1E90FF; /* Dark blue background */
+    overflow: hidden; /* Hide overflow */
+}
+
+.bubble-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.title {
+    color: white;
+    text-align: center;
+    font-size: 3em;
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+}
+
+.bubble {
+    border-radius: 50%;
+    position: absolute;
+    animation: moveBubble linear infinite;
+}
+
+/* Define the keyframes for bubble movement */
+@keyframes moveBubble {
+    0%, 100% {
+        transform: translateY(0) translateX(0);
+    }
+    25% {
+        transform: translateY(-100px) translateX(100px);
+    }
+    50% {
+        transform: translateY(-200px) translateX(-100px);
+    }
+    75% {
+        transform: translateY(100px) translateX(-200px);
+    }
+}
+
+/* Additional styling and animations for bubbles */

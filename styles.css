@@ -19,6 +19,17 @@ body, html {
     animation: moveBubble linear infinite;
 }
 
+.title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 5em; /* Adjust size as needed */
+    font-weight: bold;
+    z-index: 10; /* Ensures the text is above the bubbles */
+}
+
 @keyframes moveBubble {
     0%, 100% {
         transform: translateY(0) translateX(0);

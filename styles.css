@@ -29,6 +29,21 @@ body, html {
     font-weight: bold;
     z-index: 10; /* Ensures the text is above the bubbles */
 }
+.game-container {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 2em; /* Adjust size as needed */
+    font-weight: bold;
+    z-index: 10; /* Ensures the text is above the bubbles */
+}
+
+.white-link {
+    color: white;
+    text-decoration: none; /* Optional */
+}
 
 @keyframes moveBubble {
     0%, 100% {

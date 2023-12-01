@@ -35,7 +35,7 @@ body, html {
     left: 50%;
     transform: translate(-50%, -50%);
     color: black;
-    font-size: 5em; /* Adjust size as needed */
+    font-size: 3em; /* Adjust size as needed */
     font-weight: bold;
     z-index: 10; /* Ensures the text is above the bubbles */
     text-align: center;

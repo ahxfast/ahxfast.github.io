@@ -12,11 +12,21 @@ body, html {
     height: 100%;
 }
 
-.bubble {
+/* .bubble {
     border-radius: 50%;
     position: absolute;
     opacity: 0.7;
     animation: moveBubble linear infinite;
+} */
+
+.bubble {
+    border-radius: 50%;
+    position: absolute;
+    animation: moveBubble linear infinite;
+    background-image: url('beer.jpg'); /* Path to your beer texture image */
+    background-size: cover;
+    border: 2px solid #FFBF00; /* Optional: gives a more defined edge to the bubble */
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5); /* Optional: adds some depth */
 }
 
 .title {
@@ -28,7 +38,14 @@ body, html {
     font-size: 5em; /* Adjust size as needed */
     font-weight: bold;
     z-index: 10; /* Ensures the text is above the bubbles */
+    text-align: center;
 }
+/* #countdown {
+    font-size: 100px;
+    color: #333;
+    text-align: center;
+    margin-top: 20px;
+} */
 .game-container {
     position: absolute;
     top: 60%;

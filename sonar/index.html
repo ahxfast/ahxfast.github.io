@@ -35,8 +35,10 @@
         <thead>
             <tr>
                 <th>Coin</th>
-                <th>RSI</th>
+                <th>VolSpike</th>
                 <th>CCI</th>
+                <th>RSI 1\4</th>
+                <th>TIME</th>
             </tr>
         </thead>
         <tbody>
@@ -62,7 +64,7 @@
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const db = getDatabase(app);
-    const dbRef = ref(db, 'sonarV1');
+    const dbRef = ref(db, 'sonarV2');
 
     onValue(dbRef, (snapshot) => {
         const data = snapshot.val();
@@ -75,9 +77,16 @@
             table.style.display = 'table'; // Show the table
             tbody.innerHTML = ''; // Clear existing rows
 
+            --coin
+            --vpspike
+            --sonar
+            --cci
+            --rsi_1_4
+            --sonar_time
+
             Object.values(data).forEach((item) => {
                 const tr = document.createElement('tr');
-                tr.innerHTML = `<td>${item.alternativename}</td><td>${item.rsi}</td><td>${item.cci}</td>`;
+                tr.innerHTML = `<td>${item.coin}</td><td>${item.vpspike}</td><td>${item.sonar}</td><td>${item.cci}</td><td>${item.rsi_1_4}</td><td>${item.sonar_time}</td>`;
                 tbody.appendChild(tr);
             });
         } else {

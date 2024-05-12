@@ -34,9 +34,9 @@
     <table id="data-table" style="display: none;">
         <thead>
             <tr>
-                <th>Channel</th>
                 <th>Coin</th>
-                <th>Direction</th>
+                <th>RSI</th>
+                <th>CCI</th>
             </tr>
         </thead>
         <tbody>
@@ -74,7 +74,7 @@
 
             Object.values(data).forEach((item) => {
                 const tr = document.createElement('tr');
-                tr.innerHTML = `<td>${item.coin}</td><td>${item.channel}</td><td>${item.direction === 1 ? 'Up' : item.direction === 0 ? 'Neutral' : 'Down'}</td>`;
+                tr.innerHTML = `<td>${item.altenativename}</td><td>${item.rsi}</td><td>${item.cci}</td>`;
                 tbody.appendChild(tr);
             });
         } else {

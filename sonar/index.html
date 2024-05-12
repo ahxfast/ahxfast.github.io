@@ -54,9 +54,19 @@
     import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js';
     import { getDatabase, ref, onValue } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js';
 
-    import { firebaseConfig } from './firebase-config.js';
+    // import { firebaseConfig } from './firebase-config.js';
 
-    
+    const firebaseConfig = {
+    apiKey: "AIzaSyCfWKsBd68Hn6c9NI2yj4pjeWphMWl5mBk",
+      authDomain: "cryptowatcher-8dae1.firebaseapp.com",
+      databaseURL: "https://cryptowatcher-8dae1-default-rtdb.firebaseio.com",
+      projectId: "cryptowatcher-8dae1",
+      storageBucket: "cryptowatcher-8dae1.appspot.com",
+      messagingSenderId: "303293127609",
+      appId: "1:303293127609:web:b8c7578708975ba44b3468",
+      measurementId: "G-2B1P2PD2L1"
+  };
+
 
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
@@ -76,7 +86,7 @@
 
             Object.values(data).forEach((item) => {
                 const tr = document.createElement('tr');
-                tr.innerHTML = `<td>${item.altenativename}</td><td>${item.rsi}</td><td>${item.cci}</td>`;
+                tr.innerHTML = `<td>${item.alternativename}</td><td>${item.rsi}</td><td>${item.cci}</td>`;
                 tbody.appendChild(tr);
             });
         } else {

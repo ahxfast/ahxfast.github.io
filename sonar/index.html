@@ -83,25 +83,26 @@
         // Import the functions you need from the SDKs you need
         import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js';
         import { getDatabase, ref, onValue } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js';
-
         import { firebaseConfig } from './firebase-config.js';
-
+    
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         const db = getDatabase(app);
-        const dbRef = ref(db, 'sonarV2');
-
+        const dbRef = ref(db, 'sonarV2');  // Adjust the path as per your Firebase setup
+    
         onValue(dbRef, (snapshot) => {
             const data = snapshot.val();
             const display = document.getElementById('data-display');
             const table = document.getElementById('data-table');
             const tbody = table.querySelector('tbody');
-
+    
+            // Always clear the existing rows, regardless of new data
+            tbody.innerHTML = '';
+    
             if (data) {
                 display.style.display = 'none'; // Hide the loading text
                 table.style.display = 'table'; // Show the table
-                tbody.innerHTML = ''; // Clear existing rows
-
+    
                 Object.values(data).forEach((item) => {
                     const tr = document.createElement('tr');
                     tr.innerHTML = `<td>${item.coin}</td><td>${item.vpspike}</td><td>${item.sonar}</td><td>${item.cci}</td><td>${item.rsi_1_4}</td><td>${item.sonar_time}</td>`;
@@ -109,8 +110,10 @@
                 });
             } else {
                 display.innerHTML = 'No data available';
+                table.style.display = 'none'; // Optionally hide the table if no data
             }
         });
     </script>
+    
 </body>
 </html>

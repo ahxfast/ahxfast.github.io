@@ -66,6 +66,8 @@
                 <th>Sonar</th>
                 <th>CCI</th>
                 <th>RSI 1/4</th>
+                <th>SUP_RES</th>
+                <th>Perc24</th>
                 <th>TIME</th>
             </tr>
         </thead>
@@ -88,7 +90,7 @@
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         const db = getDatabase(app);
-        const dbRef = ref(db, 'sonarV2');  // Adjust the path as per your Firebase setup
+        const dbRef = ref(db, 'sonarV4');  // Adjust the path as per your Firebase setup
     
         onValue(dbRef, (snapshot) => {
             const data = snapshot.val();
@@ -105,7 +107,7 @@
     
                 Object.values(data).forEach((item) => {
                     const tr = document.createElement('tr');
-                    tr.innerHTML = `<td>${item.coin}</td><td>${item.vpspike}</td><td>${item.sonar}</td><td>${item.cci}</td><td>${item.rsi_1_4}</td><td>${item.sonar_time}</td>`;
+                    tr.innerHTML = `<td>${item.coin}</td><td>${item.vpspike}</td><td>${item.sonar}</td><td>${item.cci}</td><td>${item.rsi_1_4}</td><td>${item.sonar_time}</td><td>${item.percentage}</td><td>${item.sonar_time}</td>`;
                     tbody.appendChild(tr);
                 });
             } else {

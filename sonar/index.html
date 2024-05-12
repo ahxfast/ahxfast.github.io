@@ -88,7 +88,7 @@
         
         const app = initializeApp(firebaseConfig);
         const db = getDatabase(app);
-        const dbRef = ref(db, 'sonarV4');  // Adjust this path to your data structure
+        const dbRef = ref(db, 'sonarV4');  // Ensure this path matches your data structure in Firebase
     
         onValue(dbRef, (snapshot) => {
             const data = snapshot.val();
@@ -96,24 +96,25 @@
             const table = document.getElementById('data-table');
             const tbody = table.querySelector('tbody');
     
-            // Clear previous data
-            tbody.innerHTML = '';
+            tbody.innerHTML = ''; // Clear the existing rows every time a new snapshot is received
     
             if (data && Object.keys(data).length > 0) {
-                display.style.display = 'none'; // Hide the loading text
-                table.style.display = 'table'; // Show the table
+                display.style.display = 'none'; // Hide the "Loading data..." text
+                table.style.display = 'table'; // Show the table if data exists
     
                 Object.values(data).forEach((item) => {
                     const tr = document.createElement('tr');
-                    tr.innerHTML = `<td>${item.coin}</td><td>${item.vpspike}</td><td>${item.sonar}</td><td>${item.cci}</td><td>${item.rsi_1_4}</td><td>${item.sonar_time}</td><td>${item.percentage}</td><td>${item.sonar_time}</td>`;
+                    tr.innerHTML = `<td>${item.coin}</td><td>${item.vpspike}</td><td>${item.sonar}</td><td>${item.cci}</td><td>${item.rsi_1_4}</td><td>${item.percentage}</td><td>${item.sonar_time}</td>`;
                     tbody.appendChild(tr);
                 });
             } else {
-                display.innerHTML = 'No coin on the big move ...'; // Show no data message
-                table.style.display = 'none'; // Hide the table if no data
+                display.style.display = 'block'; // Ensure display is visible
+                display.innerHTML = 'No coin on the big move ...'; // Update text to show no data is available
+                table.style.display = 'none'; // Hide the table if no data is present
             }
         });
     </script>
+    
     
     
 </body>

@@ -82,15 +82,13 @@
     <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js"></script>
 
     <script type="module">
-        // Import the functions you need from the SDKs you need
         import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js';
         import { getDatabase, ref, onValue } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js';
         import { firebaseConfig } from './firebase-config.js';
-    
-        // Initialize Firebase
+        
         const app = initializeApp(firebaseConfig);
         const db = getDatabase(app);
-        const dbRef = ref(db, 'sonarV4');  // Adjust the path as per your Firebase setup
+        const dbRef = ref(db, 'sonarV4');  // Adjust this path to your data structure
     
         onValue(dbRef, (snapshot) => {
             const data = snapshot.val();
@@ -98,10 +96,10 @@
             const table = document.getElementById('data-table');
             const tbody = table.querySelector('tbody');
     
-            // Always clear the existing rows, regardless of new data
+            // Clear previous data
             tbody.innerHTML = '';
     
-            if (data) {
+            if (data && Object.keys(data).length > 0) {
                 display.style.display = 'none'; // Hide the loading text
                 table.style.display = 'table'; // Show the table
     
@@ -111,11 +109,12 @@
                     tbody.appendChild(tr);
                 });
             } else {
-                display.innerHTML = 'No coin on the big move ...';
-                table.style.display = 'none'; // Optionally hide the table if no data
+                display.innerHTML = 'No coin on the big move ...'; // Show no data message
+                table.style.display = 'none'; // Hide the table if no data
             }
         });
     </script>
+    
     
 </body>
 </html>

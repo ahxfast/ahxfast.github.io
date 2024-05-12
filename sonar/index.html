@@ -56,10 +56,12 @@
 
     import { firebaseConfig } from './firebase-config.js';
 
+    
+
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const db = getDatabase(app);
-    const dbRef = ref(db, 'sonarV0');
+    const dbRef = ref(db, 'sonarV1');
 
     onValue(dbRef, (snapshot) => {
         const data = snapshot.val();

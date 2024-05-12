@@ -1,33 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Crypto Data</title>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Data</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
 
-    table {
-        width: 100%;
-        border-collapse: collapse;
-    }
+        #data-display {
+            text-align: center;
+            padding: 20px;
+            font-size: 24px;
+        }
 
-    th, td {
-        padding: 8px;
-        text-align: left;
-        border-bottom: 1px solid #ddd;
-    }
+        table {
+            width: 90%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            background-color: white;
+        }
 
-    th {
-        background-color: #f2f2f2;
-    }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
 
-    tr:hover {
-        background-color: #f5f5f5;
-    }
-</style>
+        th {
+            background-color: #007BFF;
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #dddfe2;
+        }
+
+        @media screen and (max-width: 600px) {
+            table {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
     <div id="data-display">Loading data...</div>
@@ -38,7 +63,7 @@
                 <th>VolSpike</th>
                 <th>Sonar</th>
                 <th>CCI</th>
-                <th>RSI 1\4</th>
+                <th>RSI 1/4</th>
                 <th>TIME</th>
             </tr>
         </thead>
@@ -53,40 +78,37 @@
     <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js"></script>
 
     <script type="module">
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js';
-    import { getDatabase, ref, onValue } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js';
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js';
+        import { getDatabase, ref, onValue } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js';
 
-    import { firebaseConfig } from './firebase-config.js';
+        import { firebaseConfig } from './firebase-config.js';
 
-    
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+        const dbRef = ref(db, 'sonarV2');
 
+        onValue(dbRef, (snapshot) => {
+            const data = snapshot.val();
+            const display = document.getElementById('data-display');
+            const table = document.getElementById('data-table');
+            const tbody = table.querySelector('tbody');
 
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const db = getDatabase(app);
-    const dbRef = ref(db, 'sonarV2');
+            if (data) {
+                display.style.display = 'none'; // Hide the loading text
+                table.style.display = 'table'; // Show the table
+                tbody.innerHTML = ''; // Clear existing rows
 
-    onValue(dbRef, (snapshot) => {
-        const data = snapshot.val();
-        const display = document.getElementById('data-display');
-        const table = document.getElementById('data-table');
-        const tbody = table.querySelector('tbody');
-
-        if (data) {
-            display.style.display = 'none'; // Hide the loading text
-            table.style.display = 'table'; // Show the table
-            tbody.innerHTML = ''; // Clear existing rows
-
-            Object.values(data).forEach((item) => {
-                const tr = document.createElement('tr');
-                tr.innerHTML = `<td>${item.coin}</td><td>${item.vpspike}</td><td>${item.sonar}</td><td>${item.cci}</td><td>${item.rsi_1_4}</td><td>${item.sonar_time}</td>`;
-                tbody.appendChild(tr);
-            });
-        } else {
-            display.innerHTML = 'No data available';
-        }
-    });
+                Object.values(data).forEach((item) => {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `<td>${item.coin}</td><td>${item.vpspike}</td><td>${item.sonar}</td><td>${item.cci}</td><td>${item.rsi_1_4}</td><td>${item.sonar_time}</td>`;
+                    tbody.appendChild(tr);
+                });
+            } else {
+                display.innerHTML = 'No data available';
+            }
+        });
     </script>
 </body>
 </html>

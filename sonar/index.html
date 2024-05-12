@@ -77,13 +77,6 @@
             table.style.display = 'table'; // Show the table
             tbody.innerHTML = ''; // Clear existing rows
 
-            --coin
-            --vpspike
-            --sonar
-            --cci
-            --rsi_1_4
-            --sonar_time
-
             Object.values(data).forEach((item) => {
                 const tr = document.createElement('tr');
                 tr.innerHTML = `<td>${item.coin}</td><td>${item.vpspike}</td><td>${item.sonar}</td><td>${item.cci}</td><td>${item.rsi_1_4}</td><td>${item.sonar_time}</td>`;

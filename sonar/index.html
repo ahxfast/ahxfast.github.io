@@ -9,15 +9,18 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #34034F; /* Dark purple background */
-            color: #FFF; /* White text for contrast */
+            background-color: #34034F;
+            color: #FFF;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensures the minimum height of the body is full viewport height */
         }
 
         #data-display {
             text-align: center;
             padding: 20px;
             font-size: 24px;
-            color: #FFD700; /* Gold color for the loading text */
+            color: #FFD700;
         }
 
         table {
@@ -25,28 +28,37 @@
             margin: 20px auto;
             border-collapse: collapse;
             box-shadow: 0 2px 15px rgba(0,0,0,0.3);
-            background-color: #7D3C98; /* Lighter purple for table background */
+            background-color: #7D3C98;
         }
 
         th, td {
             padding: 12px 15px;
             text-align: left;
-            border-bottom: 1px solid #FFC300; /* Gold lines for separation */
+            border-bottom: 1px solid #FFC300;
         }
 
         th {
-            background-color: #5B2C6F; /* Darker purple for headers */
+            background-color: #5B2C6F;
             color: #ffffff;
             font-weight: bold;
         }
 
         tr:nth-child(even) {
-            background-color: #884EA0; /* Even lighter purple for alternate rows */
+            background-color: #884EA0;
         }
 
         tr:hover {
-            background-color: #A569BD; /* Light purple for hover effect */
+            background-color: #A569BD;
             cursor: pointer;
+        }
+
+        footer {
+            margin-top: auto; /* Pushes the footer to the bottom of the flex container */
+            background-color: #34034F;
+            color: #FFD700;
+            text-align: center;
+            padding: 10px 0;
+            width: 100%;
         }
 
         @media screen and (max-width: 600px) {
@@ -75,6 +87,8 @@
             <!-- Data rows will be inserted here -->
         </tbody>
     </table>
+    
+    
 
     <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js"></script>
@@ -85,7 +99,8 @@
         import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js';
         import { getDatabase, ref, onValue } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js';
         import { firebaseConfig } from './firebase-config.js';
-        
+       
+
         const app = initializeApp(firebaseConfig);
         const db = getDatabase(app);
         const dbRef = ref(db, 'sonarV4');  // Ensure this path matches your data structure in Firebase
@@ -113,9 +128,25 @@
                 table.style.display = 'none'; // Hide the table if no data is present
             }
         });
+
+        // Listener for refresh times
+        const refreshRef = ref(db, 'refreshtimes');
+        onValue(refreshRef, (snapshot) => {
+            const times = snapshot.val();
+            const refreshDisplay = document.getElementById('refresh-times');
+
+            if (times) {
+                refreshDisplay.innerHTML = `Coins: ${times[0].coinrefresh}, Sonar: ${times[0].sonar}, TA: ${times[0].ta}`;
+            } else {
+                refreshDisplay.innerHTML = 'Refresh times unavailable.';
+            }
+        });
     </script>
     
     
-    
+    <footer>
+        <div id="refresh-times">Loading refresh times...</div>
+    </footer>
 </body>
+
 </html>

@@ -126,7 +126,7 @@
 
                     if (candleStartDate >= twoDaysAgo) {
                         // Convert datetime object to string
-                        const candleStartStr = candleStartDate.toISOString().slice(0, 19).replace('T', ' ');
+                        const candleStartStr = candleStartDate.toLocaleString().slice(0, 19).replace('T', ' ');
 
                         const tr = document.createElement('tr');
 

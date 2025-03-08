@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Testergebnisse</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    h1 { color: #333; }
+    table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+    th, td { border: 1px solid #ccc; padding: 10px; text-align: left; }
+    th { background-color: #f2f2f2; }
+  </style>
+</head>
+<body>
+  <h1>Testergebnisse</h1>
+  <p><a href="index.html">Zurück zum Test</a></p>
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Score</th>
+        <th>Datum und Uhrzeit</th>
+      </tr>
+    </thead>
+    <tbody id="resultsBody"></tbody>
+  </table>
+  
+  <script>
+    // Ergebnisse aus localStorage laden und in der Tabelle anzeigen
+    function loadResults() {
+      const resultsBody = document.getElementById("resultsBody");
+      const results = JSON.parse(localStorage.getItem("testResults") || "[]");
+      results.forEach((result, index) => {
+        const row = document.createElement("tr");
+        const cellIndex = document.createElement("td");
+        cellIndex.textContent = index + 1;
+        const cellScore = document.createElement("td");
+        cellScore.textContent = result.score + " von 40";
+        const cellDate = document.createElement("td");
+        cellDate.textContent = result.date;
+        
+        row.appendChild(cellIndex);
+        row.appendChild(cellScore);
+        row.appendChild(cellDate);
+        resultsBody.appendChild(row);
+      });
+    }
+    loadResults();
+  </script>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Data</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #34034F;
+            color: #FFF;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensures the minimum height of the body is full viewport height */
+        }
+
+        #data-display {
+            text-align: center;
+            padding: 20px;
+            font-size: 24px;
+            color: #FFD700;
+        }
+
+        table {
+            width: 90%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.3);
+            background-color: #7D3C98;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #FFC300;
+        }
+
+        th {
+            background-color: #5B2C6F;
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #884EA0;
+        }
+
+        tr:hover {
+            background-color: #A569BD;
+            cursor: pointer;
+        }
+
+        footer {
+            margin-top: auto; /* Pushes the footer to the bottom of the flex container */
+            background-color: #34034F;
+            color: #FFD700;
+            text-align: center;
+            padding: 90px 0;
+            width: 100%;
+        }
+
+        @media screen and (max-width: 600px) {
+            table {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="data-display">Loading data...</div>
+    <table id="data-table" style="display: none;">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Symbol</th>
+                <th>Timeframe</th>
+                <th>Candle Start</th>
+                <th>Blend Direction</th>
+                <th>LSTM Direction</th>
+                <th>Candle Direction</th>
+                <th>Final Direction</th>
+                <th>Final Probability</th>
+                <th>SR Type</th>
+                <th>Candle Outcome Direction</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Data rows will be inserted here -->
+        </tbody>
+    </table>
+
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js"></script>
+    <!-- Add Firebase Database -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js"></script>
+
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js';
+        import { getDatabase, ref, onValue } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js';
+        import { firebaseConfig } from './firebase-config.js';
+
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+        const dbRef = ref(db, 'predict');  // Changed to point to the 'predict' table
+    
+        onValue(dbRef, (snapshot) => {
+            const data = snapshot.val();
+            const display = document.getElementById('data-display');
+            const table = document.getElementById('data-table');
+            const tbody = table.querySelector('tbody');
+    
+            tbody.innerHTML = ''; // Clear the existing rows every time a new snapshot is received
+    
+            if (data && Object.keys(data).length > 0) {
+                display.style.display = 'none'; // Hide the "Loading data..." text
+                table.style.display = 'table'; // Show the table if data exists
+    
+                Object.values(data).forEach((item) => {
+                    // Check if the record is within the last 2 days
+                    const candleStartDate = new Date(item.candle_start);
+                    const currentDate = new Date();
+                    const twoDaysAgo = new Date();
+                    twoDaysAgo.setDate(currentDate.getDate() - 2);
+
+                    if (candleStartDate >= twoDaysAgo) {
+                        // Convert datetime object to string
+                        const candleStartStr = candleStartDate.toLocaleString().slice(0, 17).replace('T', ' ');
+
+                        const tr = document.createElement('tr');
+
+                        // Apply color logic based on the condition of candle_outcome_dir
+                        let rowColor = '';
+                        if (item.candle_outcome_dir !== "down" && item.candle_outcome_dir !== 'up') {  
+                            // If candle_outcome_dir is null or 'N/A', color the row gray
+                            rowColor = 'background-color: #808080;';  // Gray color
+                        } else if (item.candle_outcome_dir === item.final_dir) {
+                            rowColor = 'background-color: #28a745;';  // Greenish color for match
+                        } else {
+                            rowColor = 'background-color: #dc3545;';  // Reddish color for mismatch
+                        }
+
+                        // Insert data into the table row
+                        tr.innerHTML = `
+                            <td>${item.id}</td>
+                            <td>${item.symbol}</td>
+                            <td>${item.timeframe}</td>
+                            <td>${candleStartStr}</td>
+                            <td>${item.blend_dir}</td>
+                            <td>${item.lstm_dir}</td>
+                            <td>${item.candle_dir}</td>
+                            <td>${item.final_dir}</td>
+                            <td>${item.final_prob}</td>
+                            <td>${item.sr_type}</td>
+                            <td>${item.candle_outcome_dir || 'N/A'}</td>
+                        `;
+
+                        // Apply color if available
+                        if (rowColor) {
+                            tr.style = rowColor;
+                        }
+
+                        tbody.appendChild(tr);
+                    }
+                });
+            } else {
+                display.style.display = 'block'; // Ensure display is visible
+                display.innerHTML = 'No data available'; // Update text to show no data is available
+                table.style.display = 'none'; // Hide the table if no data is present
+            }
+        });
+
+    </script>
+    
+    <!-- <footer>
+        <div id="refresh-times">Loading refresh times...</div>
+    </footer> -->
+</body>
+
+</html>

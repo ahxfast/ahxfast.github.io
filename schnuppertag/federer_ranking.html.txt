@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roger Federer's Rankings</title>
+    <style>
+        table {
+            width: 50%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        img {
+            display: block;
+            margin: 20px auto;
+        }
+        canvas {
+            display: block;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Roger Federer's Ranglistenpositionen</h1>
+    
+    <!-- Chart canvas -->
+    <canvas id="rankingChart" width="400" height="200"></canvas>
+
+    <table>
+        <tr>
+            <th>Jahr</th>
+            <th>Rang</th>
+        </tr>
+        <!-- Table will be populated dynamically -->
+    </table>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // CSV-like data (this can be fetched from an actual file or API in a real scenario)
+        const data = [
+            { jahr: 2003, platzierung: 2 },
+            { jahr: 2004, platzierung: 1 },
+            { jahr: 2005, platzierung: 1 },
+            { jahr: 2006, platzierung: 1 },
+            { jahr: 2007, platzierung: 1 },
+            { jahr: 2008, platzierung: 2 },
+            { jahr: 2009, platzierung: 1 },
+            { jahr: 2010, platzierung: 2 },
+            { jahr: 2020, platzierung: null } // Example of 'Karriereende'
+        ];
+
+        // Populate the table
+        const table = document.querySelector("table");
+        data.forEach(row => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `<td>${row.jahr}</td><td>${row.platzierung ?? 'Karriereende'}</td>`;
+            table.appendChild(tr);
+        });
+
+        // Prepare data for the chart
+        const labels = data.map(item => item.jahr);
+        const rankings = data.map(item => item.platzierung !== null ? item.platzierung : 0);  // Replace null with 0 for plotting
+        
+        // Create the chart
+        const ctx = document.getElementById('rankingChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Rang',
+                    data: rankings,
+                    fill: false,
+                    borderColor: 'blue',
+                    tension: 0.1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        reverse: true,  // Invert the y-axis (because rank 1 is the best)
+                        title: {
+                            display: true,
+                            text: 'Rang (1 = bester Rang)'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Jahr'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Eignungstest – Vorbereitung</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    h1 { color: #333; }
+    .topic { margin-top: 40px; }
+    .question { margin-bottom: 20px; }
+    .options label { display: block; margin-bottom: 5px; }
+    .submit-btn { margin-top: 20px; padding: 10px 20px; font-size: 1em; }
+  </style>
+</head>
+<body>
+  <h1>Vorbereitung auf den Eignungstest</h1>
+  <form id="quizForm">
+    <div id="quizContainer"></div>
+    <button type="submit" class="submit-btn">Test abschicken</button>
+  </form>
+  <p><a href="results.html">Ergebnisse ansehen</a></p>
+  
+  <script>
+    // Fragen und Antworten als JSON-Struktur
+    const quizData = [
+      {
+        "topic": "Systemtechnik",
+        "questions": [
+          { "question": "Was versteht man unter Computerhardware?", "options": { "a": "Softwareprogramme, die Computerfunktionen steuern", "b": "Physische Komponenten eines Computers", "c": "Cloud-Dienste zur Datenspeicherung", "d": "Betriebssysteme und ihre Updates" }, "answer": "b" },
+          { "question": "Welche Kombination stellt typische grundlegende Hardwarekomponenten eines Computers dar?", "options": { "a": "CPU, RAM, Motherboard", "b": "Monitor, Tastatur, Maus", "c": "Festplatte, Drucker, Scanner", "d": "Betriebssystem, Office-Anwendungen, Browser" }, "answer": "a" },
+          { "question": "Was ist ein Bootvorgang?", "options": { "a": "Der Startvorgang eines Computers, bei dem Hardware und Software initialisiert werden", "b": "Ein Fehler in der Programmierung", "c": "Die Installation von Software-Updates", "d": "Der Vorgang des Herunterfahrens eines Computers" }, "answer": "a" },
+          { "question": "Wie interagiert das Betriebssystem mit der Hardware?", "options": { "a": "Es verwaltet und steuert die Hardwarekomponenten", "b": "Es erstellt neue Hardwarekomponenten", "c": "Es deaktiviert fehlerhafte Hardware", "d": "Es installiert neue Hardware automatisch" }, "answer": "a" },
+          { "question": "Welcher Unterschied besteht zwischen Single-Core- und Multi-Core-Prozessoren?", "options": { "a": "Single-Core-Prozessoren haben nur einen Kern, während Multi-Core-Prozessoren mehrere Kerne besitzen", "b": "Single-Core-Prozessoren sind generell schneller als Multi-Core-Prozessoren", "c": "Multi-Core-Prozessoren haben weniger Kerne als Single-Core-Prozessoren", "d": "Es gibt keinen Unterschied, beide Arten funktionieren identisch" }, "answer": "a" },
+          { "question": "Was versteht man unter einem Motherboard?", "options": { "a": "Das zentrale Element, das alle Komponenten miteinander verbindet", "b": "Eine Art externer Festplatte", "c": "Eine Software zur Steuerung der Hardware", "d": "Ein Peripheriegerät" }, "answer": "a" },
+          { "question": "Was ist der Zweck von RAM?", "options": { "a": "Dauerhafte Speicherung von Daten", "b": "Temporäre Speicherung von Daten für schnellen Zugriff", "c": "Steuerung der Druckerfunktionen", "d": "Erhöhen der Grafikleistung" }, "answer": "b" },
+          { "question": "Wie funktioniert die Stromversorgung in einem Computer?", "options": { "a": "Über ein Netzteil, das die Netzspannung in verschiedene Spannungen umwandelt", "b": "Durch Batterien, die direkt an die Hardware angeschlossen sind", "c": "Über das Betriebssystem, das den Strom regelt", "d": "Durch den Prozessor, der den Strom verteilt" }, "answer": "a" },
+          { "question": "Was sind Peripheriegeräte?", "options": { "a": "Komponenten, die direkt in das Motherboard eingebaut sind", "b": "Geräte, die außerhalb des Hauptcomputers angeschlossen werden, wie Drucker, Maus oder Tastatur", "c": "Spezielle Softwareprogramme", "d": "Externe Festplatten, die nur Daten speichern" }, "answer": "b" },
+          { "question": "Welche Rolle spielt das BIOS im Computer?", "options": { "a": "Es speichert alle Nutzerdaten dauerhaft", "b": "Es initialisiert und testet die Hardware beim Start und lädt das Betriebssystem", "c": "Es dient als Backup-Lösung", "d": "Es ermöglicht den Internetzugang" }, "answer": "b" }
+        ]
+      },
+      {
+        "topic": "HTML",
+        "questions": [
+          { "question": "Was ist HTML und wofür wird es verwendet?", "options": { "a": "Eine Programmiersprache zur Erstellung von Webseiten", "b": "Ein Markup, um Webseiten zu strukturieren und Inhalte darzustellen", "c": "Ein Betriebssystem für Webserver", "d": "Ein Datenbankmanagementsystem" }, "answer": "b" },
+          { "question": "Welche grundlegenden Tags sollten in jeder HTML-Datei vorhanden sein?", "options": { "a": "&lt;html&gt;, &lt;head&gt;, &lt;body&gt;", "b": "&lt;header&gt;, &lt;nav&gt;, &lt;footer&gt;", "c": "&lt;div&gt;, &lt;span&gt;, &lt;p&gt;", "d": "&lt;table&gt;, &lt;tr&gt;, &lt;td&gt;" }, "answer": "a" },
+          { "question": "Wie erstellt man in HTML eine geordnete und eine ungeordnete Liste?", "options": { "a": "Mit &lt;ol&gt; für geordnete und &lt;ul&gt; für ungeordnete Listen", "b": "Mit &lt;list&gt; und &lt;item&gt;", "c": "Mit &lt;table&gt; und &lt;tr&gt;", "d": "Mit &lt;li&gt; und &lt;ul&gt;" }, "answer": "a" },
+          { "question": "Wie fügt man in eine HTML-Seite Hyperlinks und Bilder ein?", "options": { "a": "Mit dem &lt;a&gt;-Tag für Links und dem &lt;img&gt;-Tag für Bilder", "b": "Mit dem &lt;link&gt;-Tag für Links und &lt;pic&gt; für Bilder", "c": "Mit dem &lt;hyperlink&gt;-Tag für Links und &lt;picture&gt; für Bilder", "d": "Mit dem &lt;a&gt;-Tag für Bilder und dem &lt;img&gt;-Tag für Links" }, "answer": "a" },
+          { "question": "Was ist der wesentliche Unterschied zwischen dem &lt;div&gt;-Element und dem &lt;span&gt;-Element?", "options": { "a": "&lt;div&gt; ist ein Block-Level-Element, während &lt;span&gt; ein Inline-Element ist", "b": "&lt;div&gt; wird ausschließlich für Bilder verwendet, &lt;span&gt; nur für Text", "c": "&lt;div&gt; dient zur Erstellung von Tabellen, &lt;span&gt; zur Erstellung von Listen", "d": "Beide Elemente erfüllen exakt die gleiche Funktion" }, "answer": "a" },
+          { "question": "Was ist der Zweck des &lt;head&gt;-Elements in einer HTML-Datei?", "options": { "a": "Es enthält den sichtbaren Inhalt der Webseite", "b": "Es enthält Metadaten, Skripte und Links zu Stylesheets, die nicht direkt angezeigt werden", "c": "Es stellt den Footer der Webseite dar", "d": "Es wird zur Einbindung von Bildern verwendet" }, "answer": "b" },
+          { "question": "Wie bindet man externe CSS-Dateien in HTML ein?", "options": { "a": "Mit dem &lt;script&gt;-Tag", "b": "Mit dem &lt;css&gt;-Tag", "c": "Mit dem &lt;link&gt;-Tag im &lt;head&gt;-Bereich", "d": "Mit dem &lt;style&gt;-Tag" }, "answer": "c" },
+          { "question": "Welche Bedeutung haben die Attribute id und class in HTML?", "options": { "a": "Sie dienen ausschließlich der Datenbankanbindung", "b": "Sie werden verwendet, um spezifische Elemente zu identifizieren und zu stylen", "c": "Sie sind veraltet und sollten nicht mehr verwendet werden", "d": "Sie bestimmen die Schriftgröße der Texte" }, "answer": "b" },
+          { "question": "Was ist ein HTML-Formular und wozu dient es?", "options": { "a": "Es dient zur strukturellen Darstellung von Webseiten", "b": "Es ermöglicht die Eingabe und Übermittlung von Benutzerdaten", "c": "Es wird zur Erstellung von Tabellen verwendet", "d": "Es dient ausschließlich der Navigation" }, "answer": "b" },
+          { "question": "Wie erstellt man eine Tabelle in HTML?", "options": { "a": "Mit den Tags &lt;table&gt;, &lt;tr&gt;, &lt;th&gt; und &lt;td&gt;", "b": "Mit den Tags &lt;div&gt; und &lt;span&gt;", "c": "Mit den Tags &lt;list&gt; und &lt;item&gt;", "d": "Mit den Tags &lt;grid&gt; und &lt;row&gt;" }, "answer": "a" }
+        ]
+      },
+      {
+        "topic": "Programmierung",
+        "questions": [
+          { "question": "Was versteht man unter einer Variable?", "options": { "a": "Einen Speicherort zur Ablage von Daten", "b": "Einen Fehler im Programmcode", "c": "Eine wiederholende Schleife", "d": "Eine spezielle Funktion zur Berechnung" }, "answer": "a" },
+          { "question": "Welche Funktion haben Schleifen in der Programmierung?", "options": { "a": "Sie ermöglichen die wiederholte Ausführung von Codeabschnitten", "b": "Sie deklarieren Variablen", "c": "Sie prüfen ausschließlich Bedingungen", "d": "Sie speichern Daten dauerhaft" }, "answer": "a" },
+          { "question": "Wie funktioniert eine if-else-Bedingung?", "options": { "a": "Sie führt unterschiedliche Codeabschnitte aus, abhängig davon, ob eine Bedingung erfüllt ist oder nicht", "b": "Sie wiederholt Code, bis eine Bedingung erfüllt ist", "c": "Sie definiert Funktionen innerhalb eines Programms", "d": "Sie speichert Werte in Variablen" }, "answer": "a" },
+          { "question": "Was sind Funktionen und warum sind sie wichtig?", "options": { "a": "Funktionen strukturieren den Code, ermöglichen Wiederverwendung und vereinfachen die Fehlersuche", "b": "Funktionen speichern Daten dauerhaft", "c": "Funktionen löschen unnötige Daten automatisch", "d": "Funktionen verbinden die Hardwarekomponenten miteinander" }, "answer": "a" },
+          { "question": "Was versteht man unter Rekursion in der Programmierung?", "options": { "a": "Eine Funktion ruft sich selbst auf, um ein Problem schrittweise zu lösen", "b": "Eine Schleife, die unendlich läuft", "c": "Eine Methode, um Daten in einer Datenbank zu speichern", "d": "Ein spezieller Datentyp zur Speicherung von Text" }, "answer": "a" },
+          { "question": "Was ist ein Array (oder Liste) in der Programmierung?", "options": { "a": "Eine Methode zur Wiederholung von Code", "b": "Eine Datenstruktur, die eine Sammlung von Elementen unter einem einzigen Namen speichert", "c": "Ein spezieller Datentyp für Zeichenketten", "d": "Ein Algorithmus zur Sortierung" }, "answer": "b" },
+          { "question": "Erkläre den Unterschied zwischen einer while-Schleife und einer do-while-Schleife.", "options": { "a": "In einer while-Schleife wird der Codeblock mindestens einmal ausgeführt, in einer do-while-Schleife nicht", "b": "Eine do-while-Schleife führt den Codeblock mindestens einmal aus, bevor die Bedingung geprüft wird, während in einer while-Schleife zuerst die Bedingung geprüft wird", "c": "Es gibt keinen Unterschied", "d": "In einer while-Schleife können keine Bedingungen verwendet werden" }, "answer": "b" },
+          { "question": "Was sind Kommentare und wozu dienen sie im Code?", "options": { "a": "Sie werden ausgeführt, um den Code zu optimieren", "b": "Sie dienen als Notizen, die für Menschen lesbar sind, aber vom Computer ignoriert werden", "c": "Sie verändern die Funktionalität des Codes", "d": "Sie werden für die Formatierung der Ausgabe genutzt" }, "answer": "b" },
+          { "question": "Was ist der Unterschied zwischen einem Compiler und einem Interpreter?", "options": { "a": "Ein Compiler übersetzt den gesamten Code vor der Ausführung, während ein Interpreter den Code Zeile für Zeile ausführt", "b": "Ein Interpreter übersetzt den gesamten Code vor der Ausführung, während ein Compiler Zeile für Zeile arbeitet", "c": "Es gibt keinen Unterschied", "d": "Compiler werden nur für Webanwendungen verwendet" }, "answer": "a" },
+          { "question": "Was versteht man unter Objektorientierung und was sind Klassen?", "options": { "a": "Objektorientierung ist eine Methode, um Hardware anzusteuern; Klassen sind Hardwarekomponenten", "b": "Objektorientierung ist ein Programmierparadigma, bei dem Programme in Objekte organisiert werden; Klassen sind Vorlagen, aus denen Objekte erstellt werden", "c": "Objektorientierung bezieht sich auf das Layout einer Webseite; Klassen sind CSS-Styles", "d": "Objektorientierung ist ein Konzept in Datenbanken; Klassen definieren Tabellenstrukturen" }, "answer": "b" }
+        ]
+      },
+      {
+        "topic": "Datenbanken",
+        "questions": [
+          { "question": "Was versteht man unter einer Datenbank?", "options": { "a": "Eine strukturierte Sammlung von Daten, die zur Speicherung und Verwaltung dient", "b": "Eine Programmiersprache zur Datenverarbeitung", "c": "Ein Betriebssystem, das speziell für Server entwickelt wurde", "d": "Eine Software zur Bildbearbeitung" }, "answer": "a" },
+          { "question": "Welches der folgenden Beispiele ist ein Datenbankmanagementsystem (DBMS) und was ist dessen Hauptaufgabe?", "options": { "a": "MySQL – Es verwaltet, speichert und organisiert Daten in Datenbanken", "b": "Windows – Es verwaltet Dateien und Ordner auf dem Computer", "c": "Excel – Es erstellt Tabellen, die primär zur Kalkulation verwendet werden", "d": "Photoshop – Es bearbeitet und retuschiert Bilder" }, "answer": "a" },
+          { "question": "Was ist SQL?", "options": { "a": "Eine Sprache zur Abfrage und Bearbeitung von Daten in Datenbanken", "b": "Ein Betriebssystem für Server", "c": "Ein Texteditor für Programmierer", "d": "Ein Grafikprogramm zur Datenvisualisierung" }, "answer": "a" },
+          { "question": "Wie unterscheiden sich relationale von nicht-relationalen Datenbanken?", "options": { "a": "Relationale Datenbanken speichern Daten in Tabellen, während nicht-relationale Datenbanken flexibelere Datenstrukturen verwenden können", "b": "Relationale Datenbanken speichern ausschließlich numerische Daten, nicht-relationale nur Text", "c": "Nicht-relationale Datenbanken sind immer schneller als relationale", "d": "Beide speichern Daten identisch, nur die Benennungen sind unterschiedlich" }, "answer": "a" },
+          { "question": "Was versteht man unter Datenbanknormalisierung?", "options": { "a": "Ein Verfahren zur Organisation von Daten, um Redundanzen zu vermeiden und die Datenintegrität zu sichern", "b": "Das Verschlüsseln von Daten, um sie vor unbefugtem Zugriff zu schützen", "c": "Eine Methode, um Daten regelmäßig zu sichern", "d": "Ein spezielles Format zur Speicherung von Multimedia-Inhalten" }, "answer": "a" },
+          { "question": "Was versteht man unter einem Primärschlüssel in relationalen Datenbanken?", "options": { "a": "Ein Attribut, das eindeutig jeden Datensatz in einer Tabelle identifiziert", "b": "Ein Feld, das nur numerische Werte speichert", "c": "Ein Index, der die Geschwindigkeit von Abfragen erhöht", "d": "Eine Methode zur Verschlüsselung von Daten" }, "answer": "a" },
+          { "question": "Wie kann man in SQL Daten in einer Tabelle selektieren?", "options": { "a": "Mit dem Befehl SELECT", "b": "Mit dem Befehl INSERT", "c": "Mit dem Befehl DELETE", "d": "Mit dem Befehl UPDATE" }, "answer": "a" },
+          { "question": "Was ist ein JOIN in SQL?", "options": { "a": "Ein Befehl, um Daten in einer Tabelle zu löschen", "b": "Ein Befehl, um zwei oder mehr Tabellen anhand gemeinsamer Attribute zu verknüpfen", "c": "Ein Befehl, um Daten zu aktualisieren", "d": "Ein Befehl zur Erstellung von Tabellen" }, "answer": "b" },
+          { "question": "Was versteht man unter Transaktionen in Datenbanksystemen?", "options": { "a": "Einzelne SQL-Befehle ohne Zusammenhang", "b": "Eine Gruppe von Operationen, die als eine einzige, atomare Einheit ausgeführt werden", "c": "Eine Methode, um Daten permanent zu speichern", "d": "Ein Protokoll zur Überwachung von Datenbankzugriffen" }, "answer": "b" },
+          { "question": "Wie kann man in SQL Daten aktualisieren?", "options": { "a": "Mit dem Befehl UPDATE", "b": "Mit dem Befehl SELECT", "c": "Mit dem Befehl DELETE", "d": "Mit dem Befehl INSERT" }, "answer": "a" }
+        ]
+      }
+    ];
+    
+    // Dynamisches Rendern der Fragen
+    function renderQuiz() {
+      const quizContainer = document.getElementById("quizContainer");
+      quizData.forEach((section, sectionIndex) => {
+        const topicDiv = document.createElement("div");
+        topicDiv.classList.add("topic");
+        const topicHeader = document.createElement("h2");
+        topicHeader.textContent = section.topic;
+        topicDiv.appendChild(topicHeader);
+        
+        section.questions.forEach((q, qIndex) => {
+          const questionDiv = document.createElement("div");
+          questionDiv.classList.add("question");
+          // Gesamtnummerierung der Fragen
+          const questionNumber = sectionIndex * 10 + qIndex + 1;
+          const questionText = document.createElement("p");
+          questionText.innerHTML = "<strong>Frage " + questionNumber + ":</strong> " + q.question;
+          questionDiv.appendChild(questionText);
+          
+          const optionsDiv = document.createElement("div");
+          optionsDiv.classList.add("options");
+          for (let key in q.options) {
+            const label = document.createElement("label");
+            const radio = document.createElement("input");
+            radio.type = "radio";
+            radio.name = "q" + questionNumber;
+            radio.value = key;
+            label.appendChild(radio);
+            label.innerHTML += " (" + key + ") " + q.options[key];
+            optionsDiv.appendChild(label);
+          }
+          questionDiv.appendChild(optionsDiv);
+          topicDiv.appendChild(questionDiv);
+        });
+        quizContainer.appendChild(topicDiv);
+      });
+    }
+    
+    // Berechnung der erreichten Punkte
+    function calculateScore() {
+      let score = 0;
+      quizData.forEach((section, sectionIndex) => {
+        section.questions.forEach((q, qIndex) => {
+          const questionNumber = sectionIndex * 10 + qIndex + 1;
+          const radios = document.getElementsByName("q" + questionNumber);
+          radios.forEach(radio => {
+            if(radio.checked && radio.value === q.answer) {
+              score++;
+            }
+          });
+        });
+      });
+      return score;
+    }
+    
+    // Beim Abschicken des Formulars: Score berechnen, speichern und Feedback anzeigen
+    document.getElementById("quizForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const score = calculateScore();
+      alert("Du hast " + score + " von 40 Punkten erreicht.");
+      
+      // Speichern des Ergebnisses mit Datum/Uhrzeit im localStorage
+      let results = JSON.parse(localStorage.getItem("testResults") || "[]");
+      results.push({ score: score, date: new Date().toLocaleString() });
+      localStorage.setItem("testResults", JSON.stringify(results));
+      
+      // Formular optional zurücksetzen:
+      // this.reset();
+    });
+    
+    renderQuiz();
+  </script>
+</body>
+</html>

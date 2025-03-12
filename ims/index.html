@@ -25,426 +25,428 @@
   <script>
     const quizData = [
   {
-    "topic": "Systemtechnik",
+    "topic": "Systemtechnik & Cloud Computing",
     "questions": [
       {
-        "question": "Frage 1: Welche Rolle spielt ein System-on-Chip (SoC) in modernen mobilen Geräten?",
+        "question": "Frage 1: Welche Komponente eines Computers ist hauptsächlich für die Durchführung von Berechnungen verantwortlich?",
         "options": {
-          "a": "Er liefert ausschließlich Grafikleistung für Spiele",
-          "b": "Er integriert CPU, GPU, Speichercontroller und weitere Peripherie-Komponenten auf einem einzigen Chip",
-          "c": "Er dient nur als dedizierter Speichercontroller",
-          "d": "Er ersetzt das Betriebssystem vollständig"
+          "a": "CPU (Prozessor)",
+          "b": "RAM (Arbeitsspeicher)",
+          "c": "Festplatte (Speicherlaufwerk)",
+          "d": "Netzteil (Stromversorgung)"
         },
-        "answer": "b"
+        "answer": "CPU (Prozessor)"
       },
       {
-        "question": "Frage 2: Wie trägt Hyper-Threading zur Leistungssteigerung in Mehrkernprozessoren bei?",
+        "question": "Frage 2: Welches der folgenden ist kein Betriebssystem?",
         "options": {
-          "a": "Durch eine Verdoppelung der Taktfrequenz jedes Kerns",
-          "b": "Indem es den Cache für jeden Thread erweitert",
-          "c": "Durch parallele Ausführung von zwei Threads pro physischem Kern",
-          "d": "Weil es den Energieverbrauch reduziert"
+          "a": "Windows 10",
+          "b": "Linux Ubuntu",
+          "c": "Android",
+          "d": "Microsoft Office"
         },
-        "answer": "c"
+        "answer": "Microsoft Office"
       },
       {
-        "question": "Frage 3: Was versteht man unter 'Cache-Kohärenz' in Mehrkernsystemen?",
+        "question": "Frage 3: Welches Protokoll wird zum Versand von E-Mails über das Internet verwendet?",
         "options": {
-          "a": "Die Synchronisation von Daten in den Caches aller Prozessorkerne",
-          "b": "Die Erhöhung der Cache-Größe bei Bedarf",
-          "c": "Den Austausch von Cache-Inhalten mit dem Hauptspeicher",
-          "d": "Die automatische Bereinigung veralteter Cache-Daten"
+          "a": "SMTP",
+          "b": "HTTP",
+          "c": "FTP",
+          "d": "IMAP"
         },
-        "answer": "a"
+        "answer": "SMTP"
       },
       {
-        "question": "Frage 4: Welche Funktion übernimmt das IOMMU in modernen Computersystemen?",
+        "question": "Frage 4: Welche Komponente schützt ein Netzwerk typischerweise vor unautorisiertem Zugriff von außen?",
         "options": {
-          "a": "Erhöhung der CPU-Taktrate",
-          "b": "Übersetzung virtueller in physikalische Adressen für Peripheriegeräte",
-          "c": "Regulierung der Lüftergeschwindigkeit",
-          "d": "Optimierung der Grafikverarbeitung"
+          "a": "Firewall",
+          "b": "Switch",
+          "c": "Router",
+          "d": "Modem"
         },
-        "answer": "b"
+        "answer": "Firewall"
       },
       {
-        "question": "Frage 5: Wie beeinflusst der Einsatz von High Bandwidth Memory (HBM) die Systemleistung?",
+        "question": "Frage 5: Welche Aussage beschreibt Cloud Computing am besten?",
         "options": {
-          "a": "Er senkt den Energieverbrauch drastisch",
-          "b": "Er erhöht die Speicherbandbreite und reduziert Latenzen",
-          "c": "Er verbessert ausschließlich die Audioqualität",
-          "d": "Er ersetzt den herkömmlichen Arbeitsspeicher"
+          "a": "Bereitstellung von IT-Ressourcen nach Bedarf über das Internet",
+          "b": "Speicherung aller Daten auf lokalen Geräten im Netzwerk",
+          "c": "Ein Netzwerkprotokoll zur sicheren Datenübertragung",
+          "d": "Virtualisierung aller Hardware-Komponenten im Rechenzentrum"
         },
-        "answer": "b"
+        "answer": "Bereitstellung von IT-Ressourcen nach Bedarf über das Internet"
       },
       {
-        "question": "Frage 6: Was versteht man unter Direct Memory Access (DMA)?",
+        "question": "Frage 6: Was ermöglicht die Virtualisierung in der IT?",
         "options": {
-          "a": "Die direkte Steuerung von Peripheriegeräten durch die CPU",
-          "b": "Die Fähigkeit von Peripheriegeräten, Daten direkt in den Hauptspeicher zu übertragen, ohne CPU-Beteiligung",
-          "c": "Die Verschlüsselung von Daten im Hauptspeicher",
-          "d": "Die parallele Ausführung von Speicherzugriffen"
+          "a": "Mehrere Betriebssysteme gleichzeitig auf einer Hardware auszuführen",
+          "b": "Die Internetverbindung durch Verschlüsselung abzusichern",
+          "c": "JavaScript-Code im Browser schneller auszuführen",
+          "d": "Dateien verlustfrei zu komprimieren"
         },
-        "answer": "b"
+        "answer": "Mehrere Betriebssysteme gleichzeitig auf einer Hardware auszuführen"
       },
       {
-        "question": "Frage 7: Welche Bedeutung hat Hardware-Virtualisierung, z. B. durch Intel VT-x, in modernen Systemen?",
+        "question": "Frage 7: Welches der folgenden ist ein Beispiel für Software as a Service (SaaS)?",
         "options": {
-          "a": "Sie reduziert den physikalischen Speicherbedarf",
-          "b": "Sie ermöglicht das parallele Ausführen mehrerer Betriebssysteme auf einer physischen Maschine",
-          "c": "Sie ersetzt herkömmliche Betriebssysteme",
-          "d": "Sie optimiert ausschließlich Grafikprozesse"
+          "a": "Ein webbasiertes E-Mail-Portal wie Gmail",
+          "b": "Eine Plattform zur App-Entwicklung wie Google App Engine",
+          "c": "Ein Cloud-Dienst zur Verwaltung virtueller Maschinen (z.B. AWS EC2)",
+          "d": "Ein lokal installiertes Office-Paket"
         },
-        "answer": "b"
+        "answer": "Ein webbasiertes E-Mail-Portal wie Gmail"
       },
       {
-        "question": "Frage 8: Wie realisiert die Speichervirtualisierung eine effiziente Nutzung von physikalischem Speicher?",
+        "question": "Frage 8: Wofür steht die Abkürzung IaaS im Cloud-Computing?",
         "options": {
-          "a": "Durch die Trennung von CPU und Speicher",
-          "b": "Durch das Zusammenführen von physikalischem und virtuellem Speicher in einem einheitlichen Adressraum",
-          "c": "Durch das Duplizieren aller Daten in Echtzeit",
-          "d": "Durch die Reduktion der Cache-Größe"
+          "a": "Infrastructure as a Service",
+          "b": "Internet as a Service",
+          "c": "Integration as a Service",
+          "d": "Interface as a Service"
         },
-        "answer": "b"
+        "answer": "Infrastructure as a Service"
       },
       {
-        "question": "Frage 9: Welcher Vorteil bietet ECC (Error-Correcting Code) RAM in Serverumgebungen?",
+        "question": "Frage 9: Was ist das Hauptziel einer regelmäßigen Datensicherung (Backup)?",
         "options": {
-          "a": "Er verdoppelt die verfügbare Speicherkapazität",
-          "b": "Er erkennt und korrigiert Speicherfehler, was die Systemstabilität verbessert",
-          "c": "Er reduziert den Stromverbrauch signifikant",
-          "d": "Er erhöht die CPU-Leistung"
+          "a": "Die Wiederherstellung von Daten nach einem Verlust oder Ausfall",
+          "b": "Die Beschleunigung des Netzwerks",
+          "c": "Den Schutz vor Computerviren in Echtzeit",
+          "d": "Die Verbesserung der Hardwareleistung"
         },
-        "answer": "b"
+        "answer": "Die Wiederherstellung von Daten nach einem Verlust oder Ausfall"
       },
       {
-        "question": "Frage 10: Wie unterstützen spezialisierte AI-Beschleuniger (z. B. TPUs) die Systemleistung?",
+        "question": "Frage 10: Welche Aussage trifft auf ein VPN (Virtual Private Network) zu?",
         "options": {
-          "a": "Sie erhöhen die allgemeine Taktrate der CPU",
-          "b": "Sie beschleunigen speziell Machine Learning- und KI-Workloads",
-          "c": "Sie verbessern die Netzwerkbandbreite",
-          "d": "Sie optimieren den Hauptspeicherzugriff"
+          "a": "Es ermöglicht eine verschlüsselte Verbindung über ein öffentliches Netzwerk zu einem privaten Netzwerk",
+          "b": "Es erhöht die Reichweite eines WLAN-Netzes",
+          "c": "Es filtert unerwünschte E-Mails aus dem Posteingang",
+          "d": "Es sucht ein Netzwerk auf Schwachstellen ab"
         },
-        "answer": "b"
+        "answer": "Es ermöglicht eine verschlüsselte Verbindung über ein öffentliches Netzwerk zu einem privaten Netzwerk"
       }
     ]
   },
   {
-    "topic": "Cloud Computing & Virtualisierung",
+    "topic": "Datenbanken",
     "questions": [
       {
-        "question": "Frage 11: Welche Rolle spielt Container-Orchestrierung (z. B. Kubernetes) in modernen Cloud-Umgebungen?",
+        "question": "Frage 1: Wofür steht die Abkürzung SQL?",
         "options": {
-          "a": "Sie ermöglicht die manuelle Verwaltung einzelner Container",
-          "b": "Sie automatisiert den Einsatz, die Skalierung und Verwaltung von containerisierten Anwendungen",
-          "c": "Sie ersetzt virtuelle Maschinen vollständig",
-          "d": "Sie dient ausschließlich der Datensicherung"
+          "a": "Structured Query Language",
+          "b": "Simple Query Language",
+          "c": "Standard Query Language",
+          "d": "Sequential Query Language"
         },
-        "answer": "b"
+        "answer": "Structured Query Language"
       },
       {
-        "question": "Frage 12: Wie unterscheidet sich Serverless Computing von traditionellen Cloud-Modellen?",
+        "question": "Frage 2: Welche der folgenden ist keine relationale Datenbank?",
         "options": {
-          "a": "Serverless erfordert die Bereitstellung eigener Hardware",
-          "b": "Serverless ermöglicht die Ausführung von Code ohne Verwaltung der zugrunde liegenden Infrastruktur",
-          "c": "Serverless basiert ausschließlich auf Container-Technologien",
-          "d": "Serverless eignet sich nur für Batch-Verarbeitung"
+          "a": "MySQL",
+          "b": "MongoDB",
+          "c": "Oracle Database",
+          "d": "PostgreSQL"
         },
-        "answer": "b"
+        "answer": "MongoDB"
       },
       {
-        "question": "Frage 13: Was beschreibt Infrastructure as Code (IaC)?",
+        "question": "Frage 3: Wie nennt man in einer relationalen Datenbank einen eindeutigen Bezeichner für jeden Datensatz in einer Tabelle?",
         "options": {
-          "a": "Die manuelle Konfiguration von Servern",
-          "b": "Die Automatisierung und deklarative Verwaltung der Infrastruktur mittels Code",
-          "c": "Ein physisches Backup-System für Rechenzentren",
-          "d": "Die Erstellung von grafischen Benutzeroberflächen für Cloud-Dienste"
+          "a": "Primärschlüssel",
+          "b": "Fremdschlüssel",
+          "c": "Index",
+          "d": "Tupel"
         },
-        "answer": "b"
+        "answer": "Primärschlüssel"
       },
       {
-        "question": "Frage 14: Wie fördern Microservices-Architekturen die Skalierbarkeit in Cloud-Umgebungen?",
+        "question": "Frage 4: Was ist das Hauptziel der Normalisierung in einer relationalen Datenbank?",
         "options": {
-          "a": "Durch enge Kopplung aller Anwendungsbestandteile",
-          "b": "Durch die lose Kopplung und unabhängige Skalierung einzelner Dienste",
-          "c": "Durch die Eliminierung von APIs zwischen den Komponenten",
-          "d": "Durch zentrale Speicherung aller Daten in einer monolithischen Datenbank"
+          "a": "Reduzierung redundanter Daten und Vermeidung von Anomalien",
+          "b": "Beschleunigung von Abfragen durch Indizes",
+          "c": "Verschlüsselung der Daten für mehr Sicherheit",
+          "d": "Verbesserung der Benutzeroberfläche"
         },
-        "answer": "b"
+        "answer": "Reduzierung redundanter Daten und Vermeidung von Anomalien"
       },
       {
-        "question": "Frage 15: Was versteht man unter 'Immutable Infrastructure' im DevOps-Kontext?",
+        "question": "Frage 5: Welche SQL-Anweisung wird verwendet, um Daten aus einer Tabelle auszulesen?",
         "options": {
-          "a": "Eine Infrastruktur, die nach der Bereitstellung nicht verändert wird, sondern bei Updates neu ausgerollt wird",
-          "b": "Infrastruktur, die ausschließlich in privaten Rechenzentren betrieben wird",
-          "c": "Eine selbstaktualisierende Hardware, die nie neu gestartet werden muss",
-          "d": "Infrastruktur, die nur für Testumgebungen verwendet wird"
+          "a": "SELECT",
+          "b": "INSERT",
+          "c": "DELETE",
+          "d": "UPDATE"
         },
-        "answer": "a"
+        "answer": "SELECT"
       },
       {
-        "question": "Frage 16: Welche Funktion übernimmt ein API-Gateway in modernen Cloud-Anwendungen?",
+        "question": "Frage 6: Wie nennt man die Beziehung zwischen zwei Tabellen, bei der ein Eintrag der ersten Tabelle mehreren Einträgen der zweiten Tabelle zugeordnet sein kann?",
         "options": {
-          "a": "Es verschlüsselt ausschließlich Daten im Ruhezustand",
-          "b": "Es zentralisiert den Zugriff auf Microservices und übernimmt Authentifizierung sowie Lastverteilung",
-          "c": "Es dient als primäres Datenbanksystem",
-          "d": "Es ersetzt Load Balancer in der Infrastruktur"
+          "a": "Eins-zu-Viele-Beziehung (1:N)",
+          "b": "Eins-zu-Eins-Beziehung (1:1)",
+          "c": "Viele-zu-Viele-Beziehung (N:M)",
+          "d": "Viele-zu-Eins-Beziehung (N:1)"
         },
-        "answer": "b"
+        "answer": "Eins-zu-Viele-Beziehung (1:N)"
       },
       {
-        "question": "Frage 17: Was beschreibt das Konzept des Blue/Green Deployments?",
+        "question": "Frage 7: Welche Aussage trifft typischerweise auf NoSQL-Datenbanken zu?",
         "options": {
-          "a": "Die parallele Nutzung von zwei Betriebssystemen auf einem Server",
-          "b": "Das Betreiben zweier nahezu identischer Produktionsumgebungen, um reibungslose Updates zu ermöglichen",
-          "c": "Die Verteilung von Anwendungen auf zwei verschiedene Cloud-Anbieter",
-          "d": "Ein Verfahren zur Datenspiegelung zwischen Rechenzentren"
+          "a": "Sie verwenden flexible, nicht relationale Datenmodelle (z.B. Dokumente oder Key-Value-Paare)",
+          "b": "Sie nutzen ausschließlich SQL als Abfragesprache",
+          "c": "Sie speichern Daten immer in Tabellen mit festem Schema",
+          "d": "Sie ersetzen Backups vollständig durch Replikation"
         },
-        "answer": "b"
+        "answer": "Sie verwenden flexible, nicht relationale Datenmodelle (z.B. Dokumente oder Key-Value-Paare)"
       },
       {
-        "question": "Frage 18: Wie unterstützt eine Hybrid-Cloud-Architektur Unternehmen bei der Optimierung ihrer IT-Ressourcen?",
+        "question": "Frage 8: Welcher der folgenden Begriffe gehört NICHT zu den ACID-Eigenschaften einer Transaktion?",
         "options": {
-          "a": "Durch ausschließliche Nutzung von On-Premises-Systemen",
-          "b": "Durch die Kombination von privaten Rechenzentren mit öffentlichen Cloud-Diensten",
-          "c": "Durch den Verzicht auf Virtualisierungstechnologien",
-          "d": "Durch die Eliminierung von Sicherheitsmaßnahmen"
+          "a": "Atomarität",
+          "b": "Konsistenz",
+          "c": "Isolation",
+          "d": "Verschlüsselung"
         },
-        "answer": "b"
+        "answer": "Verschlüsselung"
       },
       {
-        "question": "Frage 19: Welche Rolle spielen Load Balancer in Cloud-Infrastrukturen?",
+        "question": "Frage 9: Welche SQL-Klausel wird verwendet, um das Ergebnis einer Abfrage zu sortieren?",
         "options": {
-          "a": "Sie zentralisieren sämtliche Daten in einem einzigen Server",
-          "b": "Sie verteilen eingehende Anfragen gleichmäßig auf mehrere Instanzen, um Ausfälle zu vermeiden",
-          "c": "Sie ersetzen Firewalls vollständig",
-          "d": "Sie erhöhen primär die Verschlüsselungsrate von Daten"
+          "a": "ORDER BY",
+          "b": "GROUP BY",
+          "c": "WHERE",
+          "d": "HAVING"
         },
-        "answer": "b"
+        "answer": "ORDER BY"
       },
       {
-        "question": "Frage 20: Was ist ein wesentlicher Vorteil von Managed Cloud Services im Vergleich zu selbstverwalteter Infrastruktur?",
+        "question": "Frage 10: Wozu dient ein Index in einer Datenbank?",
         "options": {
-          "a": "Sie bieten weniger Flexibilität bei der Ressourcenzuteilung",
-          "b": "Sie reduzieren den Verwaltungsaufwand und integrieren oft Sicherheits- und Skalierungsfunktionen",
-          "c": "Sie erhöhen die Komplexität der Implementierung",
-          "d": "Sie erfordern den Einsatz proprietärer Hardware"
+          "a": "Zur Beschleunigung von Datenbank-Abfragen",
+          "b": "Zum Verhindern von SQL-Injection-Angriffen",
+          "c": "Zum Herstellen von Beziehungen zwischen Tabellen",
+          "d": "Zum automatischen Sichern der Datenbank"
         },
-        "answer": "b"
+        "answer": "Zur Beschleunigung von Datenbank-Abfragen"
       }
     ]
   },
   {
-    "topic": "Netzwerke – Protokolle & Sicherheit",
+    "topic": "Programmierung",
     "questions": [
       {
-        "question": "Frage 21: Welche Hauptaufgabe erfüllt das Border Gateway Protocol (BGP) im Internet?",
+        "question": "Frage 1: Was beschreibt der Begriff 'Algorithmus' in der Programmierung?",
         "options": {
-          "a": "Es verschlüsselt den gesamten Datenverkehr zwischen Endpunkten",
-          "b": "Es ermöglicht den Austausch von Routing-Informationen zwischen autonomen Systemen",
-          "c": "Es minimiert Latenzen in lokalen Netzwerken",
-          "d": "Es fungiert als dynamischer IP-Adressverwalter"
+          "a": "Eine eindeutige Abfolge von Schritten zur Lösung eines Problems",
+          "b": "Eine bestimmte Programmiersprache",
+          "c": "Einen vordefinierten Datentyp",
+          "d": "Einen Compilerfehler"
         },
-        "answer": "b"
+        "answer": "Eine eindeutige Abfolge von Schritten zur Lösung eines Problems"
       },
       {
-        "question": "Frage 22: Wie funktioniert VPN-Tunnelung zur Sicherung von Datenübertragungen?",
+        "question": "Frage 2: Welcher Datentyp wird typischerweise verwendet, um Wahrheitswerte (True/False) zu speichern?",
         "options": {
-          "a": "Durch die Schaffung eines verschlüsselten, virtuellen Kanals über unsichere Netzwerke",
-          "b": "Durch die Abschaltung aller Verschlüsselungsprotokolle",
-          "c": "Durch direkte Punkt-zu-Punkt-Verbindungen ohne Zwischenserver",
-          "d": "Durch Erhöhung der Bandbreite auf physikalischer Ebene"
+          "a": "Boolescher Datentyp (Boolean)",
+          "b": "Ganzzahl (Integer)",
+          "c": "Zeichenkette (String)",
+          "d": "Gleitkommazahl (Float)"
         },
-        "answer": "a"
+        "answer": "Boolescher Datentyp (Boolean)"
       },
       {
-        "question": "Frage 23: Was kennzeichnet ein Zero Trust Network?",
+        "question": "Frage 3: Welcher der folgenden Begriffe gehört NICHT zu den grundlegenden Prinzipien der Objektorientierten Programmierung?",
         "options": {
-          "a": "Es basiert auf dem Prinzip, internem Netzwerkverkehr uneingeschränkt zu vertrauen",
-          "b": "Es fordert, dass weder interner noch externer Datenverkehr standardmäßig vertraut wird",
-          "c": "Es setzt ausschließlich auf hardwarebasierte Sicherheit",
-          "d": "Es eliminiert den Einsatz von Authentifizierungsmechanismen"
+          "a": "Kapselung",
+          "b": "Vererbung",
+          "c": "Polymorphie",
+          "d": "Rekursion"
         },
-        "answer": "b"
+        "answer": "Rekursion"
       },
       {
-        "question": "Frage 24: Wie unterstützen VLANs die Segmentierung und Sicherheit in Netzwerken?",
+        "question": "Frage 4: Was versteht man unter Debugging in der Softwareentwicklung?",
         "options": {
-          "a": "Durch physische Trennung aller Geräte in einem Rechenzentrum",
-          "b": "Durch logische Unterteilung eines Netzwerks, wodurch Broadcast-Domänen reduziert werden",
-          "c": "Durch Erhöhung der Datenübertragungsgeschwindigkeit",
-          "d": "Durch Verschlüsselung aller internen Datenströme"
+          "a": "Das Finden und Beheben von Fehlern in einem Programm",
+          "b": "Das Übersetzen von Quellcode in Maschinensprache",
+          "c": "Das Optimieren eines Programms auf Laufzeitgeschwindigkeit",
+          "d": "Das Schreiben von Benutzerhandbüchern für Software"
         },
-        "answer": "b"
+        "answer": "Das Finden und Beheben von Fehlern in einem Programm"
       },
       {
-        "question": "Frage 25: Welche Rolle spielt das SSL/TLS-Protokoll in der Netzwerksicherheit?",
+        "question": "Frage 5: Was ist eine Klasse in der objektorientierten Programmierung?",
         "options": {
-          "a": "Es regelt die dynamische IP-Adressvergabe",
-          "b": "Es sichert die verschlüsselte Übertragung von Daten zwischen Clients und Servern",
-          "c": "Es priorisiert den Datenverkehr in lokalen Netzwerken",
-          "d": "Es komprimiert Daten zur Bandbreitenoptimierung"
+          "a": "Ein Bauplan (Vorlage) zur Erstellung von Objekten",
+          "b": "Eine laufende Instanz eines Programms",
+          "c": "Ein spezieller Datentyp für Zeichen",
+          "d": "Eine Art von Schleife"
         },
-        "answer": "b"
+        "answer": "Ein Bauplan (Vorlage) zur Erstellung von Objekten"
       },
       {
-        "question": "Frage 26: Was ist die Hauptaufgabe eines Intrusion Detection Systems (IDS)?",
+        "question": "Frage 6: Wofür wird ein Compiler in der Programmierung verwendet?",
         "options": {
-          "a": "Es blockiert automatisch alle unerlaubten Verbindungen",
-          "b": "Es überwacht den Netzwerkverkehr auf verdächtige Aktivitäten und meldet potenzielle Angriffe",
-          "c": "Es erhöht die Übertragungsrate im Netzwerk",
-          "d": "Es verwaltet die Zuweisung von IP-Adressen"
+          "a": "Zur Übersetzung von Quellcode in ausführbaren Maschinencode",
+          "b": "Zum Auffinden von Laufzeitfehlern im Programm",
+          "c": "Zum dynamischen Nachladen von Bibliotheken zur Laufzeit",
+          "d": "Zur Versionierung des Quellcodes"
         },
-        "answer": "b"
+        "answer": "Zur Übersetzung von Quellcode in ausführbaren Maschinencode"
       },
       {
-        "question": "Frage 27: Wie unterscheiden sich symmetrische und asymmetrische Verschlüsselungsverfahren?",
+        "question": "Frage 7: Wie nennt man einen Fehler, der während der Ausführung eines Programms auftritt, z. B. durch Division durch Null?",
         "options": {
-          "a": "Symmetrische Verfahren nutzen einen einzelnen Schlüssel, während asymmetrische ein Schlüsselpaar verwenden",
-          "b": "Asymmetrische Verfahren sind stets schneller als symmetrische",
-          "c": "Symmetrische Verfahren benötigen keine Schlüsselverwaltung",
-          "d": "Asymmetrische Verfahren verwenden ausschließlich private Schlüssel"
+          "a": "Laufzeitfehler",
+          "b": "Syntaxfehler",
+          "c": "Logischer Fehler",
+          "d": "Kompilierungsfehler"
         },
-        "answer": "a"
+        "answer": "Laufzeitfehler"
       },
       {
-        "question": "Frage 28: Welche Funktion erfüllt das Address Resolution Protocol (ARP) in einem Netzwerk?",
+        "question": "Frage 8: Was bedeutet 'Rekursion' in der Programmierung?",
         "options": {
-          "a": "Es verschlüsselt IP-Pakete automatisch",
-          "b": "Es übersetzt IP-Adressen in physikalische MAC-Adressen",
-          "c": "Es verwaltet DNS-Anfragen",
-          "d": "Es priorisiert kritische Netzwerkdaten"
+          "a": "Eine Funktion ruft sich selbst auf",
+          "b": "Ein Programm läuft unendlich ohne Abbruch",
+          "c": "Eine Schleife innerhalb einer Schleife",
+          "d": "Ein Algorithmus wird in Pseudocode beschrieben"
         },
-        "answer": "b"
+        "answer": "Eine Funktion ruft sich selbst auf"
       },
       {
-        "question": "Frage 29: Was beschreibt der Begriff 'Quality of Service' (QoS) in Netzwerken?",
+        "question": "Frage 9: Was beschreibt die Big-O-Notation bei Algorithmen?",
         "options": {
-          "a": "Die Priorisierung und Sicherstellung von Dienstgüteparametern für unterschiedliche Datenströme",
-          "b": "Die Verschlüsselung aller Netzwerkpakete",
-          "c": "Die automatische IP-Adressverwaltung",
-          "d": "Die Reduktion von Serverausfällen"
+          "a": "Die Wachstumsrate des Ressourcenbedarfs (z. B. Laufzeit) in Abhängigkeit von der Eingabegröße",
+          "b": "Die Korrektheit eines Algorithmus für alle möglichen Eingaben",
+          "c": "Die Programmiersprache, in der der Algorithmus implementiert ist",
+          "d": "Die genaue Ausführungszeit eines Algorithmus in Sekunden"
         },
-        "answer": "a"
+        "answer": "Die Wachstumsrate des Ressourcenbedarfs (z. B. Laufzeit) in Abhängigkeit von der Eingabegröße"
       },
       {
-        "question": "Frage 30: Wie verändert Network Function Virtualization (NFV) die traditionelle Netzwerkarchitektur?",
+        "question": "Frage 10: Welche Art von Schleife führt den Codeblock mindestens einmal aus, bevor die Bedingung geprüft wird?",
         "options": {
-          "a": "Durch erhöhte Hardwareabhängigkeit und feste Komponenten",
-          "b": "Durch die Virtualisierung von Netzwerkfunktionen, wodurch diese auf Standard-Hardware betrieben werden können",
-          "c": "Durch vollständige Eliminierung von Software-basierten Lösungen",
-          "d": "Durch die Reduktion der Netzwerkflexibilität"
+          "a": "do-while-Schleife",
+          "b": "while-Schleife",
+          "c": "for-Schleife",
+          "d": "Endlosschleife"
         },
-        "answer": "b"
+        "answer": "do-while-Schleife"
       }
     ]
   },
   {
-    "topic": "Programmierung – Fortgeschrittene Konzepte",
+    "topic": "HTML-Grundwissen",
     "questions": [
       {
-        "question": "Frage 31: Was versteht man unter einem Design Pattern in der Softwareentwicklung?",
+        "question": "Frage 1: Wofür steht die Abkürzung HTML?",
         "options": {
-          "a": "Ein fest definiertes Format für Quellcode",
-          "b": "Eine wiederverwendbare Lösung für häufig auftretende Probleme in der Softwarearchitektur",
-          "c": "Eine spezielle Programmiersprache für GUI-Design",
-          "d": "Ein Framework zur Datenbankverwaltung"
+          "a": "HyperText Markup Language",
+          "b": "Hyperlinks and Text Markup Language",
+          "c": "Home Tool Markup Language",
+          "d": "High-level Machine Language"
         },
-        "answer": "b"
+        "answer": "HyperText Markup Language"
       },
       {
-        "question": "Frage 32: Wie unterscheidet sich die funktionale von der imperativen Programmierung?",
+        "question": "Frage 2: Welches der folgenden HTML5-Elemente hat keine spezifische semantische Bedeutung?",
         "options": {
-          "a": "Funktionale Programmierung nutzt unveränderliche Daten und Funktionen als Erstklassige Objekte, während imperative Programmierung Zustandsänderungen fokussiert",
-          "b": "Funktionale Programmierung verzichtet vollständig auf Funktionen",
-          "c": "Imperative Programmierung verwendet ausschließlich rekursive Aufrufe",
-          "d": "Es besteht kein wesentlicher Unterschied"
+          "a": "&lt;article&gt;",
+          "b": "&lt;header&gt;",
+          "c": "&lt;nav&gt;",
+          "d": "&lt;span&gt;"
         },
-        "answer": "a"
+        "answer": "&lt;span&gt;"
       },
       {
-        "question": "Frage 33: Was bedeutet Concurrency in modernen Softwareanwendungen?",
+        "question": "Frage 3: Welcher HTML-Bereich enthält den für den Benutzer sichtbaren Hauptinhalt der Seite?",
         "options": {
-          "a": "Die sequentielle Abarbeitung von Befehlen ohne Unterbrechung",
-          "b": "Die gleichzeitige Ausführung mehrerer Prozesse oder Threads zur Steigerung der Effizienz",
-          "c": "Die Verschlüsselung von Daten in Echtzeit",
-          "d": "Die automatische Optimierung von Algorithmen zur Laufzeit"
+          "a": "&lt;body&gt;",
+          "b": "&lt;head&gt;",
+          "c": "&lt;footer&gt;",
+          "d": "&lt;title&gt;"
         },
-        "answer": "b"
+        "answer": "&lt;body&gt;"
       },
       {
-        "question": "Frage 34: Welche Rolle spielen Immutable Data Structures in der funktionalen Programmierung?",
+        "question": "Frage 4: Welches HTML-Element wird verwendet, um einen Hyperlink zu erstellen?",
         "options": {
-          "a": "Sie ermöglichen es, Daten unverändert zu lassen, was Nebenwirkungen verhindert und die Parallelisierung erleichtert",
-          "b": "Sie führen zwangsläufig zu ineffizienten Algorithmen",
-          "c": "Sie werden ausschließlich in objektorientierten Sprachen verwendet",
-          "d": "Sie sind nur für die grafische Darstellung von Daten relevant"
+          "a": "&lt;a&gt;",
+          "b": "&lt;link&gt;",
+          "c": "&lt;img&gt;",
+          "d": "&lt;nav&gt;"
         },
-        "answer": "a"
+        "answer": "&lt;a&gt;"
       },
       {
-        "question": "Frage 35: Was beschreibt Dependency Injection in Softwarearchitekturen?",
+        "question": "Frage 5: Welches HTML-Element wird verwendet, um eine geordnete Liste zu erstellen?",
         "options": {
-          "a": "Die manuelle Erstellung von Objekten innerhalb einer Klasse",
-          "b": "Ein Entwurfsmuster, bei dem Abhängigkeiten extern bereitgestellt werden, um Kopplung zu reduzieren",
-          "c": "Die dynamische Erstellung von Datenbanken während der Laufzeit",
-          "d": "Ein Verfahren zur Verschlüsselung von Programmcodes"
+          "a": "&lt;ol&gt;",
+          "b": "&lt;ul&gt;",
+          "c": "&lt;li&gt;",
+          "d": "&lt;dl&gt;"
         },
-        "answer": "b"
+        "answer": "&lt;ol&gt;"
       },
       {
-        "question": "Frage 36: Wie verbessert Asynchronous Programming die Effizienz von Anwendungen?",
+        "question": "Frage 6: Welches HTML-Element dient als Container für ein Formular, um Benutzereingaben zu senden?",
         "options": {
-          "a": "Durch Blockierung des Hauptthreads, um Datenintegrität zu gewährleisten",
-          "b": "Durch gleichzeitige Ausführung von Aufgaben, ohne dass Prozesse aufeinander warten müssen",
-          "c": "Durch Erhöhung der CPU-Taktrate",
-          "d": "Durch Eliminierung von Fehlern im Code"
+          "a": "&lt;form&gt;",
+          "b": "&lt;input&gt;",
+          "c": "&lt;button&gt;",
+          "d": "&lt;table&gt;"
         },
-        "answer": "b"
+        "answer": "&lt;form&gt;"
       },
       {
-        "question": "Frage 37: Was kennzeichnet Reactive Programming in modernen Anwendungen?",
+        "question": "Frage 7: Welches Attribut eines &lt;input&gt;-Elements macht ein Feld zu einer Pflichtangabe?",
         "options": {
-          "a": "Die starre sequentielle Abarbeitung aller Befehle",
-          "b": "Die Fähigkeit, asynchron auf Datenstromänderungen und Ereignisse in Echtzeit zu reagieren",
-          "c": "Die ausschließliche Nutzung synchroner API-Aufrufe",
-          "d": "Die Verwendung globaler Variablen zur Statusverwaltung"
+          "a": "required",
+          "b": "placeholder",
+          "c": "type",
+          "d": "id"
         },
-        "answer": "b"
+        "answer": "required"
       },
       {
-        "question": "Frage 38: Wie kann Memoization die Effizienz rekursiver Algorithmen steigern?",
+        "question": "Frage 8: Welches Formularelement ermöglicht es dem Nutzer, **eine** Option aus mehreren auszuwählen?",
         "options": {
-          "a": "Durch Speicherung bereits berechneter Ergebnisse, um wiederholte Berechnungen zu vermeiden",
-          "b": "Durch Erhöhung des Speicherverbrauchs, was die Rechenzeit verlängert",
-          "c": "Durch Umwandlung von Rekursion in iterative Schleifen",
-          "d": "Durch Verschlüsselung der Zwischenergebnisse"
+          "a": "Radio-Button (Typ 'radio')",
+          "b": "Checkbox (Typ 'checkbox')",
+          "c": "Textfeld (Typ 'text')",
+          "d": "Mehrfachauswahl-Liste"
         },
-        "answer": "a"
+        "answer": "Radio-Button (Typ 'radio')"
       },
       {
-        "question": "Frage 39: Was versteht man unter Test-Driven Development (TDD)?",
+        "question": "Frage 9: Mit welchem HTML-Tag kann man ein externes CSS-Stylesheet einbinden?",
         "options": {
-          "a": "Das Schreiben von Code ohne jegliche Tests",
-          "b": "Einen Entwicklungsansatz, bei dem zuerst Tests definiert werden, die die gewünschte Funktionalität beschreiben, bevor der Code implementiert wird",
-          "c": "Die manuelle Durchführung von Integrationstests nach der Entwicklung",
-          "d": "Ein Konzept zur Versionsverwaltung von Quellcode"
+          "a": "&lt;link&gt;",
+          "b": "&lt;style&gt;",
+          "c": "&lt;css&gt;",
+          "d": "&lt;script&gt;"
         },
-        "answer": "b"
+        "answer": "&lt;link&gt;"
       },
       {
-        "question": "Frage 40: Wie verbessern Continuous Integration und Continuous Deployment (CI/CD) die Softwarequalität?",
+        "question": "Frage 10: Welches HTML-Attribut wird verwendet, um einem Element direkt CSS-Stilregeln zuzuweisen?",
         "options": {
-          "a": "Durch Eliminierung automatisierter Tests zugunsten manueller Prüfungen",
-          "b": "Durch häufige, automatisierte Integration, Tests und Deployment, die eine schnelle Fehlererkennung ermöglichen",
-          "c": "Durch Erhöhung der manuellen Eingriffe im Entwicklungsprozess",
-          "d": "Durch bewusste Verzögerung von Software-Releases zur Fehlervermeidung"
+          "a": "style",
+          "b": "class",
+          "c": "id",
+          "d": "name"
         },
-        "answer": "b"
+        "answer": "style"
       }
     ]
   }
 ];
+
+
 
 
 

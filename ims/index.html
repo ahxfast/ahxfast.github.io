@@ -444,7 +444,116 @@
       }
     ]
   }
+  ,
+  {
+    "topic": "Office",
+    "questions": [
+      {
+        "question": "Frage 41: Welches Programm eignet sich am besten, um Tabellenkalkulationen durchzuführen?",
+        "options": {
+          "a": "Microsoft Word",
+          "b": "Microsoft Excel",
+          "c": "Microsoft PowerPoint",
+          "d": "Microsoft Outlook"
+        },
+        "answer": "b"
+      },
+      {
+        "question": "Frage 42: Welches Element in Word enthält üblicherweise Seitenzahlen, die sich auf jeder Seite wiederholen?",
+        "options": {
+          "a": "Textkörper",
+          "b": "Fußnote",
+          "c": "Kopf- oder Fußzeile",
+          "d": "Endnote"
+        },
+        "answer": "c"
+      },
+      {
+        "question": "Frage 43: In welchem Office-Programm erstellt man am häufigsten Präsentationen mit Folien?",
+        "options": {
+          "a": "Microsoft Excel",
+          "b": "Microsoft Word",
+          "c": "Microsoft PowerPoint",
+          "d": "Microsoft Access"
+        },
+        "answer": "c"
+      },
+      {
+        "question": "Frage 44: Was bedeutet das Kürzel 'PDF' in Zusammenhang mit Office-Dokumenten?",
+        "options": {
+          "a": "Personal Document Format",
+          "b": "Portable Document Format",
+          "c": "Page Document Folder",
+          "d": "Public Document File"
+        },
+        "answer": "b"
+      },
+      {
+        "question": "Frage 45: Wie heißt die Funktion in Excel, mit der Werte automatisch summiert werden können?",
+        "options": {
+          "a": "AutoSumme",
+          "b": "Summieren",
+          "c": "Schnellsumme",
+          "d": "Automatische Addition"
+        },
+        "answer": "a"
+      },
+      {
+        "question": "Frage 46: Welches Office-Programm wird hauptsächlich für E-Mail und Terminverwaltung genutzt?",
+        "options": {
+          "a": "Microsoft Access",
+          "b": "Microsoft Word",
+          "c": "Microsoft Outlook",
+          "d": "Microsoft PowerPoint"
+        },
+        "answer": "c"
+      },
+      {
+        "question": "Frage 47: Was ist eine Pivot-Tabelle in Excel?",
+        "options": {
+          "a": "Eine spezielle Tabelle zur übersichtlichen Analyse großer Datenmengen",
+          "b": "Ein Tabellenformat für Word",
+          "c": "Eine Folienvorlage in PowerPoint",
+          "d": "Eine Tabelle, die nur aus Diagrammen besteht"
+        },
+        "answer": "a"
+      },
+      {
+        "question": "Frage 48: Welche Tastenkombination verwendet man typischerweise, um Inhalte aus der Zwischenablage einzufügen?",
+        "options": {
+          "a": "Strg + C",
+          "b": "Strg + X",
+          "c": "Strg + V",
+          "d": "Strg + Z"
+        },
+        "answer": "c"
+      },
+      {
+        "question": "Frage 49: Wie nennt man eine gespeicherte Vorlage in Word, die zur Erstellung ähnlicher Dokumente dient?",
+        "options": {
+          "a": "Mustervorlage",
+          "b": "Schablone",
+          "c": "Dokumenttyp",
+          "d": "Dokumentvorlage"
+        },
+        "answer": "d"
+      },
+      {
+        "question": "Frage 50: Welches Programm aus dem Microsoft Office Paket dient hauptsächlich zur Datenbankverwaltung?",
+        "options": {
+          "a": "Microsoft Excel",
+          "b": "Microsoft Word",
+          "c": "Microsoft Access",
+          "d": "Microsoft PowerPoint"
+        },
+        "answer": "c"
+      }
+    ]
+  }
 ];
+
+
+
 
 
 
@@ -502,7 +611,7 @@
       // Ergebnis speichern
       saveResultSnapshot(score, answers);
 
-      sendResultByMail
+      //sendResultByMail();
       this.reset();
     });
 
@@ -516,16 +625,16 @@
       localStorage.setItem("resultsFiles", JSON.stringify(results));
     }
 
-    function sendResultByMail(score, snapshot) {
-      // Wir erstellen den mailto-Link
-      const subject = encodeURIComponent("Testergebnis");
-      // Hier kannst du nur reinen Text verschicken (keine HTML-Anhänge)
-      const body = encodeURIComponent("Dein Score: " + score + " von 40\n\n" + 
-                                      "Snapshot:\n" + snapshot);
+    // function sendResultByMail(score, snapshot) {
+    //   // Wir erstellen den mailto-Link
+    //   const subject = encodeURIComponent("Testergebnis");
+    //   // Hier kannst du nur reinen Text verschicken (keine HTML-Anhänge)
+    //   const body = encodeURIComponent("Dein Score: " + score + " von 50\n\n" + 
+    //                                   "Snapshot:\n" + snapshot);
 
-      // mailto-Link (Empfänger kann man festlegen, z.B. "?to=info@example.com")
-      window.location.href = "mailto:?subject=" + subject + "&body=" + body;
-    }
+    //   // mailto-Link (Empfänger kann man festlegen, z.B. "?to=info@example.com")
+    //   window.location.href = "mailto:?subject=" + subject + "&body=" + body;
+    // }
 
 
     

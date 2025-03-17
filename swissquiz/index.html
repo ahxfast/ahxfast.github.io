@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Swiss Quiz</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    h1 { color: #333; }
+    .topic { margin-top: 40px; }
+    .question { margin-bottom: 20px; }
+    .options label { display: block; margin-bottom: 5px; }
+    .submit-btn { margin-top: 20px; padding: 10px 20px; font-size: 1em; }
+  </style>
+</head>
+<body>
+  <h1>Swiss Quiz</h1>
+  
+  <form id="quizForm">
+    <div id="quizContent"></div>
+    <button type="submit" class="submit-btn">Test abschicken</button>
+  </form>
+
+  <p><a href="results.html">Ergebnisse ansehen</a></p>
+
+  <script>
+    const quizData = [
+    {
+  "topic": "Schweizer Geographie",
+  "questions": [
+    {
+      "question": "Frage 1: Wie heisst die Hauptstadt der Schweiz?",
+      "options": {
+        "a": "Zürich",
+        "b": "Basel",
+        "c": "Bern",
+        "d": "Genf"
+      },
+      "answer": "c"
+    },
+    {
+      "question": "Frage 2: Welcher der folgenden Flüsse fließt durch die Schweiz?",
+      "options": {
+        "a": "Rhein",
+        "b": "Seine",
+        "c": "Donau",
+        "d": "Themse"
+      },
+      "answer": "a"
+    },
+    {
+      "question": "Frage 3: Welche Sprache ist in der Schweiz NICHT eine offizielle Landessprache?",
+      "options": {
+        "a": "Deutsch",
+        "b": "Französisch",
+        "c": "Italienisch",
+        "d": "Englisch"
+      },
+      "answer": "d"
+    },
+    {
+      "question": "Frage 4: Welcher der folgenden Seen befindet sich in der Schweiz?",
+      "options": {
+        "a": "Bodensee",
+        "b": "Genfersee",
+        "c": "Gardasee",
+        "d": "Balaton"
+      },
+      "answer": "b"
+    },
+    {
+      "question": "Frage 5: In welchem Kanton liegt die Stadt Zürich?",
+      "options": {
+        "a": "Zürich",
+        "b": "Bern",
+        "c": "Luzern",
+        "d": "Waadt"
+      },
+      "answer": "a"
+    },
+    {
+      "question": "Frage 6: Wie heißen die hohen Gebirgszüge, die einen Großteil der Schweiz prägen?",
+      "options": {
+        "a": "Pyrenäen",
+        "b": "Alpen",
+        "c": "Rocky Mountains",
+        "d": "Ural"
+      },
+      "answer": "b"
+    },
+    {
+      "question": "Frage 7: Welcher Berg gilt als eines der bekanntesten Wahrzeichen der Schweiz?",
+      "options": {
+        "a": "Mont Blanc",
+        "b": "Eiger",
+        "c": "Matterhorn",
+        "d": "Zugspitze"
+      },
+      "answer": "c"
+    },
+    {
+      "question": "Frage 8: Welcher Kanton ist besonders bekannt für den Emmentaler Käse?",
+      "options": {
+        "a": "Bern (Emmental)",
+        "b": "Graubünden",
+        "c": "Tessin",
+        "d": "Genf"
+      },
+      "answer": "a"
+    },
+    {
+      "question": "Frage 9: Welche Stadt ist die Hauptstadt des Kantons Waadt?",
+      "options": {
+        "a": "Lausanne",
+        "b": "Genf",
+        "c": "Bern",
+        "d": "Luzern"
+      },
+      "answer": "a"
+    },
+    {
+      "question": "Frage 10: Welcher Fluss fließt durch die Stadt Basel?",
+      "options": {
+        "a": "Aare",
+        "b": "Rhein",
+        "c": "Reuss",
+        "d": "Limmat"
+      },
+      "answer": "b"
+    },
+    {
+      "question": "Frage 11: In welchem Kanton liegt das berühmte Matterhorn?",
+      "options": {
+        "a": "Wallis",
+        "b": "Graubünden",
+        "c": "Uri",
+        "d": "Schwyz"
+      },
+      "answer": "a"
+    },
+    {
+      "question": "Frage 12: Welcher See ist flächenmäßig der grösste in der Schweiz?",
+      "options": {
+        "a": "Zürichsee",
+        "b": "Genfersee",
+        "c": "Neuenburgersee",
+        "d": "Bodensee (Schweizer Anteil)"
+      },
+      "answer": "b"
+    },
+    {
+      "question": "Frage 13: Wie viele offizielle Landessprachen hat die Schweiz?",
+      "options": {
+        "a": "2",
+        "b": "3",
+        "c": "4",
+        "d": "5"
+      },
+      "answer": "c"
+    },
+    {
+      "question": "Frage 14: Welcher Kanton ist überwiegend italienischsprachig?",
+      "options": {
+        "a": "Graubünden",
+        "b": "Tessin",
+        "c": "Wallis",
+        "d": "Neuenburg"
+      },
+      "answer": "b"
+    },
+    {
+      "question": "Frage 15: Welche Stadt ist bekannt für ihre internationalen Organisationen und den Flughafen?",
+      "options": {
+        "a": "Genf",
+        "b": "Zürich",
+        "c": "Bern",
+        "d": "Lausanne"
+      },
+      "answer": "a"
+    },
+    {
+      "question": "Frage 16: Welche Stadt ist die Hauptstadt des Kantons Bern?",
+      "options": {
+        "a": "Bern",
+        "b": "Zürich",
+        "c": "Genf",
+        "d": "Lugano"
+      },
+      "answer": "a"
+    },
+    {
+      "question": "Frage 17: Welcher Kanton ist flächenmäßig der grösste der Schweiz?",
+      "options": {
+        "a": "Graubünden",
+        "b": "Wallis",
+        "c": "Bern",
+        "d": "Uri"
+      },
+      "answer": "a"
+    },
+    {
+      "question": "Frage 18: Welcher der folgenden Berge liegt in den Schweizer Alpen?",
+      "options": {
+        "a": "Mont Blanc",
+        "b": "Matterhorn",
+        "c": "Kilimandscharo",
+        "d": "Elbrus"
+      },
+      "answer": "b"
+    },
+    {
+      "question": "Frage 19: Welcher Fluss ist der längste, der vollständig in der Schweiz verläuft?",
+      "options": {
+        "a": "Aare",
+        "b": "Rhein",
+        "c": "Reuss",
+        "d": "Limmat"
+      },
+      "answer": "a"
+    },
+    {
+      "question": "Frage 20: Welcher Kanton ist bekannt für seine Schieferfelsen, die oft in Verbindung mit dem Namen Glarus stehen?",
+      "options": {
+        "a": "Glarus",
+        "b": "Zug",
+        "c": "Luzern",
+        "d": "St. Gallen"
+      },
+      "answer": "a"
+    },
+    {
+      "question": "Frage 21: Welche Stadt liegt am Ufer des Zürichsees?",
+      "options": {
+        "a": "Basel",
+        "b": "Zürich",
+        "c": "Genf",
+        "d": "Lausanne"
+      },
+      "answer": "b"
+    },
+    {
+      "question": "Frage 22: Welche Stadt ist die Hauptstadt des Kantons Tessin?",
+      "options": {
+        "a": "Lugano",
+        "b": "Locarno",
+        "c": "Bellinzona",
+        "d": "Chiasso"
+      },
+      "answer": "c"
+    },
+    {
+      "question": "Frage 23: Welches Gebirge verläuft entlang der Nordseite der Schweiz?",
+      "options": {
+        "a": "Alpen",
+        "b": "Jura",
+        "c": "Pyrenäen",
+        "d": "Schwarzwald"
+      },
+      "answer": "b"
+    },
+    {
+      "question": "Frage 24: Welcher der folgenden Kantone gehört zur Romandie (französischsprachige Schweiz)?",
+      "options": {
+        "a": "Waadt",
+        "b": "Zürich",
+        "c": "Bern",
+        "d": "Aargau"
+      },
+      "answer": "a"
+    },
+    {
+      "question": "Frage 25: Welche Hauptstadt liegt am Ufer des Genfersees?",
+      "options": {
+        "a": "Lausanne",
+        "b": "Bern",
+        "c": "Zürich",
+        "d": "Luzern"
+      },
+      "answer": "a"
+    },
+    {
+      "question": "Frage 26: Welcher Fluss bildet einen Großteil der Grenze zwischen der Schweiz und Frankreich?",
+      "options": {
+        "a": "Aare",
+        "b": "Rhône",
+        "c": "Reuss",
+        "d": "Limmat"
+      },
+      "answer": "b"
+    },
+    {
+      "question": "Frage 27: Welcher Fluss fließt durch die Stadt Zürich?",
+      "options": {
+        "a": "Aare",
+        "b": "Limmat",
+        "c": "Reuss",
+        "d": "Rhein"
+      },
+      "answer": "b"
+    },
+    {
+      "question": "Frage 28: Welche der folgenden Regionen ist KEIN Teil der Schweiz?",
+      "options": {
+        "a": "Tessin",
+        "b": "Elsass",
+        "c": "Wallis",
+        "d": "Graubünden"
+      },
+      "answer": "b"
+    },
+    {
+      "question": "Frage 29: Wie nennt man das traditionelle, oft holzgebaute Haus im ländlichen Teil der Schweiz?",
+      "options": {
+        "a": "Chalet",
+        "b": "Villa",
+        "c": "Bungalow",
+        "d": "Apartment"
+      },
+      "answer": "a"
+    },
+    {
+      "question": "Frage 30: In welchem Kanton befindet sich die Stadt Biel/Bienne, die auch für ihre Uhrenindustrie bekannt ist?",
+      "options": {
+        "a": "Bern",
+        "b": "Zürich",
+        "c": "Waadt",
+        "d": "Genf"
+      },
+      "answer": "a"
+    }
+  ]
+}
+
+
+];
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    function renderQuiz() {
+      const quizContainer = document.getElementById("quizContent");
+      quizContainer.innerHTML = '';
+      quizData.forEach((section, sIdx) => {
+        const topicDiv = document.createElement("div");
+        topicDiv.classList.add("topic");
+        topicDiv.innerHTML = `<h2>${section.topic}</h2>`;
+    
+        section.questions.forEach((q, qIdx) => {
+          const questionNumber = section.questions.length * sIdx + qIdx + 1;
+          const questionDiv = document.createElement("div");
+          questionDiv.classList.add("question");
+          questionDiv.innerHTML = `<p> ${q.question}</p>`;
+    
+          const optionsDiv = document.createElement("div");
+          optionsDiv.classList.add("options");
+          Object.entries(q.options).forEach(([key, value]) => {
+            optionsDiv.innerHTML += `<label><input type="radio" name="q${questionNumber}" value="${key}"> (${key}) ${value}</label>`;
+          });
+          questionDiv.appendChild(optionsDiv);
+          topicDiv.appendChild(questionDiv);
+        });
+        quizContainer.appendChild(topicDiv);
+      });
+    }
+    
+    document.getElementById("quizForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      let score = 0;
+      const answers = [];
+
+      quizData.forEach((section, sIdx) => {
+        section.questions.forEach((q, qIdx) => {
+          const questionNumber = section.questions.length * sIdx + qIdx + 1;
+          const selected = document.querySelector(`input[name=q${questionNumber}]:checked`);
+          const answerValue = selected ? selected.value : null;
+          if (answerValue === q.answer) score++;
+          answers.push(answerValue);
+        });
+      });
+
+      alert(`Du hast ${score} von ${answers.length} Punkten erreicht.`);
+      
+      // Ergebnis speichern
+      saveResultSnapshot(score, answers);
+
+      //sendResultByMail();
+      this.reset();
+    });
+
+    function saveResultSnapshot(score, answers) {
+      const results = JSON.parse(localStorage.getItem("resultsFiles") || "[]");
+      results.push({
+        score,
+        answers,
+        date: new Date().toLocaleString()
+      });
+      localStorage.setItem("resultsFiles", JSON.stringify(results));
+    }
+
+    // function sendResultByMail(score, snapshot) {
+    //   // Wir erstellen den mailto-Link
+    //   const subject = encodeURIComponent("Testergebnis");
+    //   // Hier kannst du nur reinen Text verschicken (keine HTML-Anhänge)
+    //   const body = encodeURIComponent("Dein Score: " + score + " von 50\n\n" + 
+    //                                   "Snapshot:\n" + snapshot);
+
+    //   // mailto-Link (Empfänger kann man festlegen, z.B. "?to=info@example.com")
+    //   window.location.href = "mailto:?subject=" + subject + "&body=" + body;
+    // }
+
+
+    
+    renderQuiz();
+    </script>
+    
+</body>
+</html>

@@ -25,20 +25,40 @@
   <script>
     const quizData = [
   {
-    "topic": "Systemtechnik",
+    "topic": "Systemtechnik & Hardware",
     "questions": [
       {
-        "question": "Frage 1: Was versteht man unter der Hardware eines Computersystems?",
+        "question": "Frage 1, leicht: Was versteht man unter dem Begriff 'Hardware'?",
         "options": {
-          "a": "Die installierten Programme",
-          "b": "Alle gespeicherten Daten und Dateien",
-          "c": "Das Betriebssystem des Computers",
-          "d": "Die physischen Komponenten des Computers"
+          "a": "Cloud-Dienste",
+          "b": "Internetseiten",
+          "c": "Physische Bestandteile eines Computers",
+          "d": "Softwareprogramme"
+        },
+        "answer": "c"
+      },
+      {
+        "question": "Frage 2, leicht: Welches Bauteil ist für die Berechnungen im Computer verantwortlich?",
+        "options": {
+          "a": "Mainboard",
+          "b": "Festplatte",
+          "c": "Netzteil",
+          "d": "CPU"
         },
         "answer": "d"
       },
       {
-        "question": "Frage 2: Welches der folgenden Geräte ist ein Eingabegerät?",
+        "question": "Frage 3, leicht: Welche Komponente speichert Daten dauerhaft?",
+        "options": {
+          "a": "RAM",
+          "b": "CPU",
+          "c": "Netzwerkkarte",
+          "d": "Festplatte (HDD) oder SSD"
+        },
+        "answer": "d"
+      },
+      {
+        "question": "Frage 4, fortgeschritten: Welches Gerät dient als Eingabegerät?",
         "options": {
           "a": "Monitor",
           "b": "Drucker",
@@ -48,84 +68,275 @@
         "answer": "c"
       },
       {
-        "question": "Frage 3: Welches dieser Software-Pakete ist kein Betriebssystem?",
+        "question": "Frage 5, fortgeschritten: Welche Aufgabe hat ein Netzteil im PC?",
         "options": {
-          "a": "Windows 10",
-          "b": "Microsoft Office",
-          "c": "Linux Ubuntu",
-          "d": "Android"
-        },
-        "answer": "b"
-      },
-      {
-        "question": "Frage 4: Welche Einheit folgt in der Gr&ouml;&szlig;e direkt nach einem Megabyte?",
-        "options": {
-          "a": "Megabit",
-          "b": "Kilobyte",
-          "c": "Terabyte",
-          "d": "Gigabyte"
+          "a": "Datenverarbeitung",
+          "b": "Bildausgabe",
+          "c": "Audioausgabe",
+          "d": "Stromversorgung"
         },
         "answer": "d"
       },
       {
-        "question": "Frage 5: Was ist die Hauptaufgabe eines Betriebssystems?",
+        "question": "Frage 6, fortgeschritten: Welche Komponente bezeichnet man oft als 'Gehirn' des Computers?",
         "options": {
-          "a": "Entfernung von Viren und Malware",
-          "b": "Herstellung der Internetverbindung",
-          "c": "Verwaltung von Hardware und Software",
-          "d": "Verbesserung der Grafikleistung"
+          "a": "Mainboard",
+          "b": "RAM",
+          "c": "CPU",
+          "d": "Gehäuse"
         },
         "answer": "c"
       },
       {
-        "question": "Frage 6: Wof&uuml;r steht die Abk&uuml;rzung 'GPU'?",
+        "question": "Frage 7, schwierig: Welches Bauteil kühlt in der Regel den Prozessor?",
         "options": {
-          "a": "General Processing Unit",
-          "b": "Gigabit Performance Unit",
-          "c": "Global Processing Unit",
-          "d": "Graphics Processing Unit"
+          "a": "Festplatte",
+          "b": "Arbeitsspeicher",
+          "c": "Grafikkarte",
+          "d": "CPU-Lüfter bzw. CPU-Kühler"
         },
         "answer": "d"
       },
       {
-        "question": "Frage 7: Welche Komponente verliert ihre gespeicherten Daten, sobald der Computer ausgeschaltet wird?",
+        "question": "Frage 8, schwierig: Wozu dient der Arbeitsspeicher (RAM)?",
         "options": {
-          "a": "Festplatte (HDD)",
-          "b": "Arbeitsspeicher (RAM)",
-          "c": "Solid State Drive (SSD)",
-          "d": "USB-Stick"
-        },
-        "answer": "b"
-      },
-      {
-        "question": "Frage 8: Wof&uuml;r steht die Abk&uuml;rzung 'LAN'?",
-        "options": {
-          "a": "Large Access Network",
-          "b": "Lightwave Array Node",
-          "c": "Local Area Network",
-          "d": "Logical Address Number"
+          "a": "Er speichert Daten dauerhaft",
+          "b": "Er stellt Netzwerkverbindungen her",
+          "c": "Er speichert Daten nur während des Betriebs",
+          "d": "Er verarbeitet Grafiken"
         },
         "answer": "c"
       },
       {
-        "question": "Frage 9: In welcher Einheit wird typischerweise die Taktfrequenz eines Prozessors angegeben?",
+        "question": "Frage 9, sehr schwierig: Was bedeutet die Abkürzung 'BIOS'?",
         "options": {
-          "a": "Gigabyte (GB)",
-          "b": "Celsius (°C)",
-          "c": "Bit pro Sekunde",
-          "d": "Gigahertz (GHz)"
+          "a": "Basis Integrierte Optimierungs-Software",
+          "b": "Betriebssystem In Onlinespeicher",
+          "c": "Betriebssystem Interner Organisations-Service",
+          "d": "Basic Input/Output System"
         },
         "answer": "d"
       },
       {
-        "question": "Frage 10: Wozu dient ein Router in einem Heimnetzwerk?",
+        "question": "Frage 10, sehr schwierig: Was ist der wesentliche Unterschied zwischen HDD und SSD?",
         "options": {
-          "a": "Er verschl&uuml;sselt alle Daten auf der Festplatte",
-          "b": "Er erh&ouml;ht die Geschwindigkeit der Grafikkarte",
-          "c": "Er steuert die Stromversorgung des Computers",
-          "d": "Er leitet Datenpakete zwischen Netzwerken weiter"
+          "a": "Beide speichern nur temporär",
+          "b": "HDD ist grundsätzlich schneller als SSD",
+          "c": "SSD verwendet mechanische Teile, HDD nicht",
+          "d": "SSD hat keine beweglichen Teile und ist meist schneller als HDD"
         },
         "answer": "d"
+      }
+    ]
+  },
+  {
+  "topic": "HTML",
+  "questions": [
+    {
+      "question": "Frage 1, leicht: Welches Tag in HTML erzeugt einen Zeilenumbruch?",
+      "options": {
+        "a": "&lt;break&gt;",
+        "b": "&lt;lb&gt;",
+        "c": "&lt;br&gt;",
+        "d": "&lt;newline&gt;"
+      },
+      "answer": "c"
+    },
+    {
+      "question": "Frage 2, leicht: Welches Tag definiert eine Überschrift erster Ordnung?",
+      "options": {
+        "a": "&lt;title&gt;",
+        "b": "&lt;h2&gt;",
+        "c": "&lt;header&gt;",
+        "d": "&lt;h1&gt;"
+      },
+      "answer": "d"
+    },
+    {
+      "question": "Frage 3, leicht: Welches Tag wird genutzt, um einen Absatz zu definieren?",
+      "options": {
+        "a": "&lt;section&gt;",
+        "b": "&lt;span&gt;",
+        "c": "&lt;div&gt;",
+        "d": "&lt;p&gt;"
+      },
+      "answer": "d"
+    },
+    {
+      "question": "Frage 4, fortgeschritten: Mit welchem Attribut wird das Ziel eines Hyperlinks festgelegt?",
+      "options": {
+        "a": "id",
+        "b": "class",
+        "c": "src",
+        "d": "href"
+      },
+      "answer": "d"
+    },
+    {
+      "question": "Frage 5, fortgeschritten: Welches Tag verwendet man für eine geordnete Liste?",
+      "options": {
+        "a": "&lt;ul&gt;",
+        "b": "&lt;li&gt;",
+        "c": "&lt;dl&gt;",
+        "d": "&lt;ol&gt;"
+      },
+      "answer": "d"
+    },
+    {
+      "question": "Frage 6, fortgeschritten: Welches Tag bindet ein Bild in eine HTML-Seite ein?",
+      "options": {
+        "a": "&lt;figure&gt;",
+        "b": "&lt;pic&gt;",
+        "c": "&lt;image&gt;",
+        "d": "&lt;img&gt;"
+      },
+      "answer": "d"
+    },
+    {
+      "question": "Frage 7, schwierig: Mit welchem Attribut wird ein Alternativtext für Bilder angegeben?",
+      "options": {
+        "a": "title",
+        "b": "href",
+        "c": "src",
+        "d": "alt"
+      },
+      "answer": "d"
+    },
+    {
+      "question": "Frage 8, schwierig: Welches Tag kennzeichnet den Hauptinhalt einer Seite semantisch korrekt?",
+      "options": {
+        "a": "&lt;article&gt;",
+        "b": "&lt;div&gt;",
+        "c": "&lt;section&gt;",
+        "d": "&lt;main&gt;"
+      },
+      "answer": "d"
+    },
+    {
+  "question": "Frage 9, sehr schwierig: Wie stellt man das Zeichen '&lt;' in HTML dar, damit es nicht als Tag interpretiert wird?",
+  "options": {
+    "a": "&amp;lt;",
+    "b": "&amp;lt;br&amp;gt;",
+    "c": "&amp;lt;char&amp;gt;",
+    "d": "lt;"
+  },
+  "answer": "a"
+},
+    {
+      "question": "Frage 10, sehr schwierig: Mit welchem Tag bindet man JavaScript-Code in eine HTML-Seite ein?",
+      "options": {
+        "a": "&lt;js&gt;",
+        "b": "&lt;code&gt;",
+        "c": "&lt;style&gt;",
+        "d": "&lt;script&gt;"
+      },
+      "answer": "d"
+    }
+  ]
+}
+,
+  {
+    "topic": "Programmierung",
+    "questions": [
+      {
+        "question": "Frage 1, leicht: Was ist eine Variable?",
+        "options": {
+          "a": "Ein Kommentar",
+          "b": "Eine Schleife",
+          "c": "Ein Speicherort für Werte",
+          "d": "Eine Fehlermeldung"
+        },
+        "answer": "c"
+      },
+      {
+        "question": "Frage 2, leicht: Welches Konzept beschreibt die Wiederverwendung von Code durch Aufruf eines Namens?",
+        "options": {
+          "a": "Compiler",
+          "b": "Schleife",
+          "c": "Funktion",
+          "d": "Klasse"
+        },
+        "answer": "c"
+      },
+      {
+        "question": "Frage 3, leicht: Welcher Programmierbefehl dient dazu, wiederholt Code auszuführen?",
+        "options": {
+          "a": "if",
+          "b": "return",
+          "c": "import",
+          "d": "Schleife (z.B. for, while)"
+        },
+        "answer": "d"
+      },
+      {
+        "question": "Frage 4, fortgeschritten: Was ist ein Array?",
+        "options": {
+          "a": "Eine Datenausgabe",
+          "b": "Eine Konstante",
+          "c": "Ein einzelner Wert",
+          "d": "Eine Sammlung mehrerer Elemente"
+        },
+        "answer": "d"
+      },
+      {
+        "question": "Frage 5, fortgeschritten: Was beschreibt eine if-Bedingung?",
+        "options": {
+          "a": "Sie lädt externe Bibliotheken",
+          "b": "Sie definiert eine Funktion",
+          "c": "Sie trifft eine Entscheidung basierend auf einer Bedingung",
+          "d": "Sie erstellt eine Klasse"
+        },
+        "answer": "c"
+      },
+      {
+        "question": "Frage 6, fortgeschritten: Welche Programmiersprache ist bekannt für ihre Einfachheit und Lesbarkeit?",
+        "options": {
+          "a": "C++",
+          "b": "Java",
+          "c": "Python",
+          "d": "Assembly"
+        },
+        "answer": "c"
+      },
+      {
+        "question": "Frage 7, schwierig: Was versteht man unter Objektorientierung?",
+        "options": {
+          "a": "Programmieren in Maschinensprache",
+          "b": "Verwendung von Funktionen ohne Parameter",
+          "c": "Organisation des Codes in Klassen und Objekten",
+          "d": "Ausführen von SQL-Befehlen"
+        },
+        "answer": "c"
+      },
+      {
+        "question": "Frage 8, schwierig: Welche Schleife läuft mindestens einmal, bevor die Bedingung geprüft wird?",
+        "options": {
+          "a": "for",
+          "b": "while",
+          "c": "foreach",
+          "d": "do-while"
+        },
+        "answer": "d"
+      },
+      {
+        "question": "Frage 9, sehr schwierig: Was bedeutet Rekursion in der Programmierung?",
+        "options": {
+          "a": "Eine Schleife, die endlos läuft",
+          "b": "Eine Klasse, die sich selbst erbt",
+          "c": "Eine Funktion, die sich selbst aufruft",
+          "d": "Ein Compilerfehler"
+        },
+        "answer": "c"
+      },
+      {
+        "question": "Frage 10, sehr schwierig: Wofür steht 'IDE' im Programmierkontext?",
+        "options": {
+          "a": "Internal Data Export",
+          "b": "Infinite Development Error",
+          "c": "Integrated Development Environment",
+          "d": "Independent Driver Extension"
+        },
+        "answer": "c"
       }
     ]
   },
@@ -133,424 +344,214 @@
     "topic": "Datenbanken",
     "questions": [
       {
-        "question": "Frage 1: Was ist eine Datenbank?",
+        "question": "Frage 1, leicht: Was versteht man unter einer Datenbank?",
         "options": {
-          "a": "Ein Programm zum Versenden von E-Mails",
-          "b": "Ein Betriebssystem f&uuml;r Computer",
-          "c": "Ein Dateiformat f&uuml;r Bilder",
-          "d": "Eine strukturierte Sammlung von Daten"
+          "a": "Ein Betriebssystem",
+          "b": "Ein Musikarchiv",
+          "c": "Eine strukturierte Sammlung von Daten",
+          "d": "Eine Backup-Software"
+        },
+        "answer": "c"
+      },
+      {
+        "question": "Frage 2, leicht: Welche Sprache wird oft für Abfragen in relationalen Datenbanken verwendet?",
+        "options": {
+          "a": "HTML",
+          "b": "Python",
+          "c": "SQL",
+          "d": "Java"
+        },
+        "answer": "c"
+      },
+      {
+        "question": "Frage 3, leicht: Was ist ein 'Tupel' in einer Datenbanktabelle?",
+        "options": {
+          "a": "Eine Spalte",
+          "b": "Ein Datenbankschema",
+          "c": "Eine Indexstruktur",
+          "d": "Eine Zeile"
         },
         "answer": "d"
       },
       {
-        "question": "Frage 2: Welches der folgenden Programme ist ein Datenbankmanagementsystem (DBMS)?",
+        "question": "Frage 4, fortgeschritten: Welche SQL-Anweisung fügt neue Datensätze in eine Tabelle ein?",
         "options": {
-          "a": "Photoshop",
-          "b": "Excel",
-          "c": "Firefox",
-          "d": "MySQL"
-        },
-        "answer": "d"
-      },
-      {
-        "question": "Frage 3: Wof&uuml;r wird die Sprache SQL haupts&auml;chlich verwendet?",
-        "options": {
-          "a": "Zur Verschl&uuml;sselung von Internetdaten",
-          "b": "Zur Programmierung von Betriebssystemen",
-          "c": "Zum Erstellen von Grafiken und Designs",
-          "d": "Zum Abfragen und Bearbeiten von Daten"
-        },
-        "answer": "d"
-      },
-      {
-        "question": "Frage 4: Was beschreibt in einer relationalen Datenbank am besten eine 'Tabelle'?",
-        "options": {
-          "a": "Eine Verbindung zwischen zwei Datenbanken",
-          "b": "Einen einzelnen Datenwert innerhalb der Datenbank",
-          "c": "Eine grafische Darstellung der Datenbankstruktur",
-          "d": "Eine Sammlung von Datens&auml;tzen in Zeilen und Spalten"
-        },
-        "answer": "d"
-      },
-      {
-        "question": "Frage 5: Wozu dient ein Prim&auml;rschl&uuml;ssel in einer Datenbanktabelle?",
-        "options": {
-          "a": "Zur Kontrolle der Zugriffsrechte auf die Tabelle",
-          "b": "Zur Angabe eines Standardwerts f&uuml;r ein Feld",
-          "c": "Zur Verschl&uuml;sselung sensibler Daten in der Tabelle",
-          "d": "Zur eindeutigen Identifizierung eines Datensatzes"
-        },
-        "answer": "d"
-      },
-      {
-        "question": "Frage 6: Mit welchem SQL-Befehl kann ein neuer Datensatz in eine Tabelle eingef&uuml;gt werden?",
-        "options": {
-          "a": "DELETE",
-          "b": "SELECT",
-          "c": "UPDATE",
+          "a": "SELECT",
+          "b": "UPDATE",
+          "c": "DELETE",
           "d": "INSERT"
         },
         "answer": "d"
       },
       {
-        "question": "Frage 7: Welches SQL-Schl&uuml;sselwort wird verwendet, um Ergebnisse nach einer bestimmten Bedingung zu filtern?",
+        "question": "Frage 5, fortgeschritten: Welcher Schlüssel dient als eindeutiges Identifikationsmerkmal einer Tabelle?",
         "options": {
-          "a": "ORDER BY",
-          "b": "FROM",
-          "c": "WHERE",
-          "d": "SELECT"
+          "a": "Fremdschlüssel",
+          "b": "Unique Key",
+          "c": "Index",
+          "d": "Primärschlüssel"
+        },
+        "answer": "d"
+      },
+      {
+        "question": "Frage 6, fortgeschritten: Wozu dient die WHERE-Klausel in einer SQL-Anweisung?",
+        "options": {
+          "a": "Sie legt die Tabelle fest",
+          "b": "Sie fügt neue Datensätze ein",
+          "c": "Sie definiert Bedingungen für die Abfrage",
+          "d": "Sie sortiert Datensätze"
         },
         "answer": "c"
       },
       {
-        "question": "Frage 8: Was versteht man unter einem Fremdschl&uuml;ssel in einer relationalen Datenbank?",
+        "question": "Frage 7, schwierig: Was versteht man unter einem Fremdschlüssel (Foreign Key)?",
         "options": {
-          "a": "Ein alternativer Begriff f&uuml;r den Prim&auml;rschl&uuml;ssel",
-          "b": "Ein Schl&uuml;ssel, der zur Verschl&uuml;sselung der Datenbank verwendet wird",
-          "c": "Ein besonderes Feld, das automatisch berechnete Werte speichert",
-          "d": "Ein Feld, das auf den Prim&auml;rschl&uuml;ssel einer anderen Tabelle verweist"
+          "a": "Einen Schlüssel für den Backup-Prozess",
+          "b": "Eine eindeutige Identifikation in derselben Tabelle",
+          "c": "Einen Schlüssel, der auf einen Primärschlüssel in einer anderen Tabelle verweist",
+          "d": "Ein Passwort für den Datenbankzugang"
         },
-        "answer": "d"
+        "answer": "c"
       },
       {
-        "question": "Frage 9: Wie kann die Abfragegeschwindigkeit in einer gro&szlig;en Tabelle typischerweise erh&ouml;ht werden?",
+        "question": "Frage 8, schwierig: Was ist der Zweck der Normalisierung in einer relationalen Datenbank?",
         "options": {
-          "a": "Durch die Speicherung aller Daten in einer einzigen Tabelle",
-          "b": "Durch das regelm&auml;&szlig;ige Neustarten des Datenbankservers",
-          "c": "Durch die Speicherung der Datenbank auf einer Festplatte",
-          "d": "Durch das Erstellen eines Index auf h&auml;ufig verwendeten Spalten"
+          "a": "Daten zu verschlüsseln",
+          "b": "Tabellen zu löschen",
+          "c": "Datenredundanz verringern und Datenintegrität erhöhen",
+          "d": "Die Abfragegeschwindigkeit zu halbieren"
         },
-        "answer": "d"
+        "answer": "c"
       },
       {
-        "question": "Frage 10: Was versteht man unter einer NoSQL-Datenbank?",
+        "question": "Frage 9, sehr schwierig: Was bedeutet 'ACID' im Zusammenhang mit Datenbanken?",
         "options": {
-          "a": "Eine relationale Datenbank mit ausschlie&szlig;lich Textdaten",
-          "b": "Eine vollständig ungesicherte Datenbank ohne Passwortschutz",
-          "c": "Eine Datenbank, die SQL-Befehle blockiert und nicht akzeptiert",
-          "d": "Eine Datenbank, die nicht auf dem relationalen Modell basiert"
+          "a": "Asynchronous Consistency In Database",
+          "b": "Ein Backup-Verfahren",
+          "c": "Atomicity, Consistency, Isolation, Durability",
+          "d": "A random approach for indexing"
+        },
+        "answer": "c"
+      },
+      {
+        "question": "Frage 10, sehr schwierig: Worin unterscheiden sich NoSQL-Datenbanken grundlegend von relationalen Datenbanken?",
+        "options": {
+          "a": "Sie sind immer langsamer",
+          "b": "Sie werden ausschließlich für Bilder verwendet",
+          "c": "Sie erfordern SQL-Befehle",
+          "d": "Sie verwenden keine Tabellenstruktur, sondern flexible Datenmodelle"
         },
         "answer": "d"
       }
     ]
   },
   {
-    "topic": "HTML-Grundwissen",
+    "topic": "MS Office",
     "questions": [
       {
-        "question": "Frage 1: Wof&uuml;r steht die Abk&uuml;rzung HTML?",
+        "question": "Frage 1, leicht: Welches Programm in MS Office ist hauptsächlich für Textverarbeitung zuständig?",
         "options": {
-          "a": "High-level Machine Language",
-          "b": "Hyperlinks and Text Markup Language",
-          "c": "Home Tool Markup Language",
-          "d": "HyperText Markup Language"
+          "a": "Excel",
+          "b": "PowerPoint",
+          "c": "Word",
+          "d": "Access"
+        },
+        "answer": "c"
+      },
+      {
+        "question": "Frage 2, leicht: Mit welchem Programm erstellt man Präsentationen?",
+        "options": {
+          "a": "Word",
+          "b": "Excel",
+          "c": "Access",
+          "d": "PowerPoint"
         },
         "answer": "d"
       },
       {
-        "question": "Frage 2: Welches der folgenden HTML5-Elemente besitzt KEINE semantische Bedeutung?",
+        "question": "Frage 3, leicht: Welches Programm eignet sich für Tabellenkalkulation?",
         "options": {
-          "a": "&lt;article&gt;",
-          "b": "&lt;header&gt;",
-          "c": "&lt;nav&gt;",
-          "d": "&lt;span&gt;"
+          "a": "Outlook",
+          "b": "OneNote",
+          "c": "Excel",
+          "d": "Publisher"
+        },
+        "answer": "c"
+      },
+      {
+        "question": "Frage 4, fortgeschritten: Welche Tastenkombination speichert ein Dokument in Word?",
+        "options": {
+          "a": "Strg+X",
+          "b": "Strg+C",
+          "c": "Strg+V",
+          "d": "Strg+S"
         },
         "answer": "d"
       },
       {
-        "question": "Frage 3: In welchem Bereich eines HTML-Dokuments befindet sich in der Regel der Titel der Seite?",
+        "question": "Frage 5, fortgeschritten: Wie erstellt man in Excel eine Summe über mehrere Zellen?",
         "options": {
-          "a": "&lt;footer&gt;",
-          "b": "&lt;section&gt;",
-          "c": "&lt;title&gt;",
-          "d": "&lt;head&gt;"
+          "a": "Mit der Funktion =DURCHSCHNITT(...)",
+          "b": "Mit der Funktion =WENN(...)",
+          "c": "Mit der Funktion =MAX(...)",
+          "d": "Mit der Funktion =SUMME(...)"
         },
         "answer": "d"
       },
       {
-        "question": "Frage 4: Welches HTML-Element wird verwendet, um einen Hyperlink zu erstellen?",
+        "question": "Frage 6, fortgeschritten: Wozu dient die Autokorrektur in Word?",
         "options": {
-          "a": "&lt;link&gt;",
-          "b": "&lt;href&gt;",
-          "c": "&lt;url&gt;",
-          "d": "&lt;a&gt;"
+          "a": "Sie erstellt ein Inhaltsverzeichnis",
+          "b": "Sie fügt Grafiken ein",
+          "c": "Sie korrigiert Tippfehler automatisch",
+          "d": "Sie sendet E-Mails"
+        },
+        "answer": "c"
+      },
+      {
+        "question": "Frage 7, schwierig: Welches Programm aus MS Office wird häufig zum Verwalten von E-Mails verwendet?",
+        "options": {
+          "a": "Word",
+          "b": "Excel",
+          "c": "OneDrive",
+          "d": "Outlook"
         },
         "answer": "d"
       },
       {
-        "question": "Frage 5: Welches HTML-Tag wird verwendet, um eine geordnete Liste zu erstellen?",
+        "question": "Frage 8, schwierig: Welche Endung trägt eine PowerPoint-Präsentationsdatei (ab Version 2007)?",
         "options": {
-          "a": "&lt;ul&gt;",
-          "b": "&lt;li&gt;",
-          "c": "&lt;dl&gt;",
-          "d": "&lt;ol&gt;"
+          "a": ".docx",
+          "b": ".xlsx",
+          "c": ".ppt",
+          "d": ".pptx"
         },
         "answer": "d"
       },
       {
-        "question": "Frage 6: Welches HTML-Element dient als Container f&uuml;r ein Formular zur Erfassung von Benutzereingaben?",
+        "question": "Frage 9, sehr schwierig: Wie kann man in Excel Zellen miteinander vergleichen, ob sie denselben Wert haben?",
         "options": {
-          "a": "&lt;input&gt;",
-          "b": "&lt;button&gt;",
-          "c": "&lt;table&gt;",
-          "d": "&lt;form&gt;"
+          "a": "Mit der Funktion =SUMME(...)",
+          "b": "Mit dem Diagramm-Assistenten",
+          "c": "Mit der Funktion =WENN(A1=B1;...;...)",
+          "d": "Mit der Autokorrektur"
         },
-        "answer": "d"
+        "answer": "c"
       },
       {
-        "question": "Frage 7: Welches Attribut eines &lt;input&gt;-Elements macht ein Feld zur Pflichtangabe?",
+        "question": "Frage 10, sehr schwierig: Welche Möglichkeit bietet Word, um umfangreiche Dokumente zu strukturieren?",
         "options": {
-          "a": "type",
-          "b": "id",
-          "c": "placeholder",
-          "d": "required"
-        },
-        "answer": "d"
-      },
-      {
-        "question": "Frage 8: Welches Formularelement erm&ouml;glicht es dem Nutzer, genau eine Option aus mehreren auszuw&auml;hlen?",
-        "options": {
-          "a": "Checkbox (type=&quot;checkbox&quot;)",
-          "b": "Dropdown-Liste (select)",
-          "c": "Textfeld (type=&quot;text&quot;)",
-          "d": "Radio-Button (type=&quot;radio&quot;)"
-        },
-        "answer": "d"
-      },
-      {
-        "question": "Frage 9: Mit welchem HTML-Tag kann man ein externes CSS-Stylesheet einbinden?",
-        "options": {
-          "a": "&lt;style&gt;",
-          "b": "&lt;script&gt;",
-          "c": "&lt;css&gt;",
-          "d": "&lt;link&gt;"
-        },
-        "answer": "d"
-      },
-      {
-        "question": "Frage 10: Welches HTML-Attribut wird verwendet, um einem Element direkt Inline-Stilregeln zuzuweisen?",
-        "options": {
-          "a": "class",
-          "b": "id",
-          "c": "name",
-          "d": "style"
-        },
-        "answer": "d"
-      }
-    ]
-  },
-  {
-    "topic": "Programmierung",
-    "questions": [
-      {
-        "question": "Frage 1: Wie nennt man einen Fehler in einem Programm, der zu falschem Verhalten oder Abst&uuml;rzen f&uuml;hrt?",
-        "options": {
-          "a": "Hack (Eingriff)",
-          "b": "Loop (Schleife)",
-          "c": "Feature (Funktion)",
-          "d": "Bug (Programmfehler)"
-        },
-        "answer": "d"
-      },
-      {
-        "question": "Frage 2: Welche der folgenden Aufz&auml;hlungen enth&auml;lt keine Programmiersprache?",
-        "options": {
-          "a": "C#, C++, Java",
-          "b": "Swift, Kotlin, Java",
-          "c": "Python, Go, Ruby",
-          "d": "Python, Java, HTML"
-        },
-        "answer": "d"
-      },
-      {
-        "question": "Frage 3: Was versteht man unter einer Variablen in der Programmierung?",
-        "options": {
-          "a": "Einen Datentyp f&uuml;r Flie&szlig;kommazahlen",
-          "b": "Einen benannten Speicherplatz f&uuml;r einen Wert",
-          "c": "Einen fest programmierten Ablauf im Code",
-          "d": "Einen Fehler, der zu einem Programmabsturz f&uuml;hrt"
-        },
-        "answer": "b"
-      },
-      {
-        "question": "Frage 4: Was ist ein Algorithmus im Bereich der Informatik?",
-        "options": {
-          "a": "Ein Fehler, der bei der Kompilierung auftritt",
-          "b": "Ein spezieller Computer zur Datenverarbeitung",
-          "c": "Eine Programmiersprache f&uuml;r Webentwicklung",
-          "d": "Eine Schritt-f&uuml;r-Schritt-Anleitung zur Probleml&ouml;sung"
-        },
-        "answer": "d"
-      },
-      {
-        "question": "Frage 5: Welches Schl&uuml;sselwort wird in vielen Programmiersprachen verwendet, um eine Bedingung auszudr&uuml;cken?",
-        "options": {
-          "a": "for",
-          "b": "print",
-          "c": "loop",
-          "d": "if"
-        },
-        "answer": "d"
-      },
-      {
-        "question": "Frage 6: Wozu wird eine Schleife (Loop) in einem Programm verwendet?",
-        "options": {
-          "a": "Um eine Entscheidung im Programm zu treffen",
-          "b": "Um einen Programmfehler zu beheben",
-          "c": "Um Daten dauerhaft zu speichern",
-          "d": "Um eine Reihe von Anweisungen zu wiederholen"
-        },
-        "answer": "d"
-      },
-      {
-        "question": "Frage 7: Welcher Datentyp wird typischerweise verwendet, um ganze Zahlen zu speichern?",
-        "options": {
-          "a": "String",
-          "b": "Boolean",
-          "c": "Float",
-          "d": "Integer"
-        },
-        "answer": "d"
-      },
-      {
-        "question": "Frage 8: Was versteht man unter dem Begriff 'Quellcode'?",
-        "options": {
-          "a": "Den Code, den der Prozessor direkt ausf&uuml;hrt",
-          "b": "Die Stromquelle, die den Computer betreibt",
-          "c": "Den von einem Compiler erzeugten Maschinencode",
-          "d": "Den vom Programmierer geschriebenen, f&uuml;r Menschen lesbaren Code"
-        },
-        "answer": "d"
-      },
-      {
-        "question": "Frage 9: Welcher Begriff bezeichnet ein Programm, das Quellcode direkt ausf&uuml;hrt, ohne ihn vorher zu kompilieren?",
-        "options": {
-          "a": "Compiler",
-          "b": "Debugger",
-          "c": "Editor",
-          "d": "Interpreter"
-        },
-        "answer": "d"
-      },
-      {
-        "question": "Frage 10: Was gibt folgender Pseudocode aus? x = 1; while (x &lt; 4) { x = x + 1; } print(x);",
-        "options": {
-          "a": "Ausgabe: 3",
-          "b": "Ausgabe: 5",
-          "c": "Keine Ausgabe (Endlosschleife)",
-          "d": "Ausgabe: 4"
+          "a": "Diagramm-Assistent",
+          "b": "Serienbrief",
+          "c": "Fußnoten",
+          "d": "Gliederungsansicht bzw. Inhaltsverzeichnis"
         },
         "answer": "d"
       }
     ]
   }
-  ,
-  {
-    "topic": "Office",
-    "questions": [
-      {
-        "question": "Frage 41: Welches Programm eignet sich am besten, um Tabellenkalkulationen durchzuführen?",
-        "options": {
-          "a": "Microsoft Word",
-          "b": "Microsoft Excel",
-          "c": "Microsoft PowerPoint",
-          "d": "Microsoft Outlook"
-        },
-        "answer": "b"
-      },
-      {
-        "question": "Frage 42: Welches Element in Word enthält üblicherweise Seitenzahlen, die sich auf jeder Seite wiederholen?",
-        "options": {
-          "a": "Textkörper",
-          "b": "Fußnote",
-          "c": "Kopf- oder Fußzeile",
-          "d": "Endnote"
-        },
-        "answer": "c"
-      },
-      {
-        "question": "Frage 43: In welchem Office-Programm erstellt man am häufigsten Präsentationen mit Folien?",
-        "options": {
-          "a": "Microsoft Excel",
-          "b": "Microsoft Word",
-          "c": "Microsoft PowerPoint",
-          "d": "Microsoft Access"
-        },
-        "answer": "c"
-      },
-      {
-        "question": "Frage 44: Was bedeutet das Kürzel 'PDF' in Zusammenhang mit Office-Dokumenten?",
-        "options": {
-          "a": "Personal Document Format",
-          "b": "Portable Document Format",
-          "c": "Page Document Folder",
-          "d": "Public Document File"
-        },
-        "answer": "b"
-      },
-      {
-        "question": "Frage 45: Wie heißt die Funktion in Excel, mit der Werte automatisch summiert werden können?",
-        "options": {
-          "a": "AutoSumme",
-          "b": "Summieren",
-          "c": "Schnellsumme",
-          "d": "Automatische Addition"
-        },
-        "answer": "a"
-      },
-      {
-        "question": "Frage 46: Welches Office-Programm wird hauptsächlich für E-Mail und Terminverwaltung genutzt?",
-        "options": {
-          "a": "Microsoft Access",
-          "b": "Microsoft Word",
-          "c": "Microsoft Outlook",
-          "d": "Microsoft PowerPoint"
-        },
-        "answer": "c"
-      },
-      {
-        "question": "Frage 47: Was ist eine Pivot-Tabelle in Excel?",
-        "options": {
-          "a": "Eine spezielle Tabelle zur übersichtlichen Analyse großer Datenmengen",
-          "b": "Ein Tabellenformat für Word",
-          "c": "Eine Folienvorlage in PowerPoint",
-          "d": "Eine Tabelle, die nur aus Diagrammen besteht"
-        },
-        "answer": "a"
-      },
-      {
-        "question": "Frage 48: Welche Tastenkombination verwendet man typischerweise, um Inhalte aus der Zwischenablage einzufügen?",
-        "options": {
-          "a": "Strg + C",
-          "b": "Strg + X",
-          "c": "Strg + V",
-          "d": "Strg + Z"
-        },
-        "answer": "c"
-      },
-      {
-        "question": "Frage 49: Wie nennt man eine gespeicherte Vorlage in Word, die zur Erstellung ähnlicher Dokumente dient?",
-        "options": {
-          "a": "Mustervorlage",
-          "b": "Schablone",
-          "c": "Dokumenttyp",
-          "d": "Dokumentvorlage"
-        },
-        "answer": "d"
-      },
-      {
-        "question": "Frage 50: Welches Programm aus dem Microsoft Office Paket dient hauptsächlich zur Datenbankverwaltung?",
-        "options": {
-          "a": "Microsoft Excel",
-          "b": "Microsoft Word",
-          "c": "Microsoft Access",
-          "d": "Microsoft PowerPoint"
-        },
-        "answer": "c"
-      }
-    ]
-  }
-];
+]
+;
 
 
 

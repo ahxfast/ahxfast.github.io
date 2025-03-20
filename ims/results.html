@@ -28,534 +28,533 @@
 
   <script>
    const quizData = [
-    
-    {
-      "topic": "Systemtechnik & Hardware",
-      "questions": [
-        {
-          "question": "Frage 1, leicht: Was bezeichnet der Begriff 'Peripheriegeräte'?",
-          "options": {
-            "a": "Interne Bauteile des PCs",
-            "b": "Externe Geräte, die an den Computer angeschlossen werden",
-            "c": "Virtuelle Programme",
-            "d": "Betriebssystemkomponenten"
-          },
-          "answer": "b"
+  {
+    "topic": "Systemtechnik & Hardware",
+    "questions": [
+      {
+        "question": "Frage 1, schwierig: Was versteht man unter einem 'Bus' in einem Computersystem?",
+        "options": {
+          "a": "Ein spezieller Datenspeicher zur Langzeitsicherung",
+          "b": "Ein Datenübertragungsweg, der die Kommunikation zwischen den Komponenten ermöglicht",
+          "c": "Ein Steuerelement zur Regelung der CPU-Taktung",
+          "d": "Ein Kühlmechanismus zur Temperaturregulierung"
         },
-        {
-          "question": "Frage 2, leicht: Welches Bauteil speichert temporäre Daten während des Betriebs?",
-          "options": {
-            "a": "Festplatte",
-            "b": "RAM",
-            "c": "CPU",
-            "d": "Netzteil"
-          },
-          "answer": "b"
+        "answer": "b"
+      },
+      {
+        "question": "Frage 2, schwierig: Welcher Unterschied besteht grundlegend zwischen PCI und PCIe Schnittstellen?",
+        "options": {
+          "a": "PCIe bietet eine höhere Datenübertragungsrate durch serielle Kommunikation",
+          "b": "PCIe nutzt parallele Datenübertragung und ist somit langsamer",
+          "c": "PCIe ist ausschließlich für externe Geräte vorgesehen",
+          "d": "PCIe benötigt weniger Strom, hat aber geringere Bandbreite"
         },
-        {
-          "question": "Frage 3, leicht: Welches Eingabegerät wird primär zur Texteingabe verwendet?",
-          "options": {
-            "a": "Maus",
-            "b": "Scanner",
-            "c": "Tastatur",
-            "d": "Webcam"
-          },
-          "answer": "c"
+        "answer": "a"
+      },
+      {
+        "question": "Frage 3, schwierig: Welche Funktion übernimmt der Cache-Speicher in einer CPU?",
+        "options": {
+          "a": "Er speichert dauerhaft Daten",
+          "b": "Er reduziert die Zugriffszeit auf häufig benötigte Daten",
+          "c": "Er erweitert die Anzahl der Prozessorkerne",
+          "d": "Er dient als primärer Arbeitsspeicher"
         },
-        {
-          "question": "Frage 4, fortgeschritten: Welcher Anschluss wird häufig für externe Festplatten genutzt?",
-          "options": {
-            "a": "HDMI",
-            "b": "USB",
-            "c": "Ethernet",
-            "d": "VGA"
-          },
-          "answer": "b"
+        "answer": "b"
+      },
+      {
+        "question": "Frage 4, schwierig: Was bedeutet 'Overheating' in der Hardware und welche Folgen kann es haben?",
+        "options": {
+          "a": "Zu hohe Betriebstemperaturen, die zu Fehlfunktionen oder Hardware-Schäden führen können",
+          "b": "Ein Zustand, in dem der Computer zu viel Leistung erbringt",
+          "c": "Ein synchronisierter Takt zwischen CPU und GPU",
+          "d": "Die Optimierung der Energieeffizienz bei hoher Belastung"
         },
-        {
-          "question": "Frage 5, fortgeschritten: Welche Komponente sorgt für die Stromversorgung eines PCs?",
-          "options": {
-            "a": "CPU",
-            "b": "Netzteil",
-            "c": "Motherboard",
-            "d": "Kühlkörper"
-          },
-          "answer": "b"
+        "answer": "a"
+      },
+      {
+        "question": "Frage 5, schwierig: Was beschreibt der Begriff 'Dual-Channel' im Zusammenhang mit Arbeitsspeicher?",
+        "options": {
+          "a": "Zwei unterschiedliche Speichertypen, die kombiniert werden",
+          "b": "Die parallele Nutzung von zwei identischen RAM-Modulen zur Erhöhung der Datenbandbreite",
+          "c": "Ein Konzept, bei dem RAM und Cache zusammenarbeiten",
+          "d": "Die Verdopplung der Speicherkapazität durch Softwareoptimierung"
         },
-        {
-          "question": "Frage 6, fortgeschritten: Welche Komponente speichert BIOS-Einstellungen?",
-          "options": {
-            "a": "CMOS",
-            "b": "SSD",
-            "c": "GPU",
-            "d": "RAM"
-          },
-          "answer": "a"
+        "answer": "b"
+      },
+      {
+        "question": "Frage 6, schwierig: Welche Aussage trifft bezüglich der Taktfrequenz einer CPU zu?",
+        "options": {
+          "a": "Sie bestimmt die Anzahl der gleichzeitig ausgeführten Programme",
+          "b": "Sie gibt an, wie viele Schaltzyklen pro Sekunde ausgeführt werden können",
+          "c": "Sie reguliert den Stromverbrauch der GPU",
+          "d": "Sie beeinflusst ausschließlich die Grafikleistung"
         },
-        {
-          "question": "Frage 7, schwierig: Welche Aufgabe übernimmt der Kühlkörper in Verbindung mit der CPU?",
-          "options": {
-            "a": "Er verstärkt das Signal",
-            "b": "Er leitet Wärme ab",
-            "c": "Er speichert Daten",
-            "d": "Er verbessert die Grafikleistung"
-          },
-          "answer": "b"
+        "answer": "b"
+      },
+      {
+        "question": "Frage 7, schwierig: Welche Schnittstelle wird in der Regel zur Verbindung eines modernen Monitors mit dem PC verwendet?",
+        "options": {
+          "a": "SATA",
+          "b": "Ethernet",
+          "c": "HDMI",
+          "d": "USB"
         },
-        {
-          "question": "Frage 8, schwierig: Was ist der wesentliche Unterschied zwischen einem SATA- und einem NVMe-Anschluss?",
-          "options": {
-            "a": "SATA ist schneller als NVMe",
-            "b": "NVMe nutzt den PCIe-Bus und ist in der Regel schneller als SATA",
-            "c": "Beide Anschlüsse bieten die gleiche Geschwindigkeit",
-            "d": "NVMe wird nur für optische Laufwerke verwendet"
-          },
-          "answer": "b"
+        "answer": "c"
+      },
+      {
+        "question": "Frage 8, schwierig: Was ist der Hauptunterschied zwischen DDR4- und DDR3-RAM?",
+        "options": {
+          "a": "DDR4 arbeitet mit niedrigerer Spannung und höheren Datenraten als DDR3",
+          "b": "DDR3 hat generell höhere Speicherkapazitäten als DDR4",
+          "c": "DDR4 ist ausschließlich in mobilen Geräten zu finden",
+          "d": "Es besteht kein wesentlicher Unterschied zwischen den beiden"
         },
-        {
-          "question": "Frage 9, sehr schwierig: Was versteht man unter 'Overclocking'?",
-          "options": {
-            "a": "Das Untertakten der CPU zur Energieeinsparung",
-            "b": "Das Erhöhen der Taktfrequenz der Hardware über den Standardwert hinaus",
-            "c": "Das Wechseln des Prozessortyps",
-            "d": "Das Reinigen der Kühlkomponenten"
-          },
-          "answer": "b"
+        "answer": "a"
+      },
+      {
+        "question": "Frage 9, schwierig: In welcher Komponente ist der integrierte Speichercontroller typischerweise integriert?",
+        "options": {
+          "a": "Im Mainboard-Chipsatz",
+          "b": "In der GPU",
+          "c": "In der CPU",
+          "d": "Im Netzteil"
         },
-        {
-          "question": "Frage 10, sehr schwierig: Was bezeichnet der Begriff 'Chipset' auf dem Mainboard?",
-          "options": {
-            "a": "Den Hauptprozessor",
-            "b": "Den integrierten Grafikprozessor",
-            "c": "Den Steuerungschip, der den Datenfluss zwischen den Komponenten koordiniert",
-            "d": "Den Speichercontroller"
-          },
-          "answer": "c"
-        }
-      ]
-    },
-    {
-      "topic": "HTML",
-      "questions": [
-        {
-          "question": "Frage 1, leicht: Welches HTML-Tag wird genutzt, um eine Überschrift zweiter Ordnung zu definieren?",
-          "options": {
-            "a": "&lt;h2&gt;",
-            "b": "&lt;h1&gt;",
-            "c": "&lt;header&gt;",
-            "d": "&lt;title&gt;"
-          },
-          "answer": "a"
+        "answer": "c"
+      },
+      {
+        "question": "Frage 10, schwierig: Was bezeichnet der Begriff 'Formfaktor' im Kontext von Computergehäusen und Mainboards?",
+        "options": {
+          "a": "Die Farbgebung des Gehäuses",
+          "b": "Die physikalischen Abmessungen und Kompatibilitätsstandards für Mainboards und Gehäuse",
+          "c": "Die Leistung des Netzteils",
+          "d": "Die Art der integrierten Schnittstellen"
         },
-        {
-          "question": "Frage 2, leicht: Welches Tag trennt in HTML den Inhalt durch eine horizontale Linie?",
-          "options": {
-            "a": "&lt;br&gt;",
-            "b": "&lt;hr&gt;",
-            "c": "&lt;line&gt;",
-            "d": "&lt;separator&gt;"
-          },
-          "answer": "b"
+        "answer": "b"
+      }
+    ]
+  },
+  {
+    "topic": "HTML",
+    "questions": [
+      {
+        "question": "Frage 1, schwierig: Welches Attribut im &amp;lt;a&amp;gt;-Tag wird verwendet, um Suchmaschinen anzuzeigen, dass einem Link nicht gefolgt werden soll?",
+        "options": {
+          "a": "target",
+          "b": "rel=\"nofollow\"",
+          "c": "href",
+          "d": "data-link"
         },
-        {
-          "question": "Frage 3, leicht: Welches Tag wird verwendet, um eine geordnete Liste zu erstellen?",
-          "options": {
-            "a": "&lt;ul&gt;",
-            "b": "&lt;ol&gt;",
-            "c": "&lt;li&gt;",
-            "d": "&lt;list&gt;"
-          },
-          "answer": "b"
+        "answer": "b"
+      },
+      {
+        "question": "Frage 2, schwierig: Welche Funktion hat das &amp;lt;meta&amp;gt;-Tag im &amp;lt;head&amp;gt;-Bereich einer HTML-Seite?",
+        "options": {
+          "a": "Es definiert das Layout der Seite",
+          "b": "Es liefert Metainformationen wie Charset und Beschreibung an Browser und Suchmaschinen",
+          "c": "Es verlinkt externe Skripte",
+          "d": "Es erstellt visuelle Effekte"
         },
-        {
-          "question": "Frage 4, fortgeschritten: Welches Attribut im &lt;a&gt;-Tag öffnet den Link in einem neuen Browser-Tab?",
-          "options": {
-            "a": "rel=\"nofollow\"",
-            "b": "target=\"_blank\"",
-            "c": "href",
-            "d": "title"
-          },
-          "answer": "b"
+        "answer": "b"
+      },
+      {
+        "question": "Frage 3, schwierig: Wie unterscheiden sich &amp;lt;section&amp;gt; und &amp;lt;article&amp;gt; semantisch in HTML5?",
+        "options": {
+          "a": "Ein &amp;lt;section&amp;gt; definiert einen in sich geschlossenen Themenbereich, während &amp;lt;article&amp;gt; für eigenständige Inhalte genutzt wird",
+          "b": "&amp;lt;section&amp;gt; wird nur für Navigationsmenüs verwendet, &amp;lt;article&amp;gt; für Fußzeilen",
+          "c": "Beide Tags haben dieselbe Funktion",
+          "d": "&amp;lt;section&amp;gt; ist veraltet, &amp;lt;article&amp;gt; ersetzt es vollständig"
         },
-        {
-          "question": "Frage 5, fortgeschritten: Welches Tag wird genutzt, um eine Tabelle in HTML zu erstellen?",
-          "options": {
-            "a": "&lt;table&gt;",
-            "b": "&lt;grid&gt;",
-            "c": "&lt;div&gt;",
-            "d": "&lt;tr&gt;"
-          },
-          "answer": "a"
+        "answer": "a"
+      },
+      {
+        "question": "Frage 4, schwierig: Welches HTML5-Element wird bevorzugt zur Einbindung von Videoinhalten verwendet?",
+        "options": {
+          "a": "&amp;lt;embed&amp;gt;",
+          "b": "&amp;lt;object&amp;gt;",
+          "c": "&amp;lt;video&amp;gt;",
+          "d": "&amp;lt;media&amp;gt;"
         },
-        {
-          "question": "Frage 6, fortgeschritten: Welches Element kennzeichnet den Hauptinhalt einer Webseite semantisch korrekt?",
-          "options": {
-            "a": "&lt;section&gt;",
-            "b": "&lt;aside&gt;",
-            "c": "&lt;main&gt;",
-            "d": "&lt;footer&gt;"
-          },
-          "answer": "c"
+        "answer": "c"
+      },
+      {
+        "question": "Frage 5, schwierig: Wie bindet man in HTML ein externes Stylesheet korrekt ein?",
+        "options": {
+          "a": "&amp;lt;style src=\"style.css\"&amp;gt;",
+          "b": "&amp;lt;link rel=\"stylesheet\" href=\"style.css\"&amp;gt;",
+          "c": "&amp;lt;script href=\"style.css\"&amp;gt;",
+          "d": "&amp;lt;css link=\"style.css\"&amp;gt;"
         },
-        {
-          "question": "Frage 7, schwierig: Welches Tag erzwingt in HTML einen Zeilenumbruch innerhalb eines Absatzes?",
-          "options": {
-            "a": "&lt;br&gt;",
-            "b": "&lt;hr&gt;",
-            "c": "&lt;p&gt;",
-            "d": "&lt;newline&gt;"
-          },
-          "answer": "a"
+        "answer": "b"
+      },
+      {
+        "question": "Frage 6, schwierig: Welches Tag in HTML5 wird genutzt, um semantisch wichtige Hervorhebungen im Text darzustellen?",
+        "options": {
+          "a": "&amp;lt;b&amp;gt;",
+          "b": "&amp;lt;mark&amp;gt;",
+          "c": "&amp;lt;u&amp;gt;",
+          "d": "&amp;lt;i&amp;gt;"
         },
-        {
-          "question": "Frage 8, schwierig: Wie kann man in HTML semantisch korrekt Text kursiv darstellen?",
-          "options": {
-            "a": "&lt;i&gt;",
-            "b": "&lt;em&gt;",
-            "c": "&lt;strong&gt;",
-            "d": "&lt;b&gt;"
-          },
-          "answer": "b"
+        "answer": "b"
+      },
+      {
+        "question": "Frage 7, schwierig: Mit welchem Attribut im &amp;lt;img&amp;gt;-Tag wird die alternative Textbeschreibung angegeben?",
+        "options": {
+          "a": "src",
+          "b": "alt",
+          "c": "title",
+          "d": "data-alt"
         },
-        {
-          "question": "Frage 9, sehr schwierig: Wie stellt man in HTML das Sonderzeichen '>' korrekt dar?",
-          "options": {
-            "a": "&amp;gt;",
-            "b": "&amp;gt",
-            "c": "&lt;gt&gt;",
-            "d": "&amp;greater;"
-          },
-          "answer": "a"
+        "answer": "b"
+      },
+      {
+        "question": "Frage 8, schwierig: Welches Attribut im &amp;lt;video&amp;gt;-Tag bestimmt, dass ein Video automatisch gestartet wird?",
+        "options": {
+          "a": "controls",
+          "b": "autoplay",
+          "c": "preload",
+          "d": "loop"
         },
-        {
-          "question": "Frage 10, sehr schwierig: Welches Tag bindet externes JavaScript in eine HTML-Seite ein?",
-          "options": {
-            "a": "&lt;script&gt;",
-            "b": "&lt;js&gt;",
-            "c": "&lt;code&gt;",
-            "d": "&lt;style&gt;"
-          },
-          "answer": "a"
-        }
-      ]
-    },
-    {
-      "topic": "Programmierung",
-      "questions": [
-        {
-          "question": "Frage 1, leicht: Was ist eine Schleife in der Programmierung?",
-          "options": {
-            "a": "Ein Datencontainer",
-            "b": "Ein wiederholender Codeblock",
-            "c": "Eine Bedingung",
-            "d": "Ein Fehler im Code"
-          },
-          "answer": "b"
+        "answer": "b"
+      },
+      {
+        "question": "Frage 9, schwierig: Wie stellt man in HTML das Sonderzeichen '&amp;' korrekt dar?",
+        "options": {
+          "a": "&amp;amp;",
+          "b": "&amp;#38;",
+          "c": "&amp;and;",
+          "d": "&amp;apos;"
         },
-        {
-          "question": "Frage 2, leicht: Was versteht man unter der Syntax einer Programmiersprache?",
-          "options": {
-            "a": "Die Ausführungszeit des Codes",
-            "b": "Die Schreibweise und Grammatik der Sprache",
-            "c": "Den Speicherort der Variablen",
-            "d": "Den Typ des Betriebssystems"
-          },
-          "answer": "b"
+        "answer": "a"
+      },
+      {
+        "question": "Frage 10, schwierig: Welches Attribut im &amp;lt;a&amp;gt;-Tag gibt an, dass ein Link in einem neuen Fenster oder Tab geöffnet werden soll?",
+        "options": {
+          "a": "rel=\"external\"",
+          "b": "target=\"_blank\"",
+          "c": "href=\"_new\"",
+          "d": "newwindow=\"true\""
         },
-        {
-          "question": "Frage 3, leicht: Welche Sprache wird häufig für die Webentwicklung verwendet?",
-          "options": {
-            "a": "COBOL",
-            "b": "Python",
-            "c": "JavaScript",
-            "d": "Fortran"
-          },
-          "answer": "c"
+        "answer": "b"
+      }
+    ]
+  },
+  {
+    "topic": "Programmierung",
+    "questions": [
+      {
+        "question": "Frage 1, schwierig: Welches Konzept beschreibt die Aufteilung eines Programms in eigenständige Module zur besseren Wiederverwendbarkeit?",
+        "options": {
+          "a": "Modularisierung",
+          "b": "Deklaration",
+          "c": "Injektion",
+          "d": "Interaktion"
         },
-        {
-          "question": "Frage 4, fortgeschritten: Was ist eine Funktion in der Programmierung?",
-          "options": {
-            "a": "Ein benannter, wiederverwendbarer Codeblock",
-            "b": "Ein Datentyp",
-            "c": "Ein Fehler im Code",
-            "d": "Ein Kommentar"
-          },
-          "answer": "a"
+        "answer": "a"
+      },
+      {
+        "question": "Frage 2, schwierig: Was ist der Hauptunterschied zwischen einem Compiler und einem Interpreter?",
+        "options": {
+          "a": "Ein Compiler übersetzt den gesamten Code vor der Ausführung, während ein Interpreter den Code Zeile für Zeile interpretiert",
+          "b": "Ein Interpreter erstellt ausführbare Dateien, ein Compiler nicht",
+          "c": "Ein Compiler ist langsamer als ein Interpreter",
+          "d": "Ein Interpreter benötigt mehr Speicherplatz als ein Compiler"
         },
-        {
-          "question": "Frage 5, fortgeschritten: Welche Aufgabe hat der Befehl 'return' in einer Funktion?",
-          "options": {
-            "a": "Er beendet das gesamte Programm",
-            "b": "Er gibt einen Wert an den Aufrufer zurück",
-            "c": "Er startet eine neue Schleife",
-            "d": "Er importiert eine Bibliothek"
-          },
-          "answer": "b"
+        "answer": "a"
+      },
+      {
+        "question": "Frage 3, schwierig: Was versteht man unter einem Algorithmus?",
+        "options": {
+          "a": "Einen zufälligen Codeabschnitt ohne festen Ablauf",
+          "b": "Eine Schritt-für-Schritt-Anleitung zur Lösung eines Problems",
+          "c": "Ein Fehler im Programmcode",
+          "d": "Ein spezifisches Datenformat"
         },
-        {
-          "question": "Frage 6, fortgeschritten: Was bezeichnet man als Parameter in einer Funktion?",
-          "options": {
-            "a": "Den Rückgabewert der Funktion",
-            "b": "Eine Variable, die an die Funktion übergeben wird",
-            "c": "Den Namen der Funktion",
-            "d": "Einen Datentyp"
-          },
-          "answer": "b"
+        "answer": "b"
+      },
+      {
+        "question": "Frage 4, schwierig: Welche Datenstruktur eignet sich am besten für die Implementierung einer Warteschlange (FIFO)?",
+        "options": {
+          "a": "Stack",
+          "b": "Queue",
+          "c": "Verkettete Liste",
+          "d": "Binärer Suchbaum"
         },
-        {
-          "question": "Frage 7, schwierig: Was ist der Unterschied zwischen '==' und '===' in Sprachen wie JavaScript?",
-          "options": {
-            "a": "Es gibt keinen Unterschied",
-            "b": "'==' vergleicht nur den Wert, während '===' Wert und Datentyp vergleicht",
-            "c": "'==' ist schneller als '==='",
-            "d": "'===' ist veraltet"
-          },
-          "answer": "b"
+        "answer": "b"
+      },
+      {
+        "question": "Frage 5, schwierig: Was bedeutet 'Rekursion' in der Programmierung?",
+        "options": {
+          "a": "Das wiederholte Durchlaufen einer Schleife",
+          "b": "Eine Funktion, die sich selbst aufruft",
+          "c": "Ein kompiliertes Programm ohne Fehler",
+          "d": "Die Speicherung von Daten in einer rekursiven Struktur"
         },
-        {
-          "question": "Frage 8, schwierig: Was bedeutet 'Debugging' in der Softwareentwicklung?",
-          "options": {
-            "a": "Das Schreiben von Code",
-            "b": "Das Testen und Beheben von Fehlern im Code",
-            "c": "Das Kompilieren des Programms",
-            "d": "Das Formatieren von Quelltext"
-          },
-          "answer": "b"
+        "answer": "b"
+      },
+      {
+        "question": "Frage 6, schwierig: Welches Paradigma fasst Daten und Funktionen in Klassen zusammen?",
+        "options": {
+          "a": "Funktionale Programmierung",
+          "b": "Prozedurale Programmierung",
+          "c": "Objektorientierte Programmierung",
+          "d": "Logische Programmierung"
         },
-        {
-          "question": "Frage 9, sehr schwierig: Was ist ein Compiler?",
-          "options": {
-            "a": "Ein Programm, das Quellcode in Maschinensprache übersetzt",
-            "b": "Ein Texteditor",
-            "c": "Ein Debugging-Tool",
-            "d": "Ein Interpreter"
-          },
-          "answer": "a"
+        "answer": "c"
+      },
+      {
+        "question": "Frage 7, schwierig: Was bezeichnet man als 'Syntax' in einer Programmiersprache?",
+        "options": {
+          "a": "Die logische Struktur eines Programms",
+          "b": "Die Menge der Regeln, die die Schreibweise der Sprache festlegen",
+          "c": "Die Ausführungsreihenfolge der Anweisungen",
+          "d": "Die verwendeten Datentypen"
         },
-        {
-          "question": "Frage 10, sehr schwierig: Was versteht man unter 'Datenkapselung' in der objektorientierten Programmierung?",
-          "options": {
-            "a": "Die Trennung von Daten und Funktionen in unterschiedlichen Modulen",
-            "b": "Das Verbergen interner Zustände und Implementierungsdetails",
-            "c": "Das Erben von Klassen",
-            "d": "Die Wiederverwendung von Code"
-          },
-          "answer": "b"
-        }
-      ]
-    },
-    {
-      "topic": "Datenbanken",
-      "questions": [
-        {
-          "question": "Frage 1, leicht: Was ist ein Datensatz in einer Datenbank?",
-          "options": {
-            "a": "Eine einzelne Zeile in einer Tabelle",
-            "b": "Eine Spalte in einer Tabelle",
-            "c": "Ein ganzer Datenbank-Server",
-            "d": "Eine Abfrage"
-          },
-          "answer": "a"
+        "answer": "b"
+      },
+      {
+        "question": "Frage 8, schwierig: Was ist ein Debugger in der Softwareentwicklung?",
+        "options": {
+          "a": "Ein Tool zur Versionskontrolle",
+          "b": "Ein Programm, das hilft, Fehler im Quellcode zu finden und zu beheben",
+          "c": "Ein Compiler für Hochsprachen",
+          "d": "Ein Modul zur Code-Optimierung"
         },
-        {
-          "question": "Frage 2, leicht: Welche Sprache wird zur Abfrage von Daten in Datenbanken genutzt?",
-          "options": {
-            "a": "HTML",
-            "b": "CSS",
-            "c": "SQL",
-            "d": "XML"
-          },
-          "answer": "c"
+        "answer": "b"
+      },
+      {
+        "question": "Frage 9, schwierig: Welcher Begriff beschreibt den Vorgang, bei dem Quellcode in Maschinensprache übersetzt wird?",
+        "options": {
+          "a": "Interpretation",
+          "b": "Kompilierung",
+          "c": "Deklaration",
+          "d": "Exekution"
         },
-        {
-          "question": "Frage 3, leicht: Was ist in einer Datenbank eine Spalte?",
-          "options": {
-            "a": "Ein einzelnes Datenelement",
-            "b": "Ein Feld, das einen bestimmten Datentyp enthält",
-            "c": "Ein ganzer Datensatz",
-            "d": "Eine gespeicherte Abfrage"
-          },
-          "answer": "b"
+        "answer": "b"
+      },
+      {
+        "question": "Frage 10, schwierig: Was bedeutet 'Refactoring' in der Softwareentwicklung?",
+        "options": {
+          "a": "Das Hinzufügen neuer Funktionalitäten",
+          "b": "Das Umstrukturieren des Codes zur Verbesserung der Lesbarkeit und Wartbarkeit, ohne dessen Verhalten zu ändern",
+          "c": "Das Testen von Softwaremodulen",
+          "d": "Das Entfernen von Kommentaren aus dem Code"
         },
-        {
-          "question": "Frage 4, fortgeschritten: Was bewirkt die SQL-Anweisung DELETE?",
-          "options": {
-            "a": "Sie fügt neue Daten hinzu",
-            "b": "Sie ändert bestehende Daten",
-            "c": "Sie entfernt Daten aus einer Tabelle",
-            "d": "Sie erstellt eine neue Tabelle"
-          },
-          "answer": "c"
+        "answer": "b"
+      }
+    ]
+  },
+  {
+    "topic": "Datenbanken",
+    "questions": [
+      {
+        "question": "Frage 1, schwierig: Was charakterisiert eine relationale Datenbank im Vergleich zu anderen Datenbanktypen?",
+        "options": {
+          "a": "Die Speicherung von Daten in einem hierarchischen Format",
+          "b": "Die Verwendung von verknüpften Tabellen zur Organisation von Daten",
+          "c": "Die Speicherung von Daten in flachen Dateien",
+          "d": "Die ausschließliche Nutzung von XML-Formaten"
         },
-        {
-          "question": "Frage 5, fortgeschritten: Was ist ein Fremdschlüssel?",
-          "options": {
-            "a": "Ein Schlüssel, der Daten verschlüsselt",
-            "b": "Ein Schlüssel, der auf einen Primärschlüssel in einer anderen Tabelle verweist",
-            "c": "Ein eindeutiger Schlüssel innerhalb einer Tabelle",
-            "d": "Ein Schlüssel, der Tabellen verbindet"
-          },
-          "answer": "b"
+        "answer": "b"
+      },
+      {
+        "question": "Frage 2, schwierig: Welche SQL-Anweisung dient dazu, Daten aus einer Tabelle selektiv auszuwählen?",
+        "options": {
+          "a": "INSERT",
+          "b": "UPDATE",
+          "c": "SELECT",
+          "d": "DELETE"
         },
-        {
-          "question": "Frage 6, fortgeschritten: Welche SQL-Anweisung wird verwendet, um bestehende Daten zu aktualisieren?",
-          "options": {
-            "a": "SELECT",
-            "b": "INSERT",
-            "c": "UPDATE",
-            "d": "ALTER"
-          },
-          "answer": "c"
+        "answer": "c"
+      },
+      {
+        "question": "Frage 3, schwierig: Was versteht man unter Normalisierung in Datenbanken?",
+        "options": {
+          "a": "Das Verschlüsseln von Datensätzen",
+          "b": "Das Aufteilen von Daten in Tabellen, um Redundanz zu minimieren und Datenintegrität zu gewährleisten",
+          "c": "Die Erstellung von Backups",
+          "d": "Das Zusammenführen mehrerer Datenbanken"
         },
-        {
-          "question": "Frage 7, schwierig: Was bezeichnet man in Datenbanken als 'Index'?",
-          "options": {
-            "a": "Eine Sortierung von Datensätzen",
-            "b": "Einen Verweis, der Abfragen beschleunigt",
-            "c": "Eine Art von Datentyp",
-            "d": "Ein Speicherort für Backups"
-          },
-          "answer": "b"
+        "answer": "b"
+      },
+      {
+        "question": "Frage 4, schwierig: Welche Rolle spielt ein Primärschlüssel in einer Datenbanktabelle?",
+        "options": {
+          "a": "Er verschlüsselt die Daten in der Tabelle",
+          "b": "Er identifiziert jeden Datensatz eindeutig",
+          "c": "Er stellt die Verbindung zu anderen Tabellen her",
+          "d": "Er bestimmt den Datentyp der Spalten"
         },
-        {
-          "question": "Frage 8, schwierig: Was ist der Zweck einer SQL-Join-Operation?",
-          "options": {
-            "a": "Das Löschen von Datensätzen aus mehreren Tabellen",
-            "b": "Das Verbinden von Daten aus zwei oder mehr Tabellen",
-            "c": "Das Erstellen eines neuen Datenbank-Servers",
-            "d": "Das Sichern von Daten"
-          },
-          "answer": "b"
+        "answer": "b"
+      },
+      {
+        "question": "Frage 5, schwierig: Welche SQL-Anweisung wird verwendet, um neue Datensätze in eine Tabelle einzufügen?",
+        "options": {
+          "a": "SELECT",
+          "b": "INSERT INTO",
+          "c": "UPDATE",
+          "d": "ALTER"
         },
-        {
-          "question": "Frage 9, sehr schwierig: Was beschreibt das ACID-Prinzip in Datenbanken?",
-          "options": {
-            "a": "Asynchrone Datenübertragung",
-            "b": "Atomicity, Consistency, Isolation, Durability",
-            "c": "Advanced Caching and Indexing Database",
-            "d": "Automatisches Caching von Indizes"
-          },
-          "answer": "b"
+        "answer": "b"
+      },
+      {
+        "question": "Frage 6, schwierig: Was beschreibt die SQL JOIN-Operation?",
+        "options": {
+          "a": "Das Löschen von Datensätzen aus mehreren Tabellen",
+          "b": "Das Verbinden von Datensätzen aus zwei oder mehr Tabellen basierend auf einer gemeinsamen Spalte",
+          "c": "Das Sortieren von Daten in einer Tabelle",
+          "d": "Das Erstellen von Backups mehrerer Tabellen"
         },
-        {
-          "question": "Frage 10, sehr schwierig: Was ist eine View in einer Datenbank?",
-          "options": {
-            "a": "Eine temporäre Tabelle",
-            "b": "Ein gespeichertes Ergebnis einer Abfrage",
-            "c": "Ein Datensicherungstool",
-            "d": "Ein Index"
-          },
-          "answer": "b"
-        }
-      ]
-    },
-    {
-      "topic": "MS Office",
-      "questions": [
-        {
-          "question": "Frage 1, leicht: Welches Programm in MS Office wird primär zur Erstellung von Textdokumenten genutzt?",
-          "options": {
-            "a": "Excel",
-            "b": "PowerPoint",
-            "c": "Word",
-            "d": "Access"
-          },
-          "answer": "c"
+        "answer": "b"
+      },
+      {
+        "question": "Frage 7, schwierig: Welche Funktion hat ein Index in einer Datenbank?",
+        "options": {
+          "a": "Er speichert Daten dauerhaft",
+          "b": "Er beschleunigt die Suche nach Datensätzen",
+          "c": "Er verschlüsselt die Daten",
+          "d": "Er stellt die Beziehung zwischen Tabellen her"
         },
-        {
-          "question": "Frage 2, leicht: Welches Programm ist speziell für Tabellenkalkulationen zuständig?",
-          "options": {
-            "a": "Word",
-            "b": "Excel",
-            "c": "Outlook",
-            "d": "Publisher"
-          },
-          "answer": "b"
+        "answer": "b"
+      },
+      {
+        "question": "Frage 8, schwierig: Was bezeichnet man als Transaktion in einer Datenbank?",
+        "options": {
+          "a": "Eine einmalige SQL-Abfrage",
+          "b": "Eine Gruppe von Operationen, die als untrennbare Einheit ausgeführt werden",
+          "c": "Ein spezieller Datentyp",
+          "d": "Ein Backup-Prozess"
         },
-        {
-          "question": "Frage 3, leicht: Mit welchem Programm erstellt man Präsentationen?",
-          "options": {
-            "a": "OneNote",
-            "b": "Word",
-            "c": "PowerPoint",
-            "d": "Excel"
-          },
-          "answer": "c"
+        "answer": "b"
+      },
+      {
+        "question": "Frage 9, schwierig: Welcher Bestandteil gehört nicht zu den ACID-Eigenschaften von Datenbanken?",
+        "options": {
+          "a": "Atomicity",
+          "b": "Consistency",
+          "c": "Isolation",
+          "d": "Integration"
         },
-        {
-          "question": "Frage 4, fortgeschritten: Welches MS Office-Programm wird zur Verwaltung von Datenbanken verwendet?",
-          "options": {
-            "a": "Word",
-            "b": "Excel",
-            "c": "Access",
-            "d": "Outlook"
-          },
-          "answer": "c"
+        "answer": "d"
+      },
+      {
+        "question": "Frage 10, schwierig: Was ist eine 'View' in einer Datenbank?",
+        "options": {
+          "a": "Eine physisch gespeicherte Kopie einer Tabelle",
+          "b": "Eine temporäre Tabelle, die zur Datensicherung verwendet wird",
+          "c": "Eine virtuelle Tabelle, die auf einer gespeicherten SQL-Abfrage basiert",
+          "d": "Ein Datenbank-Trigger zur Automatisierung von Aufgaben"
         },
-        {
-          "question": "Frage 5, fortgeschritten: Welche Tastenkombination speichert ein Dokument in Word?",
-          "options": {
-            "a": "Strg+P",
-            "b": "Strg+C",
-            "c": "Strg+S",
-            "d": "Strg+V"
-          },
-          "answer": "c"
+        "answer": "c"
+      }
+    ]
+  },
+  {
+    "topic": "MS Office",
+    "questions": [
+      {
+        "question": "Frage 1, schwierig: Welches Feature in Microsoft Word ermöglicht es, Änderungen in einem Dokument nachzuvollziehen und zu kommentieren?",
+        "options": {
+          "a": "Seriendruck",
+          "b": "Nachverfolgungsmodus",
+          "c": "Formatvorlagen",
+          "d": "Seitenlayout"
         },
-        {
-          "question": "Frage 6, fortgeschritten: Welche Excel-Funktion berechnet den Median eines Datensatzes?",
-          "options": {
-            "a": "=MEDIAN()",
-            "b": "=MITTELWERT()",
-            "c": "=SUMME()",
-            "d": "=MIN()"
-          },
-          "answer": "a"
+        "answer": "b"
+      },
+      {
+        "question": "Frage 2, schwierig: Mit welchem Werkzeug in Excel lassen sich komplexe Datensätze grafisch auswerten?",
+        "options": {
+          "a": "PivotChart",
+          "b": "Bedingte Formatierung",
+          "c": "SVERWEIS",
+          "d": "Diagramm-Assistent"
         },
-        {
-          "question": "Frage 7, schwierig: Was ermöglicht die Funktion 'Serienbrief' in Word?",
-          "options": {
-            "a": "Das Erstellen von Diagrammen",
-            "b": "Das Zusammenführen von Daten mit einem Dokument zur Erstellung personalisierter Briefe",
-            "c": "Das Formatieren von Text",
-            "d": "Das Erstellen von Tabellen"
-          },
-          "answer": "b"
+        "answer": "d"
+      },
+      {
+        "question": "Frage 3, schwierig: Welches MS Office-Programm wird vorwiegend für die Verwaltung relationaler Daten genutzt?",
+        "options": {
+          "a": "Excel",
+          "b": "Access",
+          "c": "Word",
+          "d": "PowerPoint"
         },
-        {
-          "question": "Frage 8, schwierig: In welchem Dateiformat speichert Excel standardmäßig Arbeitsmappen ab (ab Office 2007)?",
-          "options": {
-            "a": ".xls",
-            "b": ".xlsx",
-            "c": ".csv",
-            "d": ".txt"
-          },
-          "answer": "b"
+        "answer": "b"
+      },
+      {
+        "question": "Frage 4, schwierig: Welches Tastenkürzel in Word speichert ein Dokument?",
+        "options": {
+          "a": "Strg+P",
+          "b": "Strg+S",
+          "c": "Strg+O",
+          "d": "Strg+N"
         },
-        {
-          "question": "Frage 9, sehr schwierig: Was ist der Zweck der Funktion 'Kommentare' in Word?",
-          "options": {
-            "a": "Sie dient zur automatischen Rechtschreibprüfung",
-            "b": "Sie ermöglicht das Hinzufügen von Anmerkungen ohne den Haupttext zu verändern",
-            "c": "Sie formatiert den Text",
-            "d": "Sie erstellt ein Inhaltsverzeichnis"
-          },
-          "answer": "b"
+        "answer": "b"
+      },
+      {
+        "question": "Frage 5, schwierig: Wie nennt man in Excel den Schnittpunkt zwischen einer Zeile und einer Spalte?",
+        "options": {
+          "a": "Feld",
+          "b": "Zelle",
+          "c": "Block",
+          "d": "Segment"
         },
-        {
-          "question": "Frage 10, sehr schwierig: Welches Feature in PowerPoint unterstützt die Gestaltung von Animationen für Objekte auf Folien?",
-          "options": {
-            "a": "Folienübergänge",
-            "b": "Animationsbereich",
-            "c": "Designvorlagen",
-            "d": "Masterfolien"
-          },
-          "answer": "b"
-        }
-      ]
-    }
-  
-  ]
+        "answer": "b"
+      },
+      {
+        "question": "Frage 6, schwierig: Was bewirkt die Funktion SVERWEIS in Excel?",
+        "options": {
+          "a": "Sie summiert alle Werte in einer Spalte",
+          "b": "Sie sucht einen Wert in der ersten Spalte und gibt einen Wert aus einer festgelegten Spalte derselben Zeile zurück",
+          "c": "Sie sortiert die Daten in aufsteigender Reihenfolge",
+          "d": "Sie formatiert Zellen automatisch"
+        },
+        "answer": "b"
+      },
+      {
+        "question": "Frage 7, schwierig: Welches Feature in PowerPoint ermöglicht die Erstellung animierter Übergänge zwischen Folien?",
+        "options": {
+          "a": "Foliendesign",
+          "b": "Animationsbereich",
+          "c": "Folienmaster",
+          "d": "Notizenbereich"
+        },
+        "answer": "b"
+      },
+      {
+        "question": "Frage 8, schwierig: In Outlook, welches Feature unterstützt die Organisation von E-Mails in thematisch sortierten Ordnern?",
+        "options": {
+          "a": "Kategorien",
+          "b": "Kalenderintegration",
+          "c": "Suchordner",
+          "d": "Regeln"
+        },
+        "answer": "d"
+      },
+      {
+        "question": "Frage 9, schwierig: Was ist die Hauptfunktion der WENN-Funktion in Excel?",
+        "options": {
+          "a": "Sie summiert Werte basierend auf einer Bedingung",
+          "b": "Sie vergleicht zwei Werte und liefert unterschiedliche Ergebnisse je nach Ergebnis des Vergleichs",
+          "c": "Sie erstellt ein Diagramm aus den ausgewählten Daten",
+          "d": "Sie formatiert Zellen automatisch"
+        },
+        "answer": "b"
+      },
+      {
+        "question": "Frage 10, schwierig: Welches Word-Feature ermöglicht die automatische Generierung eines Inhaltsverzeichnisses in längeren Dokumenten?",
+        "options": {
+          "a": "Gliederungsansicht",
+          "b": "Formatvorlagen",
+          "c": "Seriendruck",
+          "d": "Kopf- und Fußzeilen"
+        },
+        "answer": "a"
+      }
+    ]
+  }
+]
+
 
 
 ;

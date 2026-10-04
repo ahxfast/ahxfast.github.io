@@ -138,9 +138,27 @@
             }
 
             // PostgreSQL timestamps arrive as "YYYY-MM-DD HH:mm:ss" strings.
-            const timestamp = typeof value === 'string'
-                ? new Date(value.replace(' ', 'T'))
-                : new Date(value);
+            // Parse these as local time explicitly; browsers disagree on how
+            // to interpret a date-time string without a timezone suffix.
+            let timestamp;
+            if (typeof value === 'string') {
+                const postgresTimestamp = value.match(
+                    /^(\d{4})-(\d{2})-(\d{2})[ T](\d{2}):(\d{2})(?::(\d{2})(?:\.(\d+))?)?$/
+                );
+                timestamp = postgresTimestamp
+                    ? new Date(
+                        Number(postgresTimestamp[1]),
+                        Number(postgresTimestamp[2]) - 1,
+                        Number(postgresTimestamp[3]),
+                        Number(postgresTimestamp[4]),
+                        Number(postgresTimestamp[5]),
+                        Number(postgresTimestamp[6] || 0),
+                        Number((postgresTimestamp[7] || '').padEnd(3, '0').slice(0, 3))
+                    )
+                    : new Date(value);
+            } else {
+                timestamp = new Date(value);
+            }
 
             if (Number.isNaN(timestamp.getTime())) {
                 return String(value);

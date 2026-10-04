@@ -131,14 +131,41 @@
 
         // Listener for refresh times
         const refreshRef = ref(db, 'refreshtimes');
+
+        const formatRefreshTime = (value) => {
+            if (value === undefined || value === null || value === '') {
+                return 'unavailable';
+            }
+
+            // PostgreSQL timestamps arrive as "YYYY-MM-DD HH:mm:ss" strings.
+            const timestamp = typeof value === 'string'
+                ? new Date(value.replace(' ', 'T'))
+                : new Date(value);
+
+            if (Number.isNaN(timestamp.getTime())) {
+                return String(value);
+            }
+
+            return new Intl.DateTimeFormat(undefined, {
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: false
+            }).format(timestamp);
+        };
+
         onValue(refreshRef, (snapshot) => {
             const times = snapshot.val();
             const refreshDisplay = document.getElementById('refresh-times');
+            const latest = times && Object.values(times)[0];
 
-            if (times) {
-                refreshDisplay.innerHTML = `Coins: ${times[0].coinrefresh}, Sonar: ${times[0].sonar}, TA: ${times[0].ta}`;
+            if (latest) {
+                refreshDisplay.textContent = `Coins: ${formatRefreshTime(latest.coinrefresh)}, Sonar: ${formatRefreshTime(latest.sonar)}, TA: ${formatRefreshTime(latest.ta)}`;
             } else {
-                refreshDisplay.innerHTML = 'Refresh times unavailable.';
+                refreshDisplay.textContent = 'Refresh times unavailable.';
             }
         });
     </script>

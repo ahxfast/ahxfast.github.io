@@ -1,0 +1,23 @@
+import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
+import { decodeGeneration, deriveView, fixtureModeFor, watchGateLabel } from "./app.mjs";
+
+const fixture = JSON.parse(readFileSync(new URL("./sample-generation.json", import.meta.url)));
+const snapshot = decodeGeneration(fixture);
+const opts = { nowMs: 1_000_500, connected: true, fixtureMode: false, offsetMs: 0 };
+assert.equal(deriveView(snapshot, opts).rows[0].locallyActionable, true);
+assert.equal(deriveView(snapshot, { ...opts, fixtureMode: true }).rows[0].locallyActionable, false);
+assert.equal(deriveView(snapshot, { ...opts, connected: false }).rows[0].displayStatus, "DISCONNECTED");
+assert.equal(deriveView(snapshot, { ...opts, offsetMs: null }).rows[0].displayStatus, "CLOCK UNKNOWN");
+assert.equal(deriveView(snapshot, { ...opts, nowMs: 1_010_000 }).rows[0].displayStatus, "EXPIRED");
+assert.throws(() => decodeGeneration({ ...fixture, schema_version: 4 }));
+assert.throws(() => decodeGeneration({ ...fixture, rows: { bad: Object.values(fixture.rows)[0] } }));
+const { rows: _omitted, ...firebaseEmptyRows } = fixture;
+assert.deepEqual(decodeGeneration(firebaseEmptyRows).rows, {});
+assert.equal(deriveView(decodeGeneration(firebaseEmptyRows), opts).rows.length, 0);
+assert.equal(watchGateLabel({ setup_gates: { TESTUSDT: "LEVEL_UNKNOWN" } }, "TESTUSDT"), "level unknown");
+assert.equal(watchGateLabel({ setup_gates: { TESTUSDT: "LEVEL_UNKNOWN" } }, "OTHERUSDT"), "Capacity limit");
+assert.equal(fixtureModeFor("ahxfast.github.io", ""), false);
+assert.equal(fixtureModeFor("localhost", ""), true);
+assert.equal(fixtureModeFor("ahxfast.github.io", "?fixture=1"), true);
+console.log("V5 dashboard decoder and local expiry checks passed");

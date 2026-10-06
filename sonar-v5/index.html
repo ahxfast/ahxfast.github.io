@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sonar V5 · Short observations</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="masthead">
+    <div>
+      <p class="eyebrow">SONAR / V5</p>
+      <h1>Conditional short observations</h1>
+      <p class="subhead">Pump history, observed weakness and a fixed first downside obstacle.</p>
+    </div>
+    <div class="masthead-meta">
+      <span id="mode-badge" class="badge">Replay fixture</span>
+      <p id="connection" role="status" aria-live="polite">Loading saved generation…</p>
+    </div>
+  </header>
+
+  <main>
+    <section id="auth-panel" class="context" aria-labelledby="auth-title" hidden>
+      <h2 id="auth-title">Private V5 access</h2>
+      <p class="notice">This Firebase account has its own password. Your Google password will not sign in here.</p>
+      <form id="auth-form">
+        <label>Email <input id="auth-email" type="email" autocomplete="username" value="ahxfast@gmail.com" required></label>
+        <label>Password <input id="auth-password" type="password" autocomplete="current-password" required></label>
+        <button type="submit">Sign in</button>
+      </form>
+      <button id="reset-password" type="button">Send Firebase password reset email</button>
+      <button id="hosted-password" type="button" hidden>Create hosted password without email</button>
+      <form id="local-access-form" hidden>
+        <label>One-time local access code <input id="local-access-code" type="text" autocomplete="off" spellcheck="false" required></label>
+        <button type="submit">Open private beta</button>
+      </form>
+      <button id="sign-out" type="button" hidden>Sign out</button>
+      <p id="auth-status" role="status" aria-live="polite"></p>
+    </section>
+    <section class="context" aria-labelledby="context-title">
+      <h2 id="context-title">Source state</h2>
+      <div class="context-grid">
+        <p><span class="label">Generation</span><strong id="generation">—</strong></p>
+        <p><span class="label">Profile</span><strong id="profile">—</strong></p>
+        <p><span class="label">Feature version</span><strong id="feature-version">—</strong></p>
+        <p><span class="label">Published</span><strong id="published-at">—</strong></p>
+      </div>
+      <p id="health" class="notice">Awaiting data.</p>
+    </section>
+
+    <section class="opportunities" aria-labelledby="opportunities-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">QUALIFIED SETUPS</p>
+          <h2 id="opportunities-title">Observation list</h2>
+        </div>
+        <span id="row-count" class="count">0 rows</span>
+      </div>
+      <p id="empty" class="notice" hidden>No qualified setups in this generation. The research watch shows each selected candidate's current setup gate.</p>
+      <div class="table-wrap">
+        <table>
+          <caption>V5 short observations. A row is actionable only while all source and idea deadlines remain valid.</caption>
+          <thead><tr>
+            <th scope="col">Instrument</th><th scope="col">State</th>
+            <th scope="col">PERC48</th><th scope="col">4h RSI</th>
+            <th scope="col">Rank</th><th scope="col">Trigger</th>
+            <th scope="col">First target</th><th scope="col">Invalidation</th>
+            <th scope="col">Expires</th>
+          </tr></thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+      <div id="details" class="details-grid"></div>
+    </section>
+
+    <section class="opportunities" aria-labelledby="research-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">PRIVATE V5 BETA</p>
+          <h2 id="research-title">Research watch</h2>
+        </div>
+        <span id="watch-count" class="count">0 watches</span>
+      </div>
+      <p class="notice">Pump context only. These records have no validated short setup, trigger, target, or execution quality.</p>
+      <p id="watch-empty" class="notice">No current research watches.</p>
+      <div class="table-wrap">
+        <table>
+          <caption>Non-actionable Bybit linear market context.</caption>
+          <thead><tr><th scope="col">Instrument</th><th scope="col">4h RSI</th>
+            <th scope="col">PERC48</th><th scope="col">Retention</th><th scope="col">Setup gate</th><th scope="col">Observed</th></tr></thead>
+          <tbody id="watch-rows"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+  <footer>Observation only. Triggered means observed; no order or fill is implied. Economics are hypothetical unless a row explicitly states otherwise.</footer>
+  <script type="module" src="app.mjs"></script>
+</body>
+</html>

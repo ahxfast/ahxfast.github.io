@@ -1,0 +1,99 @@
+{
+  "config_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "feature_version": "v5.0.0-research",
+  "generation": 7,
+  "health": {
+    "status": "OK"
+  },
+  "producer_instance": "00000000-0000-0000-0000-000000000001",
+  "publication_started_at_ms": 1000200,
+  "published_at_ms": 1000300,
+  "rows": {
+    "45ed9b58-6c7c-41bb-8624-2c5286219f34": {
+      "actionable": true,
+      "armed_at_ms": 1000000,
+      "config_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "contract_size": "1",
+      "direction": "SHORT",
+      "display_symbol": "1000EXAMPLE",
+      "eligibility_profile": "STRICT_70",
+      "entry_condition": {
+        "after_ms": 1000000,
+        "level": "0.3492",
+        "type": "CLOSED_1M_BELOW_THEN_BID_IN_RANGE"
+      },
+      "entry_range": {
+        "lower": "0.3486",
+        "upper": "0.3492"
+      },
+      "episode_id": "2fe06f18-38a5-4b60-a374-e00c82c0d359",
+      "expires_at_ms": 1900000,
+      "family": "FAILED_RECLAIM",
+      "feature_version": "v5.0.0-research",
+      "idea_text": "Consider a short only after a completed 1m close below 0.3492.",
+      "instrument_id": "1000EXAMPLEUSDT",
+      "invalidation": {
+        "price": "0.3510",
+        "reclaim_above": "0.3502",
+        "type": "ASK_AT_OR_ABOVE_OR_CLOSED_RECLAIM"
+      },
+      "missing_fields": {
+        "estimated_probability": "UNCALIBRATED",
+        "oi_change_15m": "OPTIONAL_UNAVAILABLE"
+      },
+      "observed_at_ms": 1000100,
+      "perc48": 24.0,
+      "quality": {
+        "economics_verified": false,
+        "hypothetical": true,
+        "net_room": "0.01",
+        "reference_notional_usdt": "100",
+        "verdict": "PASS"
+      },
+      "quantity_unit": "BASE",
+      "rank_score": 75,
+      "reason_codes": [
+        "STRICT_RSI_PASS",
+        "ELEVATED_PUMP",
+        "FAILED_RECLAIM"
+      ],
+      "retention": 0.78,
+      "return_resolution": "1h",
+      "returns_as_of_ms": 1000000,
+      "revision": 12,
+      "rsi14_4h_closed": 74.0,
+      "setup_id": "45ed9b58-6c7c-41bb-8624-2c5286219f34",
+      "setup_version": 1,
+      "snapshot_id": "b563c9e0-71e1-4118-8b1c-8c88ce45a007",
+      "source_times": {
+        "book": {
+          "event_at_ms": 1000000,
+          "received_at_ms": 1000100,
+          "revision": 1,
+          "status": "OK"
+        }
+      },
+      "state": "ARMED",
+      "targets": [
+        {
+          "ordinal": 1,
+          "price": "0.3450",
+          "source": "CONFIRMED_SUPPORT"
+        }
+      ],
+      "timing_profile": "MINUTE",
+      "valid_until_ms": 1010000,
+      "venue": "bybit",
+      "zone": {
+        "id": "floor-17",
+        "lower": "0.3498",
+        "sources": [
+          "CONFIRMED_RANGE_FLOOR"
+        ],
+        "upper": "0.3502"
+      }
+    }
+  },
+  "schema_version": 5,
+  "watch": {}
+}

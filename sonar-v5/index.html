@@ -64,13 +64,37 @@
             <th scope="col">Instrument</th><th scope="col">State</th>
             <th scope="col">PERC48</th><th scope="col">4h RSI</th>
             <th scope="col">Rank</th><th scope="col">Trigger</th>
-            <th scope="col">First target</th><th scope="col">Invalidation</th>
+            <th scope="col">Early partial*</th><th scope="col">Structural TP1</th><th scope="col">Invalidation</th>
             <th scope="col">Expires</th>
           </tr></thead>
           <tbody id="rows"></tbody>
         </table>
       </div>
       <div id="details" class="details-grid"></div>
+    </section>
+
+    <section class="opportunities" aria-labelledby="history-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">PRIVATE ARCHIVE</p>
+          <h2 id="history-title">Signal history</h2>
+        </div>
+        <span id="history-count" class="count">0 signals</span>
+      </div>
+      <p class="notice history-notice">Archived setups are for review only. Their quotes and entry windows have expired; they are never live trade instructions.</p>
+      <p id="history-empty" class="notice history-notice">No archived V5 signals yet.</p>
+      <div class="table-wrap">
+        <table>
+          <caption>Recent immutable ARMED and TRIGGERED observations.</caption>
+          <thead><tr><th scope="col">Observed</th><th scope="col">Instrument</th>
+            <th scope="col">State</th><th scope="col">Entry range</th>
+            <th scope="col">Early partial*</th><th scope="col">Structural TP1</th><th scope="col">Invalidation</th>
+            <th scope="col">Telegram</th></tr></thead>
+          <tbody id="history-rows"></tbody>
+        </table>
+      </div>
+      <p class="notice history-notice">*Illustrative price milestone: at least 1% below the lowest entry. It is not a validated support level or exit rule.</p>
+      <div id="history-details" class="details-grid"></div>
     </section>
 
     <section class="opportunities" aria-labelledby="research-title">

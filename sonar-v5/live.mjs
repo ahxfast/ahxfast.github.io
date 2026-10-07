@@ -33,6 +33,10 @@ export function startLive({ decodeGeneration, deriveView, render }) {
     snapshot = null;
     document.getElementById("rows").replaceChildren();
     document.getElementById("details").replaceChildren();
+    document.getElementById("history-rows").replaceChildren();
+    document.getElementById("history-details").replaceChildren();
+    document.getElementById("history-count").textContent = "0 signals";
+    document.getElementById("history-empty").hidden = false;
     document.getElementById("watch-rows").replaceChildren();
     document.getElementById("watch-count").textContent = "0 watches";
     document.getElementById("watch-empty").hidden = false;

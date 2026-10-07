@@ -33,6 +33,7 @@ section { background: var(--panel); border: 1px solid var(--line); border-radius
 .section-heading { display: flex; justify-content: space-between; align-items: end; gap: 1rem; padding: 0 1.6rem 1.2rem; }
 .section-heading .eyebrow { margin-bottom: .2rem; }
 #empty { margin: 0 1.6rem 1rem; }
+.history-notice { margin: 0 1.6rem 1rem; }
 .table-wrap { overflow-x: auto; }
 table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; min-width: 860px; }
 caption { text-align: left; padding: 0 1.6rem .7rem; font-size: .82rem; }

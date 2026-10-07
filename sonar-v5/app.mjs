@@ -6,11 +6,13 @@ export function decodeGeneration(value) {
   // Realtime Database elides empty objects, including an intentionally empty
   // actionable rows map in the private research beta.
   const rows = value.rows === undefined ? {} : value.rows;
+  const signalHistory = value.signal_history === undefined ? [] : value.signal_history;
   if (required.some((key) => !(key in value)) || value.schema_version !== 5 ||
       !Number.isInteger(value.generation) || value.generation < 1 ||
       !Number.isInteger(value.published_at_ms) || value.published_at_ms < 0 ||
       !rows || typeof rows !== "object" || Array.isArray(rows) ||
-      Object.keys(rows).length > 10) throw new Error("Unsupported or incomplete V5 generation");
+      Object.keys(rows).length > 10 || !Array.isArray(signalHistory) ||
+      signalHistory.length > 10) throw new Error("Unsupported or incomplete V5 generation");
   for (const [key, row] of Object.entries(rows)) {
     if (!row || row.setup_id !== key || row.direction !== "SHORT" ||
         row.eligibility_profile !== "STRICT_70" ||
@@ -22,7 +24,20 @@ export function decodeGeneration(value) {
         !row.invalidation || !Array.isArray(row.targets) || row.targets.length === 0 ||
         !row.source_times || !row.idea_text) throw new Error("Invalid actionable V5 row");
   }
-  return { ...value, rows };
+  for (const signal of signalHistory) {
+    if (!signal || typeof signal !== "object" ||
+        typeof signal.signal_id !== "string" ||
+        typeof signal.instrument_id !== "string" ||
+        !["ARMED", "TRIGGERED"].includes(signal.state) ||
+        !Number.isInteger(signal.observed_at_ms) ||
+        !signal.entry_range || !signal.entry_condition || !signal.invalidation ||
+        !Array.isArray(signal.targets) || signal.targets.length !== 1 ||
+        !signal.quality || typeof signal.tick_size !== "string" ||
+        (signal.early_partial != null && typeof signal.early_partial !== "string")) {
+      throw new Error("Invalid archived V5 signal");
+    }
+  }
+  return { ...value, rows, signal_history: signalHistory };
 }
 
 export function deriveView(snapshot, { nowMs, connected, fixtureMode, offsetMs }) {
@@ -42,7 +57,8 @@ export function deriveView(snapshot, { nowMs, connected, fixtureMode, offsetMs }
   });
   rows.sort((a, b) => b.rank_score - a.rank_score ||
     a.instrument_id.localeCompare(b.instrument_id));
-  return { rows, connected, fixtureMode, generationFresh, healthy, clockReady };
+  return { rows, history: snapshot.signal_history, connected, fixtureMode,
+    generationFresh, healthy, clockReady };
 }
 
 function safeTime(value) {
@@ -54,6 +70,27 @@ function percentage(value, digits = 2) {
   if (value == null) return "Unavailable";
   const number = Number(value);
   return Number.isFinite(number) ? `${(number * 100).toFixed(digits)}%` : "Unavailable";
+}
+
+export function formatPrice(value, tickSize) {
+  const amount = Number(value);
+  const tick = Number(tickSize);
+  if (!Number.isFinite(amount) || !Number.isFinite(tick) || tick <= 0) return "Unavailable";
+  const cleanTick = String(tickSize).replace(/0+$/, "").replace(/\.$/, "");
+  const places = Math.max(0, Math.min(12, (cleanTick.split(".")[1] ?? "").length));
+  return amount.toFixed(places);
+}
+
+function shortMoveRange(entry, target, invalidation) {
+  const low = Number(entry.lower), high = Number(entry.upper);
+  const tp = Number(target), stop = Number(invalidation);
+  if (!(tp > 0 && tp < low && low <= high && high < stop)) return null;
+  return { tpLow: (low - tp) / low * 100, tpHigh: (high - tp) / high * 100,
+    stopLow: (stop - high) / high * 100, stopHigh: (stop - low) / low * 100 };
+}
+
+function pctRange(low, high) {
+  return `${low.toFixed(1)}–${high.toFixed(1)}%`;
 }
 
 export function watchGateLabel(watch, instrumentId) {
@@ -102,15 +139,17 @@ export function render(snapshot, view) {
   const details = document.getElementById("details");
   body.replaceChildren(); details.replaceChildren();
   for (const row of view.rows) {
+    const tick = row.tick_size ?? "0.0001";
     const tr = document.createElement("tr");
     cell(tr, row.instrument_id);
     cell(tr, row.displayStatus, `state ${row.locallyActionable ? "ready" : "stale"}`);
     cell(tr, `${row.perc48.toFixed(2)}%`);
     cell(tr, row.rsi14_4h_closed.toFixed(1));
     cell(tr, row.rank_score);
-    cell(tr, row.entry_condition.level);
-    cell(tr, row.targets[0].price);
-    cell(tr, row.invalidation.price);
+    cell(tr, formatPrice(row.entry_condition.level, tick));
+    cell(tr, row.early_partial ? formatPrice(row.early_partial, tick) : "—");
+    cell(tr, formatPrice(row.targets[0].price, tick));
+    cell(tr, formatPrice(row.invalidation.price, tick));
     cell(tr, safeTime(row.expires_at_ms));
     body.append(tr);
     const card = document.createElement("details");
@@ -118,9 +157,11 @@ export function render(snapshot, view) {
     summary.textContent = `${row.instrument_id} · ${row.family.replaceAll("_", " ")}`;
     const idea = document.createElement("p"); idea.textContent = row.idea_text;
     const dl = document.createElement("dl");
-    detailLine(dl, "First target", row.targets[0].price);
-    detailLine(dl, "Invalidation", row.invalidation.price);
-    detailLine(dl, "Zone", `${row.zone.lower}–${row.zone.upper}`);
+    detailLine(dl, "Early partial (illustrative)", row.early_partial ?
+      formatPrice(row.early_partial, tick) : "Unavailable");
+    detailLine(dl, "Structural target 1", formatPrice(row.targets[0].price, tick));
+    detailLine(dl, "Invalidation", formatPrice(row.invalidation.price, tick));
+    detailLine(dl, "Zone (approx.)", `${formatPrice(row.zone.lower, tick)}–${formatPrice(row.zone.upper, tick)}`);
     detailLine(dl, "Evidence age", row.evidenceAgeMs === null ? "Clock unavailable" :
       `${Math.floor(row.evidenceAgeMs / 1000)} s`);
     detailLine(dl, "Pump base / peak", row.episode_context ?
@@ -129,7 +170,7 @@ export function render(snapshot, view) {
       `${(row.episode_context.peak_age_ms / 3_600_000).toFixed(1)} h` : "Unavailable");
     detailLine(dl, "Retained pump", percentage(row.retention, 1));
     detailLine(dl, "Modeled net room", percentage(row.quality.net_room));
-    detailLine(dl, "Modeled net R/R", row.quality.net_rr ?? "Unavailable");
+    detailLine(dl, "Modeled net R/R", row.quality.net_rr == null ? "Unavailable" : Number(row.quality.net_rr).toFixed(2));
     detailLine(dl, "Reference short / fee", `${row.quality.reference_notional_usdt ?? "?"} USDT / ${percentage(row.quality.fee_fraction_per_side)} per side`);
     detailLine(dl, "Spread", row.quality.spread_bps ? `${Number(row.quality.spread_bps).toFixed(1)} bps` : "Unavailable");
     detailLine(dl, "Quality", row.quality.economics_verified ? "Verified economics" : "Hypothetical economics");
@@ -138,6 +179,67 @@ export function render(snapshot, view) {
     detailLine(dl, "Missing", Object.entries(row.missing_fields ?? {}).map(([k, v]) => `${k}: ${v}`).join("; ") || "None");
     card.append(summary, idea, dl); details.append(card);
   }
+  const historyBody = document.getElementById("history-rows");
+  const historyDetails = document.getElementById("history-details");
+  historyBody.replaceChildren(); historyDetails.replaceChildren();
+  for (const signal of view.history) {
+    const tick = signal.tick_size;
+    const lower = formatPrice(signal.entry_range.lower, tick);
+    const upper = formatPrice(signal.entry_range.upper, tick);
+    const target = formatPrice(signal.targets[0].price, tick);
+    const invalid = formatPrice(signal.invalidation.price, tick);
+    const tr = document.createElement("tr");
+    cell(tr, safeTime(signal.observed_at_ms));
+    cell(tr, signal.instrument_id);
+    cell(tr, `${signal.state} · archived`, "state stale");
+    cell(tr, `${lower}–${upper}`);
+    cell(tr, signal.early_partial ? formatPrice(signal.early_partial, tick) : "—");
+    cell(tr, target);
+    cell(tr, invalid);
+    cell(tr, signal.notification_status);
+    historyBody.append(tr);
+    const card = document.createElement("details");
+    const summary = document.createElement("summary");
+    summary.textContent = `${signal.instrument_id} · ${signal.family.replaceAll("_", " ")} · ${safeTime(signal.observed_at_ms)}`;
+    const note = document.createElement("p");
+    note.textContent = signal.state === "ARMED" ?
+      "Archived setup watch: the entry condition was not observed. All quote and entry windows have expired." :
+      "Archived trigger observation: no order or fill is implied. All quote and entry windows have expired.";
+    const dl = document.createElement("dl");
+    const trigger = signal.entry_condition.type.startsWith("CLOSED_1M") ?
+      "Completed 1m close below" : "Verified cross below";
+    detailLine(dl, "Entry condition", `${trigger} ${formatPrice(signal.entry_condition.level, tick)}, then fresh bid in range`);
+    detailLine(dl, "Entry range", `${lower}–${upper}`);
+    detailLine(dl, "Early partial (illustrative)", signal.early_partial ?
+      formatPrice(signal.early_partial, tick) : "Unavailable");
+    detailLine(dl, "Structural target 1", target);
+    detailLine(dl, "Invalidation", invalid);
+    detailLine(dl, "Closed reclaim at or above", signal.reclaim_at_or_above);
+    const moves = shortMoveRange(signal.entry_range, signal.targets[0].price,
+      signal.invalidation.price);
+    if (moves) {
+      detailLine(dl, "Price move to target", pctRange(moves.tpLow, moves.tpHigh));
+      detailLine(dl, "Adverse move to invalidation", pctRange(moves.stopLow, moves.stopHigh));
+      detailLine(dl, "25× gross margin illustration", `+${pctRange(moves.tpLow * 25, moves.tpHigh * 25)} to target; −${pctRange(moves.stopLow * 25, moves.stopHigh * 25)} to invalidation (before fees, funding and slippage)`);
+    }
+    const partialMoves = signal.early_partial ?
+      shortMoveRange(signal.entry_range, signal.early_partial,
+        signal.invalidation.price) : null;
+    if (partialMoves) {
+      detailLine(dl, "Early partial move / 25× gross margin",
+        `${pctRange(partialMoves.tpLow, partialMoves.tpHigh)} price / +${pctRange(partialMoves.tpLow * 25, partialMoves.tpHigh * 25)} margin, before costs`);
+    }
+    detailLine(dl, "Resistance zone (approx.)", `${formatPrice(signal.zone.lower, tick)}–${formatPrice(signal.zone.upper, tick)}`);
+    detailLine(dl, "Rank", `${signal.rank_score}/100 (uncalibrated)`);
+    detailLine(dl, "Modeled net room", percentage(signal.quality.net_room));
+    detailLine(dl, "Reference notional / fee", `${signal.quality.reference_notional_usdt} USDT / ${percentage(signal.quality.fee_fraction_per_side)} per side`);
+    detailLine(dl, "Frozen quote valid until", safeTime(signal.valid_until_ms));
+    detailLine(dl, "Setup expired", safeTime(signal.expires_at_ms));
+    card.append(summary, note, dl); historyDetails.append(card);
+  }
+  document.getElementById("history-count").textContent =
+    `${historyBody.children.length} ${historyBody.children.length === 1 ? "signal" : "signals"}`;
+  document.getElementById("history-empty").hidden = historyBody.children.length > 0;
   const watch = snapshot.watch?.mode === "CONTEXT_ONLY" &&
     snapshot.watch?.actionable === false && Array.isArray(snapshot.watch.items) ?
     snapshot.watch.items : [];
